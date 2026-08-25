@@ -1,0 +1,12 @@
+# Nothing here is served: the site is plain HTML at the repo root.
+# Keeping these out of the deployment reduces upload size and bandwidth.
+node_modules/
+src/
+.bak/
+*.md
+!README.md
+jsconfig.json
+components.json
+vite.config.js
+package-lock.json
+netlify.toml
