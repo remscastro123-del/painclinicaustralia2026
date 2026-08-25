@@ -1,0 +1,83 @@
+.ds { position: relative; }
+
+.ds-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 2 * 1.4rem) / 3);
+  column-gap: 1.4rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.ds-track::-webkit-scrollbar { display: none; }
+
+.ds-card {
+  scroll-snap-align: start;
+  background: #1E4035;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(30,64,53,.10);
+}
+
+/* explicit height, not aspect-ratio: the img has no resolvable parent
+   height so height:100% collapses to auto and the intrinsic ratio wins,
+   which made every card a different height. */
+.ds-photo {
+  flex: none;
+  height: clamp(220px, 19vw, 275px);
+  overflow: hidden;
+  background: #F4ECDB;
+}
+.ds-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  display: block;
+}
+
+.ds-body { flex: 1 1 auto; padding: 1.15rem 1.25rem 1.4rem; }
+.ds-body h3 {
+  font-family: 'Comfortaa', cursive;
+  color: #FFFAEE;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  margin: 0 0 .25rem;
+}
+.ds-role { color: #F0A46A; font-weight: 700; font-size: .88rem; }
+.ds-cred {
+  color: #CFDAD4; font-size: .8rem; line-height: 1.5;
+  margin: .4rem 0 0;
+}
+
+.ds-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1rem; margin-top: 1.5rem;
+}
+.ds-btn {
+  width: 42px; height: 42px; flex: none;
+  border-radius: 50%; cursor: pointer;
+  border: 1.5px solid #1E4035;
+  background: transparent; color: #1E4035;
+  display: grid; place-items: center;
+  transition: background .25s, color .25s;
+}
+.ds-btn svg { width: 18px; height: 18px; }
+.ds-btn:hover { background: #1E4035; color: #FFFAEE; }
+.ds-btn:focus-visible { outline: 3px solid #843806; outline-offset: 2px; }
+
+.ds-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; max-width: 320px; }
+.ds-dot {
+  width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%;
+  background: rgba(30,64,53,.30); cursor: pointer; transition: .25s;
+}
+.ds-dot.is-active { background: #843806; width: 22px; border-radius: 4px; }
+.ds-dot:focus-visible { outline: 2px solid #843806; outline-offset: 2px; }
+
+@media (max-width: 1024px) {
+  .ds-track { grid-auto-columns: calc((100% - 1.4rem) / 2); }
+}
+@media (max-width: 680px) {
+  .ds-track { grid-auto-columns: 100%; }
+}

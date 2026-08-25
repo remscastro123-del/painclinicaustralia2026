@@ -1,0 +1,107 @@
+/* react island styles */
+
+/* ---------------------------------------------------------------
+   PCA island overrides — align React Bits components with the
+   site palette (forest #1E4035 / cta #843806 / cream #FFFAEE).
+   --------------------------------------------------------------- */
+.pca-island-root { width: 100%; }
+
+/* ---- ScrollStack: process steps ---- */
+.pca-ss-card {
+  background: #fff;
+  border: 1px solid #E7E0CF;
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+}
+.pca-ss-num {
+  display: block;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  color: #843806;
+  margin-bottom: .5rem;
+}
+.pca-ss-card h3 { color: #1E4035; font-size: clamp(1.2rem,2.4vw,1.6rem); margin-bottom: .5rem; }
+.pca-ss-card p  { color: #4C5E58; line-height: 1.65; max-width: 62ch; }
+
+/* ---- LogoLoop: hero credibility strip ---- */
+.pca-loop-item {
+  font-weight: 700;
+  font-size: 1rem;
+  /* brand orange as TEXT on cream: #843806 measures 7.89:1, comfortably
+     past AA. The lighter #F27E33 is only 2.58:1 and fails as text. */
+  color: #843806;
+  white-space: nowrap;
+}
+
+/* ---- ScrollStack fix -----------------------------------------
+   ScrollStack.jsx always puts `scroll-stack-scroller` on the root
+   (overflow-y:auto; height:100%), even with useWindowScroll set.
+   That makes a nested scroller the window-scroll handler can never
+   drive, and `.scroll-stack-inner`'s 50rem bottom padding leaves a
+   huge empty gap. Neutralise both for window-scroll mode.
+   ------------------------------------------------------------- */
+.pca-scrollstack.scroll-stack-scroller {
+  overflow: visible;
+  height: auto;
+  overscroll-behavior: auto;
+  scroll-behavior: auto;
+  will-change: auto;
+}
+.pca-scrollstack .scroll-stack-inner {
+  padding: 6vh 0 4rem;
+  min-height: 0;
+}
+.pca-scrollstack .scroll-stack-card {
+  height: auto;
+  min-height: 0;
+  margin: 22px 0;
+  padding: 0;                 /* .pca-ss-card supplies the padding */
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(30,64,53,.08);
+}
+
+/* ---- AccordionGallery: let the photos read ----
+   Default --ag-dim is .35 plus a gradient to 78% overlay, which buries
+   the image. Lift the dim and keep the gradient only at the base so the
+   label stays legible (WCAG) without hiding the photo. */
+.pca-island-root .ag-panel__media { --ag-dim: .12; }
+.pca-island-root .ag-panel__overlay {
+  background: linear-gradient(180deg, transparent 50%, rgba(30,64,53,.86) 100%);
+}
+.pca-island-root .ag-panel__label {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  color: #FFFAEE;
+  text-shadow: 0 1px 3px rgba(0,0,0,.45);
+}
+
+
+/* ---- rebuilt Patient-centred Process cards ---- */
+.pca-ss-card {
+  background: #fff;
+  border: 1px solid #E7E0CF;
+  border-radius: 24px;
+  padding: clamp(1.8rem, 4vw, 3rem);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0 clamp(1.2rem, 3vw, 2.4rem);
+  align-items: start;
+}
+.pca-ss-num {
+  grid-row: 1 / span 2;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  color: #843806;
+  opacity: .9;
+}
+.pca-ss-card h3 {
+  color: #1E4035;
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  margin: 0 0 .55rem;
+}
+.pca-ss-card p { color: #4C5E58; line-height: 1.65; max-width: 60ch; margin: 0; }
+@media (max-width: 620px) {
+  .pca-ss-card { grid-template-columns: 1fr; gap: .5rem; }
+  .pca-ss-num { grid-row: auto; }
+}

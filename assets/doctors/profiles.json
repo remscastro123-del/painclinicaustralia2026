@@ -1,0 +1,200 @@
+[
+  {
+    "name": "Troy Wallace",
+    "role": "Physiotherapist",
+    "photo": "assets/doctors/TroyWallace.webp",
+    "credentials": "BAppSc (Physiotherapy), Univ. of Sydney 2011",
+    "bio": "Troy completed his Bachelor of Applied Science in Physiotherapy at the University of Sydney in 2011. Troy has extensive treatment experience, specialising in shoulder, knee, lower back and neck injuries. He was the Physiotherapist for Manly Sea Eagles U16/18 rugby league teams in 2012-2013. Troy also enjoys the challenge of combining his Physio knowledge and experience in both playing golf and competing as an amateur boxer to optimise performance in these individuals.",
+    "pain_relevant": true,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Dr. David Manohar",
+    "role": "Pain Specialist",
+    "photo": "assets/doctors/DrManohar.webp",
+    "credentials": "MBBS, MMedSc, MPainMed, PGDipMSM, DipPRMed, FANZCA(Pain), FAFRM (RACP), FRCP, FACRM",
+    "bio": "Dr. Manohar is a qualified pain specialist.",
+    "pain_relevant": true,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Dr. Jonathan Herald",
+    "role": "Orthopaedics / Chronic Pain",
+    "photo": "assets/doctors/DrJonathan.webp",
+    "credentials": "MBBS, MSpMed",
+    "bio": "Voted as Australia's Best Doctor in orthopaedics on the internationally doctor-rated Best Doctor website; Dr Herald has 20 years' surgical experience and has a passion for helping patients with their Chronic Pain management.",
+    "pain_relevant": true,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Aayu Mehmi",
+    "role": "Psychologist",
+    "photo": "assets/doctors/DrAayuMehmi.webp",
+    "credentials": "BPsych, MCounselling (Monash), PACFA registered",
+    "bio": "Aayu Mehmi is a qualified Psychologist, having completed her Bachelor's Degree in Psychology with a further Master's Degree in Counseling at Monash University. Aayu is a licensed Mental Health Counselor with PACFA and is passionate in helping treat patients suffering in Chronic Pain.",
+    "pain_relevant": true,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Lara Abu-Zarour",
+    "role": "Accredited Practising Dietitian",
+    "photo": "assets/doctors/DrLara.webp",
+    "credentials": "APD, Member of Dietitians Australia",
+    "bio": "Accredited Practising Dietitian and a member of Dietitians Australia, Lara has a passion for helping individuals; educating patients on how powerful nutrition and living a healthy lifestyle is when preventing acute and chronic conditions.",
+    "pain_relevant": true,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Nicole Brewer",
+    "role": "Sex and Relationship Counsellor",
+    "photo": "assets/doctors/DrNicole.webp",
+    "credentials": "",
+    "bio": "A passionate sex and relationship counsellor with a goal of making her patients reach their potential inside and outside of the bedroom. Nic creates a supportive, non-judgmental space, her clients gain deeper understanding and empowerment to have the results they want.",
+    "pain_relevant": true,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Belle Woods",
+    "role": "Nutritionist Dietitian",
+    "photo": "assets/doctors/BelleWoods.webp",
+    "credentials": "",
+    "bio": "Belle is an experienced clinical dietitian with nearly two decades of expertise in diverse areas, including metabolic disorders, lung diseases, and chronic pain management.",
+    "pain_relevant": true,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Dr. Fred Edwards",
+    "role": "General Practitioner",
+    "photo": "assets/doctors/DrFred.webp",
+    "credentials": "MBBS, FRACGP",
+    "bio": "Dr. Fred Edwards is a qualified GP and has over 30+ years' experience. He aims to widen the scope of treatment within MHC to include general health issues to help men.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": true
+  },
+  {
+    "name": "Dr. Nick Travers",
+    "role": "General Practitioner",
+    "photo": "assets/doctors/DrNick.webp",
+    "credentials": "MBBS, FRACGP",
+    "bio": "Dr. Nick Travers is a GP who completed industry leading training in the United Kingdom. Dr. Travers has a special interest in male Sexual Health with a focus on improving male mental health.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": true
+  },
+  {
+    "name": "Dr. Thomas Stock",
+    "role": "Men's Health",
+    "photo": "assets/doctors/DrStock.webp",
+    "credentials": "MBChB (Hon), MSc",
+    "bio": "Dr. Stock has gained extensive experience in Men's Health through his career. He recognises the effect ED and PE can have on the male psyche, bringing both his knowledge and expertise to MHC providing patient centered care.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": true
+  },
+  {
+    "name": "Dr. Suren Naidoo",
+    "role": "Private GP & Aesthetic Practitioner",
+    "photo": "assets/doctors/DrSuren.webp",
+    "credentials": "MRCGP, MBBCh",
+    "bio": "As a private GP and Aesthetic Practitioner, Dr. Suren practices medicine with a holistic approach by listening and dedicating the best possible care to his patients.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Dr. Marcus Kramer",
+    "role": "Physician",
+    "photo": "assets/doctors/DrMarcusKramer.webp",
+    "credentials": "MD",
+    "bio": "Dr Marcus Kramer graduated from Auckland University in 1995 and has worked as a physician for the last 27 years mainly focused as a Senior Medical Officer in Emergency Medicine in New Zealand (2002-2008, 2020-2021) and as a Hospitalist in Qatar (2008-2019). Since 2021 he has been working as a Medical Contractor for Men's Health Clinic New Zealand with an interest in Men's Health and Telemedicine.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": true
+  },
+  {
+    "name": "Dr. Asem Kaber",
+    "role": "Family Physician",
+    "photo": "assets/doctors/DrAsemKaber.webp",
+    "credentials": "MBBCh",
+    "bio": "Dr. Asem Said Kaber is a family physician based in Edmonton, Alberta. He received his Bachelor of Medicine, and Bachelor of Surgery degree from Libya in 2005. He is the medical director of Eastwood Medical Clinic. He is committed to helping you get better and live a better life.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Marie-Eve Bernat",
+    "role": "Family Medicine",
+    "photo": "assets/doctors/DrMarieEveBernat.webp",
+    "credentials": "MD",
+    "bio": "Marie-Eve Bernat, MD graduated from the University of Montreal in Family Medicine in 2003. She has since practiced in different provinces across Canada, before settling in Saskatchewan. Dr. Bernat is dedicated to provide compassionate and quality patient care.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Dr. Parisa Kakroodi",
+    "role": "Family Physician",
+    "photo": "assets/doctors/DrParisaKakroodi.webp",
+    "credentials": "MSc Biomedical Sciences (Montreal)",
+    "bio": "Dr. Parisa Ghassemi is a dedicated and compassionate family physician who began her medical journey in Iran before moving to Canada in 2010. She furthered her education by earning a master's degree in biomedical sciences from the University of Montreal and completing her residency in family medicine at the University of Sherbrooke. Since 2016, Dr. Ghassemi has been practicing in Quebec and New Brunswick, where she has gained extensive experience in family medicine, with a particular focus on women's and men's health.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Meredith Amundsen",
+    "role": "Nutritional Counsellor",
+    "photo": "assets/doctors/DrMeredith.webp",
+    "credentials": "Accredited in Nutritional Science",
+    "bio": "Accredited in Nutritional Science, Meredith inspires patients to become, happier and healthier versions of themselves. Meredith works closely with MHC patients to provide a one-of-a-kind approach to restoring confidence.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": true
+  },
+  {
+    "name": "Jan Macfarlane",
+    "role": "Clinical Nutritionist",
+    "photo": "assets/doctors/DrMacfarlane.webp",
+    "credentials": "Accredited Clinical Nutritionist",
+    "bio": "Jan Macfarlane is an Accredited Clinical Nutritionist specialising in functional testing. Jan firmly believes that a healthy lifestyle is the first step to a more energetic and fuller life.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Kristen Anderson, MA",
+    "role": "Intimacy Coach",
+    "photo": "assets/doctors/KristenAnderson.webp",
+    "credentials": "MA, certified sex educator",
+    "bio": "Kristen is a therapeutic coach who empowers men to live long and healthier lives through connection, vitality, and virility. She is also a certified sex educator and intimacy coach who strives to create a safe and welcoming space for her clients to connect more deeply with themselves and their relationships. Kristen has a rich background in sports and mindfulness that she blends into her work with her clients. When she's not working, she enjoys running, cycling, golfing and spending time with her three boys.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": true
+  },
+  {
+    "name": "Andie Flynn",
+    "role": "Licensed Nutritionist & Clinical Dietitian",
+    "photo": "assets/doctors/DrAndieFlynn.webp",
+    "credentials": "",
+    "bio": "Andie is a licensed Nutritionist and Clinical Dietitian with years of practicing experience. She is passionate in getting to know the patients' and their dietary and lifestyle choices. Andie is dedicated in providing each patient an individualised treatment program.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Marc Ellis",
+    "role": "Nutritionist Dietitian",
+    "photo": "assets/doctors/MarcEllis.webp",
+    "credentials": "Registered Nutritionist-Dietitian",
+    "bio": "Marc is a passionate and dedicated Registered Nutritionist-Dietitian with expertise in creating personalized nutrition plans to optimized health and well-being. As a trusted nutrition professional, he is dedicated to helping individuals make informed choices about their nutrition and lifestyle.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "John Davies",
+    "role": "Nutritionist Dietitian",
+    "photo": "assets/doctors/JohnDavies.webp",
+    "credentials": "MSc Nutrition, MSc Clinical Nutrition",
+    "bio": "John Davies, an experienced Licensed Nutritionist and Clinical Dietitian, specializes in nutrition therapy, counseling, and personalized diet plans. With seven years of experience and advanced degrees in Nutrition and Clinical Nutrition, John also delivers lectures on medical nutrition therapy. His approach blends scientific knowledge with empathy to provide evidence-based recommendations for his clients.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  },
+  {
+    "name": "Pauline Hall",
+    "role": "Nutritionist Dietitian",
+    "photo": "assets/doctors/PaulineHall.webp",
+    "credentials": "Licensed Nutritionist Dietitian",
+    "bio": "As a licensed Nutritionist Dietitian for 6 years, Pauline specializes in weight management and lifestyle diseases such as diabetes and hypertension. My expertise lies in providing tailored nutritional guidance to help individuals achieve their health goals and manage chronic conditions effectively.",
+    "pain_relevant": false,
+    "bio_needs_rewrite": false
+  }
+]

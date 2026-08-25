@@ -1,0 +1,291 @@
+/* ============================================================================
+   Pain Clinic Australia — Type & Spacing System
+   Loaded AFTER each page's inline <style>, so these tokens are the source of
+   truth. Full rationale in DESIGN-SYSTEM.md.
+   ========================================================================= */
+
+:root {
+  /* --- TYPE SCALE ------------------------------------------------------
+     Modular scale, ratio 1.200 (minor third), base 1rem/16px.
+     Every step is a fluid clamp: min = mobile (360px), max = desktop
+     (1440px). The vw coefficient is derived, not eyeballed:
+        slope = (max - min) / (1440 - 360)
+     so each step grows at a rate proportional to its own size and they
+     never cross over.                                                    */
+  --fs-2xs: clamp(0.694rem, 0.673rem + 0.093vw, 0.756rem);  /* legal, meta */
+  --fs-xs:  clamp(0.833rem, 0.806rem + 0.120vw, 0.913rem);  /* captions   */
+  --fs-sm:  clamp(0.875rem, 0.842rem + 0.148vw, 0.974rem);  /* secondary  */
+  --fs-base:clamp(1.000rem, 0.958rem + 0.185vw, 1.125rem);  /* body       */
+  --fs-md:  clamp(1.125rem, 1.063rem + 0.278vw, 1.313rem);  /* lead       */
+  --fs-lg:  clamp(1.266rem, 1.161rem + 0.463vw, 1.575rem);  /* h4         */
+  --fs-xl:  clamp(1.424rem, 1.253rem + 0.759vw, 1.890rem);  /* h3         */
+  --fs-2xl: clamp(1.602rem, 1.336rem + 1.181vw, 2.391rem);  /* h2         */
+  --fs-3xl: clamp(1.802rem, 1.395rem + 1.808vw, 3.010rem);  /* h1 (inner) */
+  --fs-4xl: clamp(2.027rem, 1.406rem + 2.762vw, 3.875rem);  /* hero h1    */
+
+  /* --- LINE HEIGHT -----------------------------------------------------
+     Tight for display type, generous for body. Headings get a unitless
+     ratio so they stay proportional as the clamp scales them.            */
+  --lh-tight: 1.08;   /* hero / h1 */
+  --lh-snug:  1.20;   /* h2, h3    */
+  --lh-heading: 1.30; /* h4, card titles */
+  --lh-body:  1.62;   /* paragraphs */
+  --lh-loose: 1.75;   /* small print, dense blocks */
+
+  /* --- TRACKING -------------------------------------------------------- */
+  --ls-display: -0.02em;  /* large type needs negative tracking */
+  --ls-heading: -0.01em;
+  --ls-body: 0;
+  --ls-overline: 0.12em;  /* uppercase eyebrows */
+
+  /* --- MEASURE (line length) ------------------------------------------
+     45-75ch is the readable band. Never let body copy run full width.    */
+  --measure-narrow: 46ch;
+  --measure: 62ch;
+  --measure-wide: 74ch;
+
+  /* --- SPACING SCALE ---------------------------------------------------
+     4px base unit, geometric-ish so steps are visibly distinct.
+     Use these for margin/padding/gap. Nothing arbitrary.                 */
+  --sp-0: 0;
+  --sp-1: 0.25rem;   /*  4px */
+  --sp-2: 0.5rem;    /*  8px */
+  --sp-3: 0.75rem;   /* 12px */
+  --sp-4: 1rem;      /* 16px */
+  --sp-5: 1.5rem;    /* 24px */
+  --sp-6: 2rem;      /* 32px */
+  --sp-7: 2.5rem;    /* 40px */
+  --sp-8: 3rem;      /* 48px */
+  --sp-9: 4rem;      /* 64px */
+  --sp-10: 5rem;     /* 80px */
+  --sp-11: 6.5rem;   /* 104px */
+
+  /* --- RHYTHM ----------------------------------------------------------
+     Three section sizes only. Every <section> uses one of them, so the
+     vertical rhythm of the page is predictable.                          */
+  --sp-sec:    clamp(64px, 8vw, 104px);   /* default section */
+  --sp-sec-sm: clamp(44px, 5.5vw, 68px);  /* tight / strips  */
+  --sp-sec-lg: clamp(88px, 11vw, 152px);  /* feature moments */
+
+  /* Gaps between elements inside a section */
+  --gap-head: clamp(1.5rem, 3vw, 2.5rem);   /* heading block -> content */
+  --gap-grid: clamp(1rem, 2vw, 1.5rem);     /* cards in a grid          */
+  --gap-col:  clamp(2rem, 4vw, 3.5rem);     /* two-column split         */
+
+  /* --- CONTAINER ------------------------------------------------------- */
+  --container: 1180px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+}
+
+/* ---------------------------------------------------------------------------
+   BASE TYPOGRAPHY — applies the scale so pages don't restate sizes
+   ------------------------------------------------------------------------ */
+body { font-size: var(--fs-base); line-height: var(--lh-body); }
+
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+
+h1 { font-size: var(--fs-3xl); line-height: var(--lh-tight); letter-spacing: var(--ls-display); }
+.hero h1 { font-size: var(--fs-4xl); }
+h2 { font-size: var(--fs-2xl); line-height: var(--lh-snug); letter-spacing: var(--ls-heading); }
+h3 { font-size: var(--fs-xl); line-height: var(--lh-snug); letter-spacing: var(--ls-heading); }
+h4 { font-size: var(--fs-lg); line-height: var(--lh-heading); }
+
+/* Body copy keeps a readable measure -- but ONLY on classless paragraphs.
+   A bare `p { max-width }` breaks any centred <p> the site styles itself:
+   the box shrinks, margins stay 0, and the text hugs the left edge. That
+   is what knocked .ins-label out of centre. */
+p:not([class]) { max-width: var(--measure); }
+p.lead, .tagline, .sec-sub, .proc-sub { font-size: var(--fs-md); line-height: var(--lh-snug); }
+small, .fine-print { font-size: var(--fs-xs); line-height: var(--lh-loose); }
+.overline { font-size: var(--fs-2xs); letter-spacing: var(--ls-overline); text-transform: uppercase; font-weight: 700; }
+
+/* ---------------------------------------------------------------------------
+   RHYTHM UTILITIES
+   ------------------------------------------------------------------------ */
+.section    { padding-block: var(--sp-sec); }
+.section-sm { padding-block: var(--sp-sec-sm); }
+.section-lg { padding-block: var(--sp-sec-lg); }
+.stack > * + * { margin-top: var(--sp-4); }
+.stack-lg > * + * { margin-top: var(--sp-6); }
+
+/* ---------------------------------------------------------------------------
+   FIX: React Bits LogoLoop renders a <ul>/<li> and never resets list-style,
+   so browsers paint native disc bullets between the items.
+   ------------------------------------------------------------------------ */
+.logoloop__list, .logoloop__item { list-style: none !important; }
+.logoloop__item::marker { content: none; }
+
+/* ---------------------------------------------------------------------------
+   TRUNCATE + READ MORE
+   Collapsed state clamps to N lines (default 4) via --clamp-lines.
+   JS adds .is-open to expand. Without JS the text is fully readable
+   because the clamp only applies once .is-clamped is set.
+   ------------------------------------------------------------------------ */
+.clamp-text.is-clamped .clamp-body {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--clamp-lines, 4);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.clamp-text.is-clamped.is-open .clamp-body {
+  display: block;
+  overflow: visible;
+}
+.clamp-toggle {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-top: var(--sp-3);
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--cta, #843806);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.clamp-toggle:hover { text-decoration-thickness: 2px; }
+.clamp-toggle:focus-visible { outline: 3px solid var(--cta, #843806); outline-offset: 3px; border-radius: 3px; }
+.clamp-toggle svg { width: 14px; height: 14px; transition: transform .25s ease; }
+.clamp-text.is-open .clamp-toggle svg { transform: rotate(180deg); }
+/* on dark sections the link needs a light colour */
+.about .clamp-toggle, .stats .clamp-toggle { color: var(--sage, #A9CF9F); }
+
+/* ---------------------------------------------------------------------------
+   HERO SERVICE CARDS — redone
+   Image fills the card top-to-bottom on the right; the arrow sits ON the
+   image. Card height comes from the type, image stretches to match.
+   ------------------------------------------------------------------------ */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-grid);
+  margin-top: var(--sp-7);
+}
+/* Image is full-bleed and absolutely positioned: it spans the card
+   top-to-bottom and edge-to-edge, and because it is out of flow it cannot
+   inflate the card height (as a flex/grid child with height:100% it has no
+   definite parent height to resolve against, falls back to intrinsic size,
+   and blows the card out to ~700px).
+   Full-bleed rather than a side column because at 4-up each card is only
+   ~180px wide -- a 44% side image left ~60px for the title and the text
+   ran under the image. */
+.svc {
+  position: relative;
+  display: block;
+  min-height: 168px;
+  padding: 0;
+  border-radius: var(--r-lg, 22px);
+  overflow: hidden;
+  background: var(--forest, #1E4035);
+  isolation: isolate;
+}
+.svc .svc-thumb {
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.svc .svc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .6s ease;
+}
+.svc:hover .svc-thumb img { transform: scale(1.06); }
+/* scrim keeps the title legible over any photo (WCAG) */
+.svc .svc-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(21,48,42,.30) 0%, rgba(21,48,42,.55) 45%, rgba(21,48,42,.92) 100%);
+  z-index: 1;
+}
+/* title sits over the image, anchored bottom-left */
+.svc .svc-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  min-height: 168px;
+  padding: var(--sp-5);
+  padding-right: calc(38px + var(--sp-5) + var(--sp-2));  /* clear the arrow */
+  box-sizing: border-box;
+}
+/* .svc-thumb is nested INSIDE .svc-top in the markup, so the positioned
+   image paints over the static h3. Lift the title into its own layer. */
+.svc .svc-top h3 {
+  position: relative;
+  z-index: 2;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 1px 6px rgba(0,0,0,.45);
+  text-wrap: balance;
+}
+/* arrow on top of the image */
+.svc .svc-arr {
+  position: absolute;
+  right: var(--sp-4);
+  bottom: var(--sp-4);
+  z-index: 3;
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  border-radius: 50%;
+  background: var(--orange, #F27E33);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(21,48,42,.45);
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.svc:hover .svc-arr { transform: translateX(4px) scale(1.1); }
+.svc .svc-arr svg { width: 16px; height: 16px; color: #fff; }
+.svc:focus-visible { outline: 3px solid var(--cta, #843806); outline-offset: 3px; }
+
+/* ---------------------------------------------------------------------------
+   MOBILE
+   ------------------------------------------------------------------------ */
+@media (max-width: 1024px) {
+  .service-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  /* one card per row, image still full-height on the right */
+  .service-cards { grid-template-columns: 1fr; gap: var(--sp-3); }
+  .svc { min-height: 140px; }
+  .svc .svc-top { min-height: 140px; padding: var(--sp-4); padding-right: calc(34px + var(--sp-4) + var(--sp-2)); align-items: flex-end; }
+  .svc .svc-top h3 { font-size: var(--fs-md); }
+  .svc .svc-arr { width: 34px; height: 34px; right: var(--sp-3); bottom: var(--sp-3); }
+  .svc .svc-thumb { display: block; }   /* was hidden below 400px */
+
+  /* stop long words blowing out narrow screens */
+  h1, h2, h3 { overflow-wrap: break-word; }
+  /* full-width CTAs read better than side-by-side stubs */
+  .cta-row { flex-wrap: wrap; gap: var(--sp-3); }
+  .cta-row .btn { flex: 1 1 100%; justify-content: center; }
+  /* single-column any two-up split */
+  .about .container,
+  .funnel .container,
+  .ebook .container { grid-template-columns: 1fr !important; }
+  .about-img { order: -1; }
+  /* tables/wide blocks must never push the page sideways */
+  .ins-grid { justify-content: center; }
+}
+@media (max-width: 400px) {
+  .service-cards { grid-template-columns: 1fr; }
+  .svc .svc-thumb { display: block; }   /* explicitly override the old rule */
+}
+
+/* no horizontal page scroll, ever */
+html, body { overflow-x: hidden; }
