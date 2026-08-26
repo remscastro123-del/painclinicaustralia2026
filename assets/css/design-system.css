@@ -289,3 +289,9 @@ small, .fine-print { font-size: var(--fs-xs); line-height: var(--lh-loose); }
 
 /* no horizontal page scroll, ever */
 html, body { overflow-x: hidden; }
+
+/* Hero h1 must hold to two lines on small screens (the --fs-4xl floor is too
+   large for a 375px viewport, which pushes the headline to four lines). */
+@media (max-width: 560px) {
+  .hero h1 { font-size: clamp(1.15rem, 5.4vw, 1.55rem); line-height: 1.2; }
+}

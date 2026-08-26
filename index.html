@@ -530,19 +530,6 @@ h3,h4{line-height:var(--lh-snug)}
   .funnel #homeQuiz{margin-top:1.6rem}
 }
 
-/* ---- ScrollStack ---- */
-.scrollstack{list-style:none;margin:2.6rem 0 0;padding:0}
-.ss-card{position:sticky;top:calc(90px + var(--i)*14px);margin-bottom:1.1rem}
-.ss-inner{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-md);
-  padding:clamp(1.4rem,3vw,2.2rem);display:grid;grid-template-columns:auto 1fr;
-  gap:.5rem 1.4rem;align-items:start;border:1px solid rgba(30,64,53,.07)}
-.ss-num{font-family:var(--fh);font-weight:700;font-size:clamp(1.8rem,4vw,2.6rem);
-  color:var(--cta);opacity:.5;line-height:1;grid-row:span 2}
-.ss-inner h3{font-family:var(--fh);font-size:var(--fs-lg);color:var(--forest);margin:0}
-.ss-inner p{margin:.35rem 0 0;color:var(--muted);line-height:1.65;font-size:var(--fs-sm)}
-@media(prefers-reduced-motion:reduce){.ss-card{position:static}}
-@media(max-width:640px){.ss-inner{grid-template-columns:1fr}.ss-num{grid-row:auto}}
-
 /* ---- insurance pathway ---- */
 .inspath{padding:var(--sp-sec) 0;background:var(--cream2)}
 .sec-sub{max-width:68ch;margin:.9rem auto 0;color:var(--muted);line-height:1.7}
@@ -599,6 +586,277 @@ h3,h4{line-height:var(--lh-snug)}
 .acc-item .pm,.acc-item.open .pm,.pm{color:var(--cta)}
 .hero-rating-link .stars,.stars{color:var(--cta)}
 .post-body .meta .dot,.meta .dot,.dot{color:var(--cta)}
+
+/* ===================== 12-item rework ===================== */
+
+/* 1. homepage quiz card: image top, solid body, badge over the seam */
+#homeQuiz{padding:0;overflow:hidden;background:var(--white)}
+.hq-media{position:relative;height:170px;overflow:hidden;border-radius:var(--r-lg) var(--r-lg) 0 0}
+.hq-media img{width:100%;height:100%;object-fit:cover;display:block}
+.hq-badge{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);
+  width:58px;height:58px;border-radius:50%;background:var(--orange);color:var(--ink);
+  display:grid;place-items:center;font-family:var(--fh);font-weight:700;font-size:1.4rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.18);z-index:3;border:4px solid var(--white)}
+.hq-body{background:var(--cream);padding:2.5rem 1.4rem 1.4rem;display:flex;
+  flex-direction:column;gap:.55rem;border-radius:0 0 var(--r-lg) var(--r-lg)}
+.hq-body .hq-eyebrow{text-align:center}
+.hq-body h3{text-align:center;margin:0}
+.hq-body .qsub{text-align:center}
+.hq-opt{background:var(--white)}
+
+/* 3. anatomy body map */
+.bodymap{margin-top:2.4rem;display:grid;grid-template-columns:minmax(0,360px) 1fr;
+  gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.bm-figure{position:relative;background:var(--white);border-radius:var(--r-lg);
+  padding:1rem;box-shadow:var(--sh-sm)}
+.bm-figure{display:grid;place-items:center}
+.bm-stage{position:relative;display:block;height:min(60vh,470px)}
+.bm-stage img{display:block;height:100%;width:auto}
+.bm-spot{position:absolute;width:34px;height:34px;transform:translate(-50%,-50%);
+  border:none;background:none;cursor:pointer;padding:0;display:grid;place-items:center;z-index:2}
+.bm-spot span{width:16px;height:16px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 0 6px rgba(242,126,51,.25);transition:.25s;display:block}
+.bm-spot:hover span{transform:scale(1.25)}
+.bm-spot[aria-pressed="true"] span{background:var(--cta);
+  box-shadow:0 0 0 9px rgba(132,56,6,.22)}
+.bm-panel{min-width:0}
+.bm-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.4rem}
+.bm-chip{font-family:var(--fb);font-size:var(--fs-xs);font-weight:600;cursor:pointer;
+  background:var(--white);color:var(--forest);border:1.5px solid transparent;
+  border-radius:var(--r-pill);padding:.5rem .95rem;min-height:38px;transition:.2s}
+.bm-chip:hover{border-color:var(--sage)}
+.bm-chip[aria-pressed="true"]{background:var(--cta);color:#fff}
+.bm-title{font-family:var(--fh);font-size:var(--fs-xl);color:var(--forest);margin:0 0 .9rem}
+.bm-list{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:.55rem}
+.bm-list li{background:var(--white);border-radius:var(--r-md);padding:.8rem 1.05rem;
+  font-size:var(--fs-sm);color:var(--forest);box-shadow:var(--sh-sm);
+  display:flex;align-items:center;gap:.6rem;min-height:46px;animation:bmIn .35s ease both}
+.bm-list li::before{content:"";width:7px;height:7px;border-radius:50%;
+  background:var(--orange);flex:none}
+@keyframes bmIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(max-width:860px){.bodymap{grid-template-columns:1fr}
+  .bm-figure{max-width:340px;margin-inline:auto}}
+
+/* 4. funnel - copy and form above the image */
+.funnel .funnel-img{margin:2.6rem 0 0}
+.funnel .funnel-img img{max-height:400px}
+
+/* 5. insurance sticky scroll */
+.inspath-sticky{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);
+  align-items:start}
+.inspath-left{position:sticky;top:104px}
+.inspath-left h2{margin:.6rem 0 1.1rem}
+.inspath-left p{color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.inspath-left .btn{margin-top:.5rem}
+.inspath-logos{list-style:none;margin:0;padding:0;display:grid;
+  grid-template-columns:1fr 1fr;gap:1rem}
+.ins-logo{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-sm);
+  min-height:118px;display:grid;place-items:center;padding:1.2rem}
+.ins-logo img{max-width:130px;max-height:52px;width:auto;height:auto;object-fit:contain}
+.ins-wordmark{font-family:var(--fh);font-weight:700;font-size:var(--fs-md);
+  color:var(--forest);text-align:center;letter-spacing:.01em}
+@media(max-width:860px){.inspath-sticky{grid-template-columns:1fr}
+  .inspath-left{position:static}}
+
+/* 8. testimonials - neighbouring slides peek in */
+.testi-carousel{overflow:hidden;margin-top:2.4rem;padding:0 0 .5rem}
+.testi-track{display:flex;gap:1.2rem;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+.testi-track .tcard{min-width:min(660px,72%);flex:0 0 auto;opacity:.38;
+  transform:scale(.94);transition:opacity .45s ease,transform .45s ease}
+.testi-track .tcard.is-active{opacity:1;transform:scale(1)}
+@media(max-width:760px){.testi-track .tcard{min-width:86%}}
+
+/* 9. resources - never truncate the cards */
+.blog-grid .post-body{display:flex;flex-direction:column;gap:.5rem}
+.blog-grid .post-body h3,.blog-grid .post-body p{
+  display:block;overflow:visible;-webkit-line-clamp:none;line-clamp:none;
+  -webkit-box-orient:horizontal;text-overflow:clip;white-space:normal;max-height:none}
+.blog{padding-bottom:clamp(70px,9vw,110px)}
+
+/* 10 + 11. headline line counts */
+.endcta h2{max-width:none}
+@media(max-width:560px){
+  .hero h1{font-size:clamp(1.35rem,6.4vw,1.9rem);line-height:1.18}
+}
+
+/* 12. footer columns collapse into tabs on small screens */
+.foot-col h4{display:flex;align-items:center;justify-content:space-between}
+@media(max-width:760px){
+  .foot-col{border-bottom:1px solid rgba(255,250,238,.16)}
+  .foot-col h4{cursor:pointer;margin:0;padding:.95rem 0;min-height:48px}
+  .foot-col h4::after{content:"+";font-size:1.25rem;line-height:1;
+    transition:transform .25s;opacity:.75}
+  .foot-col.open h4::after{transform:rotate(45deg)}
+  .foot-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease;margin:0}
+  .foot-col.open ul{max-height:340px;margin-bottom:.9rem}
+}
+
+/* ============ hotspot labels, spacing scale, hero height ============ */
+
+/* --- body map: labelled hotspots in the channel between the figures --- */
+.bodymap{grid-template-columns:minmax(0,620px) 1fr}
+.bm-stage{height:min(72vh,560px)}
+.bm-spot{width:auto;height:auto;transform:translate(-50%,-50%);
+  display:inline-flex;align-items:center;gap:.55rem;
+  background:var(--white);border:1.5px solid var(--line);
+  border-radius:var(--r-pill);padding:.5rem .95rem;white-space:nowrap;
+  box-shadow:var(--sh-sm);transition:.22s;min-height:38px}
+.bm-spot:hover{border-color:var(--orange);transform:translate(-50%,-50%) scale(1.04)}
+.bm-dot{width:10px;height:10px;border-radius:50%;background:var(--orange);
+  flex:none;transition:.22s}
+.bm-label{font-family:var(--fb);font-weight:600;font-size:var(--fs-xs);
+  color:var(--forest);line-height:1}
+.bm-spot[aria-pressed="true"]{background:var(--cta);border-color:var(--cta)}
+.bm-spot[aria-pressed="true"] .bm-label{color:#fff}
+.bm-spot[aria-pressed="true"] .bm-dot{background:var(--cream)}
+@media(max-width:900px){
+  .bodymap{grid-template-columns:1fr}
+  .bm-stage{height:auto;width:100%}
+  .bm-stage img{height:auto;width:100%}
+  .bm-spot{position:static;transform:none;display:inline-flex}
+  .bm-spot:hover{transform:none}
+  .bm-stage{display:flex;flex-direction:column;gap:.5rem}
+  .bm-stage .bm-spot{align-self:flex-start}
+}
+
+/* --- consistent type scale + rhythm for body copy everywhere --- */
+.inspath-left p,
+.inspath-left .sec-sub,
+.inspath-card p,
+.sec-sub,
+.testi-intro,
+.funnel-copy p,
+.about p,
+.bm-panel p{
+  font-size:var(--fs-base);
+  line-height:1.7;
+  margin:0 0 var(--stack-gap,1rem);
+}
+.inspath-left p:last-of-type,
+.funnel-copy p:last-of-type,
+.about p:last-of-type{margin-bottom:1.4rem}
+:root{--stack-gap:1rem}
+
+/* section heads share one rhythm */
+.proc-head,.sec-head,.stats-head{margin-bottom:2.2rem}
+.proc-head .overline,.sec-head .overline{margin-bottom:.55rem;display:inline-block}
+.proc-head h2,.sec-head h2{margin:0 0 .8rem}
+
+/* --- testimonials: peek runs full bleed to the viewport edges --- */
+.testimonials .testi-carousel{
+  width:100vw;max-width:100vw;
+  margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  padding-inline:0;overflow:hidden}
+.testi-track{padding-inline:calc((100vw - min(660px,72vw))/2)}
+@media(max-width:760px){
+  .testi-track{padding-inline:calc((100vw - 86vw)/2)}
+}
+
+/* --- hero image height cut back --- */
+
+
+
+
+/* funnel: copy, then the form, then the image - each full width */
+.funnel .container{display:grid !important;grid-template-columns:1fr !important;
+  gap:2.2rem;justify-items:center;align-items:start}
+.funnel-copy{max-width:72ch;text-align:center;grid-column:1}
+.funnel #homeQuiz{max-width:640px;width:100%;margin:0;grid-column:1}
+.funnel .funnel-img{width:100%;grid-column:1;margin:0}
+.funnel .funnel-img img{width:100%;max-height:360px;object-fit:cover}
+
+/* the legacy .bm-spot span rule was sizing the label like a dot */
+.bm-spot .bm-label{width:auto;height:auto;background:none;box-shadow:none;
+  border-radius:0;flex:none;display:inline-block}
+.bm-spot .bm-dot{width:10px;height:10px;flex:none}
+
+/* full-bleed peek: pad the track so the first card starts centred */
+.testimonials .testi-carousel{width:100vw;max-width:100vw;
+  margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);overflow:hidden}
+.testi-track{display:flex;gap:1.2rem;align-items:stretch;
+  padding-inline:calc((100vw - var(--tcard,660px))/2)}
+.testi-track .tcard{flex:0 0 var(--tcard,660px);min-width:0;width:var(--tcard,660px)}
+@media(max-width:900px){.testi-track{--tcard:76vw}}
+@media(max-width:600px){.testi-track{--tcard:84vw}}
+
+/* one rhythm for stacked body copy */
+.inspath-left p,.inspath-left .sec-sub,.funnel-copy p,.about p,.bm-panel p,
+.testi-intro,.sec-sub{margin-block:0 1rem}
+.inspath-left p:last-of-type,.funnel-copy p:last-of-type,
+.about p:last-of-type{margin-bottom:1rem}
+.inspath-left .btn,.about-cta{margin-top:1.4rem}
+
+/* section sub-copy shares the body scale, even inside .proc-head */
+.proc-head .sec-sub,.proc-head .testi-intro,
+.sec-head .sec-sub,.sec-head .testi-intro,
+.stats-head .testi-intro{font-size:var(--fs-base);line-height:1.7;
+  max-width:68ch;margin:0 auto 1rem}
+
+
+/* ---------- 2. body map ---------- */
+.bodymap{display:block;margin-top:2.4rem}
+.bm-figure{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--sh-sm);
+  padding:clamp(1rem,3vw,2rem);display:grid;place-items:center}
+.bm-stage{position:relative;display:block;height:min(74vh,620px)}
+.bm-stage img{display:block;height:100%;width:auto}
+.bm-spot{position:absolute;transform:translate(-50%,-50%);width:26px;height:26px;
+  padding:0;border:none;background:none;cursor:pointer;display:grid;place-items:center;
+  z-index:3;border-radius:50%}
+.bm-spot .bm-dot{width:15px;height:15px;border-radius:50%;background:var(--orange);
+  box-shadow:0 0 0 5px rgba(242,126,51,.28),0 1px 4px rgba(0,0,0,.25);
+  transition:transform .2s,background .2s,box-shadow .2s;display:block}
+.bm-spot:hover .bm-dot{transform:scale(1.3)}
+.bm-spot[aria-pressed="true"] .bm-dot{background:var(--cta);
+  box-shadow:0 0 0 8px rgba(132,56,6,.26),0 1px 4px rgba(0,0,0,.3)}
+.bm-centre{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  z-index:2;width:min(300px,34%);text-align:center;pointer-events:none}
+.bm-centre .bm-title{font-family:var(--fh);font-size:var(--fs-lg);color:var(--forest);
+  margin:0 0 .8rem}
+.bm-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.bm-list li{background:var(--cream);border-radius:var(--r-md);padding:.6rem .9rem;
+  font-size:var(--fs-xs);color:var(--forest);box-shadow:var(--sh-sm);
+  animation:bmIn .3s ease both;line-height:1.35}
+.bm-cta{display:flex;justify-content:center;margin-top:1.8rem}
+@media(max-width:820px){
+  .bm-stage{height:auto;width:100%}
+  .bm-stage img{width:100%;height:auto}
+  .bm-centre{position:static;transform:none;width:100%;margin-top:1.4rem;
+    pointer-events:auto}
+  .bm-list{display:grid;grid-template-columns:1fr 1fr}
+}
+
+/* ---------- 3. funnel: copy left, form right ---------- */
+.funnel .container{display:grid !important;
+  grid-template-columns:minmax(0,1fr) minmax(0,520px) !important;
+  gap:clamp(1.8rem,4vw,3.4rem);align-items:start;justify-items:stretch}
+.funnel-copy{max-width:56ch;text-align:left;grid-column:1;justify-self:start}
+.funnel-copy h2{text-align:left}
+.funnel #homeQuiz{grid-column:2;width:100%;max-width:520px;margin:0;justify-self:end}
+.funnel .funnel-img{grid-column:1/-1;width:100%;margin:.6rem 0 0}
+.funnel .funnel-img img{width:100%;max-height:320px;object-fit:cover}
+@media(max-width:900px){
+  .funnel .container{grid-template-columns:1fr !important}
+  .funnel-copy,.funnel #homeQuiz{grid-column:1;justify-self:stretch;max-width:none}
+}
+
+/* ---------- hero image band: crop scales with viewport height ---------- */
+/* The band sits below the hero copy as it always did; only how much of the
+   photo you see is tied to the viewport, so tall screens show more of it. */
+.hero-photo{display:block;width:100%;line-height:0}
+.hero-photo img{
+  width:100%;
+  height:clamp(200px, 52vh, 620px);
+  object-fit:cover;
+  object-position:center 40%;
+  display:block;
+}
+@media(max-width:900px){
+  .hero-photo img{height:clamp(170px, 34vh, 340px)}
+}
+@media(orientation:landscape) and (max-height:600px){
+  .hero-photo img{height:46vh}
+}
 </style>
 <link rel="stylesheet" href="assets/react/islands.css">
   <link rel="stylesheet" href="assets/css/design-system.css?v=2">
@@ -699,7 +957,10 @@ h3,h4{line-height:var(--lh-snug)}
     </div>
   </div>
 </section>
-<img class="hero-photo" src="assets/images/hero-garden.webp" alt="Senior woman enjoying her vibrant garden" loading="eager">
+<picture class="hero-photo">
+  <source srcset="assets/images/hero-senior-couple.webp" type="image/webp">
+  <img src="assets/images/hero-senior-couple.jpg" alt="A happy senior couple embracing outdoors on a sunny day" loading="eager" fetchpriority="high" width="1920" height="1281">
+</picture>
 
 <!-- ABOUT -->
 <section class="about" id="about" aria-labelledby="about-heading">
@@ -733,56 +994,59 @@ h3,h4{line-height:var(--lh-snug)}
     <div class="proc-head reveal">
       <span class="overline">Chronic Pain Conditions</span>
       <h2 id="cond-heading">We Often Help With</h2>
+      <p class="sec-sub">Select an area of the body to see the conditions we most often treat there.</p>
     </div>
-    <ul class="cond-grid reveal">
-        <li>Adenomyosis</li>
-        <li>Arthritis</li>
-        <li>Cancer Pain</li>
-        <li>Chronic CRPS</li>
-        <li>Degenerative Disc Disease</li>
-        <li>Endometriosis</li>
-        <li>Fibromyalgia</li>
-        <li>Herniated Discs</li>
-        <li>Migraine</li>
-        <li>Multiple Sclerosis</li>
-        <li>Nociplastic Pain</li>
-        <li>PCOS/PMOS</li>
-        <li>Postherpetic Neuralgia</li>
-        <li>Psoriasis Pain</li>
-        <li>Sciatica</li>
-        <li>Spinal Stenosis</li>
-        <li>Spondylolisthesis</li>
-        <li>Tension Headaches</li>
-        <li>Trigeminal Neuralgia</li>
-        <li>Work/Accident Injury</li>
-    </ul>
-    <div class="proc-cta reveal">
-      <a href="pca-resources.html" class="btn btn-amber">Read Our Guides</a>
+    <div class="bodymap reveal" id="bodyMap">
+      <div class="bm-figure">
+        <div class="bm-stage">
+          <img src="assets/images/anatomy-pair.svg" alt="Illustration of two human bodies" loading="lazy">
+            <button type="button" class="bm-spot" data-area="head" style="left:14.3%;top:6.1%" aria-pressed="false" aria-label="Head & face"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="head" style="left:86.6%;top:10.7%" aria-pressed="false" aria-label="Head & face"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="neck" style="left:10.2%;top:14.3%" aria-pressed="false" aria-label="Neck & shoulders"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="neck" style="left:90.3%;top:18.4%" aria-pressed="false" aria-label="Neck & shoulders"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="chest" style="left:14.3%;top:22.5%" aria-pressed="false" aria-label="Chest & ribs"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="chest" style="left:86.6%;top:26.2%" aria-pressed="false" aria-label="Chest & ribs"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="arms" style="left:3.9%;top:40.8%" aria-pressed="false" aria-label="Arms & hands"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="arms" style="left:96.2%;top:43.7%" aria-pressed="false" aria-label="Arms & hands"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="back" style="left:14.3%;top:30.7%" aria-pressed="false" aria-label="Back & spine"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="back" style="left:86.6%;top:34.0%" aria-pressed="false" aria-label="Back & spine"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="abdomen" style="left:14.3%;top:36.5%" aria-pressed="false" aria-label="Abdomen & pelvis"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="abdomen" style="left:86.6%;top:39.5%" aria-pressed="false" aria-label="Abdomen & pelvis"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="hips" style="left:8.7%;top:45.3%" aria-pressed="false" aria-label="Hips"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="hips" style="left:91.7%;top:48.0%" aria-pressed="false" aria-label="Hips"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="legs" style="left:11.0%;top:75.0%" aria-pressed="false" aria-label="Legs & feet"><span class="bm-dot" aria-hidden="true"></span></button>
+            <button type="button" class="bm-spot" data-area="legs" style="left:89.6%;top:76.2%" aria-pressed="false" aria-label="Legs & feet"><span class="bm-dot" aria-hidden="true"></span></button>
+          <div class="bm-centre" id="bmCentre">
+            <h3 class="bm-title" id="bmTitle">Select an area</h3>
+            <ul class="bm-list" id="bmList" aria-live="polite"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="bm-cta">
+        <a href="pca-resources.html" class="btn btn-amber">Read Our Guides</a>
+      </div>
     </div>
+    <script type="application/json" id="bmData">{"head": {"label": "Head & face", "items": ["Migraine", "Tension Headaches", "Trigeminal Neuralgia"]}, "neck": {"label": "Neck & shoulders", "items": ["Herniated Discs", "Degenerative Disc Disease", "Spinal Stenosis"]}, "chest": {"label": "Chest & ribs", "items": ["Postherpetic Neuralgia", "Cancer Pain", "Psoriasis Pain"]}, "arms": {"label": "Arms & hands", "items": ["Arthritis", "Chronic CRPS", "Work/Accident Injury"]}, "back": {"label": "Back & spine", "items": ["Sciatica", "Spondylolisthesis", "Spinal Stenosis", "Degenerative Disc Disease"]}, "abdomen": {"label": "Abdomen & pelvis", "items": ["Endometriosis", "Adenomyosis", "PCOS/PMOS"]}, "hips": {"label": "Hips", "items": ["Arthritis", "Sciatica", "Chronic CRPS"]}, "legs": {"label": "Legs & feet", "items": ["Arthritis", "Sciatica", "Multiple Sclerosis"]}}</script>
   </div>
 </section>
 
 <!-- QUIZ FUNNEL -->
 <section class="funnel" id="funnel" aria-labelledby="funnel-heading">
   <div class="container">
-    <div class="funnel-img reveal">
-      <img src="assets/images/resources.webp" alt="A PCA clinician reviewing a patient&rsquo;s pain assessment" loading="lazy">
-    </div>
+    
     <div class="funnel-copy reveal">
       <span class="overline">Take the Quiz</span>
       <h2 id="funnel-heading">Meeting You Where You&rsquo;re At<br>In Your Chronic Pain Journey</h2>
-      <div class="clamp-text" data-lines="4">
-        <div class="clamp-body">
       <p>Healthcare works best when it&rsquo;s tailored to the needs and preferences of the patient. For those living with chronic pain? It&rsquo;s non-negotiable. Chronic pain is often multi-systemic which is why Chronic Pain Australia (CPA) and the International Association for the Study of Pain (IASP) treat multidisciplinary care as the gold-standard for pain management.</p>
       <p>To design a custom pain management plan, we will need to carefully examine your chronic pain symptoms with any existing health conditions you may have. Your initial consultation with us, which is 100% free, will often start with a thorough assessment of your medical history. To help streamline the process, we have created a simple quiz.</p>
-        </div>
-      </div>
     </div>
     <div class="quiz-card reveal" id="homeQuiz" role="region" aria-label="Pain assessment, step 1 of 9">
-      <div class="hq-top">
-        <span class="hq-eyebrow">Your pain &middot; Step 1 of 9</span>
-        <div class="hq-bar" aria-hidden="true"><i style="width:11%"></i></div>
+      <div class="hq-media" aria-hidden="true">
+        <img src="assets/images/consultation.webp" alt="" loading="lazy">
+        <span class="hq-badge">1</span>
       </div>
+      <div class="hq-body">
+      <span class="hq-eyebrow">Your pain &middot; Step 1 of 9</span>
       <h3>Where do you feel your pain?</h3>
       <p class="qsub">Select all that apply.</p>
       <div class="hq-opts" role="group" aria-label="Pain areas">
@@ -798,6 +1062,10 @@ h3,h4{line-height:var(--lh-snug)}
       <a class="btn btn-amber hq-next" id="hqNext" href="pca-quiz.html" aria-disabled="true">Continue
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <p class="hq-foot">Nine short steps. Free, no obligation.</p>
+      </div>
+    </div>
+    <div class="funnel-img reveal">
+      <img src="assets/images/resources.webp" alt="A PCA clinician reviewing a patient&rsquo;s pain assessment" loading="lazy">
     </div>
   </div>
 </section>
@@ -828,40 +1096,65 @@ h3,h4{line-height:var(--lh-snug)}
 
 <!-- INSURANCE PATHWAY -->
 <section class="inspath" id="insurance-pathway" aria-labelledby="inspath-heading">
-  <div class="container">
-    <div class="proc-head reveal">
+  <div class="container inspath-sticky">
+    <div class="inspath-left">
       <span class="overline">Insurance Patients</span>
-      <h2 id="inspath-heading">Using Insurance, WorkCover or CTP</h2>
-      <p class="sec-sub">Australians wishing to use private insurance, WorkCover, or CTP to avail of our pain management programme will need to file directly with the relevant insurance providers.</p>
+      <h2 id="inspath-heading">Using Insurance,<br>WorkCover or CTP</h2>
+      <p>Australians wishing to use private insurance, WorkCover, or CTP to avail of our pain management programme will need to file directly with the relevant insurance providers.</p>
+      <p class="sec-sub">Some patients have also had treatment plans covered by TAC, WCC, NISQ and Blue Scope. WorkCover and CTP claims are accepted, subject to the approval of the relevant regulatory body or insurance provider.</p>
+      <a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Speak to a Coordinator</a>
     </div>
-    <div class="inspath-grid">
-      <div class="inspath-card reveal">
-        <h3>We are partnered with</h3>
-        <ul class="ins-grid">
-        <li>QBE</li>
-        <li>AAMI</li>
-        <li>GIO</li>
-        <li>Gallagher Bassett</li>
-        <li>IAG</li>
-        <li>EML</li>
-        <li>i-Care</li>
-        <li>DXC Technology</li>
-        <li>Allianz</li>
-        <li>SunCorp</li>
-        <li>NRMA</li>
-        </ul>
-      </div>
-      <div class="inspath-card reveal">
-        <h3>Also covered for some patients</h3>
-        <p>TAC, WCC, NISQ and Blue Scope. WorkCover and CTP claims are accepted, subject to the approval of the relevant regulatory body or insurance provider.</p>
-        <p>For further questions about insurance or our treatment plans, schedule an appointment with our pain management coordinators.</p>
-        <a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Speak to a Coordinator</a>
-      </div>
-    </div>
+    <ul class="inspath-logos">
+        <li class="ins-logo" data-brand="QBE">
+          <img src="assets/images/insurers/qbe.svg" alt="QBE" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="AAMI">
+          <img src="assets/images/insurers/aami.svg" alt="AAMI" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="GIO">
+          <img src="assets/images/insurers/gio.svg" alt="GIO" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="Gallagher Bassett">
+          <img src="assets/images/insurers/gallagher-bassett.svg" alt="Gallagher Bassett" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="IAG">
+          <img src="assets/images/insurers/iag.svg" alt="IAG" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="EML">
+          <img src="assets/images/insurers/eml.svg" alt="EML" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="i-Care">
+          <img src="assets/images/insurers/i-care.svg" alt="i-Care" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="DXC Technology">
+          <img src="assets/images/insurers/dxc-technology.svg" alt="DXC Technology" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="Allianz">
+          <img src="assets/images/insurers/allianz.svg" alt="Allianz" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="SunCorp">
+          <img src="assets/images/insurers/suncorp.svg" alt="SunCorp" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+        <li class="ins-logo" data-brand="NRMA">
+          <img src="assets/images/insurers/nrma.svg" alt="NRMA" loading="lazy"
+               onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'ins-wordmark',textContent:this.alt}))">
+        </li>
+    </ul>
   </div>
 </section>
 
 <!-- STATS -->
+
 <section class="stats" aria-labelledby="stats-heading">
   <div class="container">
     <div class="stats-head reveal">
@@ -917,7 +1210,7 @@ h3,h4{line-height:var(--lh-snug)}
 <!-- FAQ -->
 <section class="faq" id="faq" aria-labelledby="faq-heading">
   <div class="container">
-    <div class="faq-photo reveal"><img src="assets/images/resources.webp" alt="Patients living well with chronic pain treatment" loading="lazy"></div>
+    <div class="faq-photo reveal"><img src="assets/images/hero-garden.webp" alt="Patients living well with chronic pain treatment" loading="lazy"></div>
     <div class="reveal">
       <span class="overline">FAQs</span>
       <h2 id="faq-heading">Have Questions? We&rsquo;re Here to Help</h2>
@@ -1015,7 +1308,7 @@ h3,h4{line-height:var(--lh-snug)}
 <section class="endcta" aria-label="Call to action">
   <div class="container">
     <div class="inner reveal">
-      <h2>Wondering if you have symptoms?</h2>
+      <h2>Wondering if you<br>have symptoms?</h2>
       <a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Book a Consultation<span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     </div>
   </div>
@@ -1174,7 +1467,14 @@ document.querySelectorAll('.proc-tabs button').forEach((b,i,a)=>{
       dots=document.querySelectorAll('.testi-dots span'), idx=0, timer=null;
   function go(i){
     idx=(i+cards.length)%cards.length;
-    track.style.transform='translateX(-'+(idx*100)+'%)';
+    var card=cards[idx];
+    if(card){
+      // the track is padded so card 0 starts centred; every card is the
+      // same width, so one step = card width + gap
+      var gap=parseFloat(getComputedStyle(track).columnGap)||0;
+      track.style.transform='translateX('+(-(idx*(card.offsetWidth+gap)))+'px)';
+    }
+    cards.forEach(function(c,j){c.classList.toggle('is-active',j===idx);});
     dots.forEach(function(d,j){d.classList.toggle('active',j===idx);
       d.setAttribute('aria-selected',j===idx);});
   }
@@ -1197,6 +1497,44 @@ document.querySelectorAll('.proc-tabs button').forEach((b,i,a)=>{
   document.addEventListener('visibilitychange',function(){
     document.hidden?stop():start(); });
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches) start();
+})();
+
+// ---- body map: hotspots + chips drive the condition list ----
+(function(){
+  var root=document.getElementById('bodyMap'),
+      tag=document.getElementById('bmData');
+  if(!root||!tag) return;
+  var DATA={}; try{DATA=JSON.parse(tag.textContent);}catch(e){return;}
+  var list=document.getElementById('bmList'), title=document.getElementById('bmTitle');
+  function show(area){
+    var d=DATA[area]||DATA.all; if(!d) return;
+    title.textContent=d.label;
+    list.innerHTML=d.items.map(function(i,n){
+      return '<li style="animation-delay:'+(n*45)+'ms">'+i+'</li>';}).join('');
+    root.querySelectorAll('.bm-spot').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.area===area ? 'true':'false');});
+  }
+  root.querySelectorAll('.bm-spot').forEach(function(b){
+    b.addEventListener('click',function(){show(b.dataset.area);});
+  });
+  show('head');
+})();
+
+// ---- footer columns act as tabs on mobile ----
+(function(){
+  var mq=window.matchMedia('(max-width:760px)');
+  document.querySelectorAll('.foot-col').forEach(function(col){
+    var h=col.querySelector('h4'); if(!h) return;
+    h.setAttribute('tabindex','0');
+    h.setAttribute('role','button');
+    function toggle(){ if(!mq.matches) return;
+      var open=col.classList.toggle('open');
+      h.setAttribute('aria-expanded',open?'true':'false'); }
+    h.addEventListener('click',toggle);
+    h.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+    h.setAttribute('aria-expanded','false');
+  });
 })();
 // scroll reveal
 const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}}),{threshold:.1});

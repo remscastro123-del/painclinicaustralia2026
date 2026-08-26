@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import ScrollStack, { ScrollStackItem } from "./components/ScrollStack/ScrollStack.jsx";
 import AccordionGallery from "./components/AccordionGallery/AccordionGallery.jsx";
 import { LogoLoop } from "./components/LogoLoop/LogoLoop.jsx";
 import DocSlider from "./components/DocSlider/DocSlider.jsx";
@@ -22,29 +21,6 @@ function dataFor(el) {
 }
 
 const ISLANDS = {
-  /* ---- Our Patient-centred Process ---- */
-  scrollstack(el, data) {
-    const steps = (data && data.steps) || [];
-    return (
-      <ScrollStack
-        useWindowScroll
-        className="pca-scrollstack"
-        itemDistance={90}
-        itemStackDistance={26}
-        baseScale={0.88}
-        stackPosition="22%"
-      >
-        {steps.map((s, i) => (
-          <ScrollStackItem key={i} itemClassName="pca-ss-card">
-            <span className="pca-ss-num">{String(i + 1).padStart(2, "0")}</span>
-            <h3>{s.title}</h3>
-            <p>{s.body}</p>
-          </ScrollStackItem>
-        ))}
-      </ScrollStack>
-    );
-  },
-
   /* ---- Latest Wellness Insights / Resources ---- */
   accordiongallery(el, data) {
     /* AccordionGallery reads item.label / item.link / item.image */
