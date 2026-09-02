@@ -98,7 +98,7 @@ h4 { font-size: var(--fs-lg); line-height: var(--lh-heading); }
 p:not([class]) { max-width: var(--measure); }
 p.lead, .tagline, .sec-sub, .proc-sub { font-size: var(--fs-md); line-height: var(--lh-snug); }
 small, .fine-print { font-size: var(--fs-xs); line-height: var(--lh-loose); }
-.overline { font-size: var(--fs-2xs); letter-spacing: var(--ls-overline); text-transform: uppercase; font-weight: 700; }
+.overline { font-size: var(--fs-base); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; line-height: 1.3; }
 
 /* ---------------------------------------------------------------------------
    RHYTHM UTILITIES
@@ -157,117 +157,12 @@ small, .fine-print { font-size: var(--fs-xs); line-height: var(--lh-loose); }
 .about .clamp-toggle, .stats .clamp-toggle { color: var(--sage, #A9CF9F); }
 
 /* ---------------------------------------------------------------------------
-   HERO SERVICE CARDS — redone
-   Image fills the card top-to-bottom on the right; the arrow sits ON the
-   image. Card height comes from the type, image stretches to match.
-   ------------------------------------------------------------------------ */
-.service-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--gap-grid);
-  margin-top: var(--sp-7);
-}
-/* Image is full-bleed and absolutely positioned: it spans the card
-   top-to-bottom and edge-to-edge, and because it is out of flow it cannot
-   inflate the card height (as a flex/grid child with height:100% it has no
-   definite parent height to resolve against, falls back to intrinsic size,
-   and blows the card out to ~700px).
-   Full-bleed rather than a side column because at 4-up each card is only
-   ~180px wide -- a 44% side image left ~60px for the title and the text
-   ran under the image. */
-.svc {
-  position: relative;
-  display: block;
-  min-height: 168px;
-  padding: 0;
-  border-radius: var(--r-lg, 22px);
-  overflow: hidden;
-  background: var(--forest, #1E4035);
-  isolation: isolate;
-}
-.svc .svc-thumb {
-  position: absolute;
-  inset: 0;
-  width: auto;
-  height: auto;
-  border-radius: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-.svc .svc-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .6s ease;
-}
-.svc:hover .svc-thumb img { transform: scale(1.06); }
-/* scrim keeps the title legible over any photo (WCAG) */
-.svc .svc-thumb::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(21,48,42,.30) 0%, rgba(21,48,42,.55) 45%, rgba(21,48,42,.92) 100%);
-  z-index: 1;
-}
-/* title sits over the image, anchored bottom-left */
-.svc .svc-top {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: flex-end;
-  min-height: 168px;
-  padding: var(--sp-5);
-  padding-right: calc(38px + var(--sp-5) + var(--sp-2));  /* clear the arrow */
-  box-sizing: border-box;
-}
-/* .svc-thumb is nested INSIDE .svc-top in the markup, so the positioned
-   image paints over the static h3. Lift the title into its own layer. */
-.svc .svc-top h3 {
-  position: relative;
-  z-index: 2;
-  font-size: var(--fs-lg);
-  line-height: var(--lh-heading);
-  letter-spacing: var(--ls-heading);
-  color: #fff;
-  margin: 0;
-  text-shadow: 0 1px 6px rgba(0,0,0,.45);
-  text-wrap: balance;
-}
-/* arrow on top of the image */
-.svc .svc-arr {
-  position: absolute;
-  right: var(--sp-4);
-  bottom: var(--sp-4);
-  z-index: 3;
-  width: 38px;
-  height: 38px;
-  margin: 0;
-  border-radius: 50%;
-  background: var(--orange, #F27E33);
-  display: grid;
-  place-items: center;
-  box-shadow: 0 4px 14px rgba(21,48,42,.45);
-  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
-}
-.svc:hover .svc-arr { transform: translateX(4px) scale(1.1); }
-.svc .svc-arr svg { width: 16px; height: 16px; color: #fff; }
-.svc:focus-visible { outline: 3px solid var(--cta, #843806); outline-offset: 3px; }
-
-/* ---------------------------------------------------------------------------
    MOBILE
    ------------------------------------------------------------------------ */
 @media (max-width: 1024px) {
-  .service-cards { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
   /* one card per row, image still full-height on the right */
-  .service-cards { grid-template-columns: 1fr; gap: var(--sp-3); }
-  .svc { min-height: 140px; }
-  .svc .svc-top { min-height: 140px; padding: var(--sp-4); padding-right: calc(34px + var(--sp-4) + var(--sp-2)); align-items: flex-end; }
-  .svc .svc-top h3 { font-size: var(--fs-md); }
-  .svc .svc-arr { width: 34px; height: 34px; right: var(--sp-3); bottom: var(--sp-3); }
-  .svc .svc-thumb { display: block; }   /* was hidden below 400px */
 
   /* stop long words blowing out narrow screens */
   h1, h2, h3 { overflow-wrap: break-word; }
@@ -282,16 +177,175 @@ small, .fine-print { font-size: var(--fs-xs); line-height: var(--lh-loose); }
   /* tables/wide blocks must never push the page sideways */
   .ins-grid { justify-content: center; }
 }
-@media (max-width: 400px) {
-  .service-cards { grid-template-columns: 1fr; }
-  .svc .svc-thumb { display: block; }   /* explicitly override the old rule */
+@media (max-width: 400px) {   /* explicitly override the old rule */
 }
 
 /* no horizontal page scroll, ever */
-html, body { overflow-x: hidden; }
+/* `clip` prevents sideways scroll WITHOUT creating a scroll
+   container, which is what was breaking position:sticky on the nav. */
+html, body { overflow-x: clip; }
+/* stop mobile browsers inflating body text on their own — it was pushing the
+   h2 above its clamp and flattening the ladder against the hero h1 */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+header { position: sticky; top: 0; z-index: 60; }
 
-/* Hero h1 must hold to two lines on small screens (the --fs-4xl floor is too
-   large for a 375px viewport, which pushes the headline to four lines). */
+/* Small screens keep the real ladder: the hero h1 stays the largest thing on
+   the page (~32px at 375px, against a 26px h2), it just breathes a little. */
+
+
+/* ===========================================================================
+   VERTICAL RHYTHM
+   One ladder for every section: preheader -> heading -> body -> content.
+   Spacing is expressed as tokens so the steps stay proportional to each
+   other rather than being hand-tuned per section.
+   ======================================================================== */
+:root {
+  --flow-preheader: 0.55rem;                      /* preheader -> heading   */
+  --flow-heading:   0.85rem;                      /* heading   -> body      */
+  --flow-body:      1rem;                         /* paragraph -> paragraph */
+  --flow-group:     1.6rem;                       /* body      -> CTA/list  */
+  --flow-block:     clamp(1.8rem, 3.5vw, 2.8rem); /* head block-> content   */
+
+  --lh-heading: 1.16;
+  --lh-body:    1.7;
+}
+
+/* --- the ladder ------------------------------------------------------- */
+.overline{ display:inline-block; margin:0 0 var(--flow-preheader); line-height:1.3; }
+
+h1,h2,h3,h4,h5{ margin:0 0 var(--flow-heading); }
+/* one step per level — h2 used to borrow the h1 size (--fs-3xl), which left
+   nothing between a section heading and the page title, and --fs-2xl unused */
+h1{ font-size:var(--fs-3xl); line-height:var(--lh-tight) }
+h2{ font-size:var(--fs-2xl); line-height:var(--lh-snug)  }
+h3{ font-size:var(--fs-xl);  line-height:var(--lh-snug)  }
+h4{ font-size:var(--fs-lg);  line-height:var(--lh-heading) }
+h5{ font-size:var(--fs-md);  line-height:var(--lh-heading) }
+.hero h1{ font-size:var(--fs-4xl) }
+
+p,ul,ol{ margin:0 0 var(--flow-body); line-height:var(--lh-body); }
+
+/* the last thing in a block never adds trailing space */
+p:last-child, ul:last-child, ol:last-child,
+h1:last-child, h2:last-child, h3:last-child, h4:last-child{ margin-bottom:0 }
+
+/* a heading that follows body copy needs air above it */
+p + h2, ul + h2, ol + h2{ margin-top:var(--flow-group) }
+p + h3, ul + h3, ol + h3{ margin-top:var(--flow-group) }
+
+/* --- section heads sit one step away from their content --------------- */
+.proc-head, .sec-head, .stats-head{ margin:0 0 var(--flow-block) }
+.proc-head > :last-child, .sec-head > :last-child,
+.stats-head > :last-child{ margin-bottom:0 }
+
+/* the supporting line under a heading is body copy, not a heading */
+.sec-sub:last-child, .testi-intro:last-child, .lead:last-child{ margin-bottom:0 }
+
+/* --- CTA rows and button groups --------------------------------------- */
+.proc-cta, .res-cta, .cta-row, .about-cta, .hero-cta-wrap{ margin-top:var(--flow-group) }
+.proc-cta p{ margin:var(--flow-heading) auto 0; text-align:center }
+
+/* --- cards carry the same ladder, one notch tighter -------------------- */
+.svc .svc-body h3, .ds-body h3, .exp-body h3, .tcard blockquote,
+.inspath-card h3, .acc-body p{
+  margin-bottom:var(--flow-heading);
+}
+
+
+/* ===========================================================================
+   MOBILE — headings and hero copy read left-aligned; centred display type
+   stops paying for itself once the measure drops under ~40 characters.
+   ======================================================================== */
+@media (max-width: 640px) {
+  h1, h2, h3, h4, h5 { text-align: left; text-wrap: pretty; }
+
+  .hero .container, .hero h1, .hero .lead,
+  .proc-head, .stats-head, .sec-head, .ins-label, .proc-cta,
+  .ebook-text, .hq-body, .endcta .inner { text-align: left; }
+
+  /* the centred-measure helpers must give up their auto margins too */
+  .sec-sub, .testi-intro, .hero .lead, .proc-cta p, .grating { margin-inline: 0; }
+
+  /* button rows follow the text edge instead of the centre line */
+  .hero-cta-wrap, .res-cta, .proc-cta, .endcta .inner,
+  .ebook-text { align-items: flex-start; justify-content: flex-start; }
+
+  /* the quiz card keeps its own centred layout, but its heading does not */
+  .hq-body h3, .hq-eyebrow { text-align: left; }
+}
+
+/* ===========================================================================
+   MOBILE HEADER — the logo keeps its aspect ratio (it was being squashed by
+   flex shrink), and the Get Started pill steps aside for the burger.
+   ======================================================================== */
+.nav-logo{flex:0 0 auto}
+.nav-logo img{width:auto;max-width:none}
+@media (max-width: 640px){
+  .nav-cta .btn{display:none}
+}
+
+/* small screens: the hero keeps a clear step over the section headings */
 @media (max-width: 560px) {
-  .hero h1 { font-size: clamp(1.15rem, 5.4vw, 1.55rem); line-height: 1.2; }
+  .hero h1 { font-size: clamp(2.15rem, 9.2vw, 2.70rem); line-height: 1.14; }
+  h1 { line-height: 1.16; }
+}
+
+
+/* ===========================================================================
+   MOBILE MENU — the header itself is the panel. Tapping the burger grows the
+   green bar downward and the items settle in behind it.
+   ======================================================================== */
+@media (max-width: 1040px){
+  /* the bar goes green the moment the menu opens, exactly like the scrolled
+     state, so the panel reads as one continuous block */
+  #header[data-nav="open"]{background:var(--forest-d)}
+  #header[data-nav="open"] .nav-logo .logo-light{opacity:1}
+  #header[data-nav="open"] .nav-logo .logo-dark{opacity:0}
+  #header[data-nav="open"] .burger span{background:var(--cream)}
+  #header[data-nav="open"] .nav-phone{color:var(--cream)}
+  #header[data-nav="open"] .nav-phone svg{color:var(--orange)}
+  #header[data-nav="open"] .btn-outline{color:var(--cream);
+    box-shadow:inset 0 0 0 2px rgba(255,250,238,.75)}
+  #header[data-nav="open"] .btn-outline:hover{background:var(--cream);color:var(--forest)}
+
+  /* the row wraps so the list sits on its own line inside the header */
+  .nav{flex-wrap:wrap}
+  .nav-links{
+    display:flex !important;            /* never display:none — height animates */
+    position:static;inset:auto;order:3;flex:0 0 100%;
+    flex-direction:column;align-items:stretch;gap:.1rem;
+    height:0;overflow:hidden;
+    background:none;border:none;box-shadow:none;border-radius:0;
+    padding:0;
+    transition:height .42s cubic-bezier(.22,.61,.36,1);
+  }
+  #header[data-nav="open"] .nav-links{padding-bottom:.9rem}
+
+  /* items load in behind the expanding bar */
+  .nav-links > *{opacity:0;transform:translateY(-8px);
+    transition:opacity .28s ease,transform .28s ease}
+  #header[data-nav="open"] .nav-links > *{opacity:1;transform:none}
+  #header[data-nav="open"] .nav-links > :nth-child(1){transition-delay:.08s}
+  #header[data-nav="open"] .nav-links > :nth-child(2){transition-delay:.13s}
+  #header[data-nav="open"] .nav-links > :nth-child(3){transition-delay:.18s}
+  #header[data-nav="open"] .nav-links > :nth-child(4){transition-delay:.23s}
+  #header[data-nav="open"] .nav-links > :nth-child(5){transition-delay:.28s}
+  #header[data-nav="open"] .nav-links > :nth-child(6){transition-delay:.33s}
+
+  /* a long list never runs past the screen */
+  #header[data-nav="open"] .nav-links{max-height:min(70vh,560px);overflow-y:auto}
+
+  /* on the green ground the list is cream, and the submenu is flat — and it
+     stays closed until the caret is tapped, so the caret means something */
+  .nav-links a,.nav-drop-btn{color:var(--cream)}
+  .nav-links a:hover,.nav-drop-btn:hover{background:rgba(255,250,238,.14)}
+  .nav-links a.active{color:var(--sage)}
+  .nav-drop-menu{display:none;background:none;border:none;box-shadow:none;
+    padding:0 0 .2rem .85rem}
+  .nav-drop[data-open="true"] .nav-drop-menu{display:block}
+  .nav-drop-menu a{color:rgba(255,250,238,.86)}
+}
+@media (prefers-reduced-motion: reduce){
+  .nav-links{transition:none}
+  .nav-links > *{transition:none}
 }

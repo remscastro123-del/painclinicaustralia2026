@@ -4,8 +4,9 @@
     {
       "name": "pca-site",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "4321"],
-      "port": 4321
+      "runtimeArgs": ["-u", ".claude/serve.py"],
+      "port": 4321,
+      "autoPort": true
     }
   ]
 }

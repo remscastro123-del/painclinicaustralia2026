@@ -24,12 +24,27 @@
 
 /* ---- LogoLoop: hero credibility strip ---- */
 .pca-loop-item {
-  font-weight: 700;
-  font-size: 1rem;
-  /* brand orange as TEXT on cream: #843806 measures 7.89:1, comfortably
-     past AA. The lighter #F27E33 is only 2.58:1 and fails as text. */
-  color: #843806;
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  font-weight: 400;
+  font-size: .95rem;
+  /* forest #1E4035 on cream measures 11.3:1 - well past AA, and matches
+     the reference (dark green text, pale green check disc). */
+  color: #1E4035;
   white-space: nowrap;
+}
+.pca-loop-check {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 50%;
+  padding: 4px;
+  background: transparent;      /* outline, not a filled disc */
+  border: 1.8px solid currentColor;  /* ring matches the text */
+  color: #1E4035;               /* tick stays dark green */
+  stroke-width: 2.6;
+  box-sizing: border-box;
 }
 
 /* ---- ScrollStack fix -----------------------------------------

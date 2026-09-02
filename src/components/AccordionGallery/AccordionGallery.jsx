@@ -28,6 +28,8 @@ const AccordionGallery = ({
   tilt = 8,
   stagger = 0.06,
   trigger = 'hover',
+  autoplay = false,
+  autoplayDelay = 4200,
   showLabels = true,
   grayscale = true,
   className = ''
@@ -44,6 +46,34 @@ const AccordionGallery = ({
   const vertical = orientation === 'vertical';
   const count = items.length;
   const [active, setActive] = useState(Math.min(Math.max(defaultIndex, 0), count - 1));
+  const [progress, setProgress] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  /* autoplay: advance on a timer and expose 0..1 progress so the next panel
+     can draw it as its outline */
+  useEffect(() => {
+    if (!autoplay || count < 2) return undefined;
+    if (paused) return undefined;
+    if (typeof window !== 'undefined' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined;
+
+    let raf = 0;
+    const start = performance.now();
+    const tick = now => {
+      const p = Math.min(1, (now - start) / autoplayDelay);
+      setProgress(p);
+      if (p >= 1) {
+        setActive(i => (i + 1) % count);
+        setProgress(0);
+        return;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [autoplay, autoplayDelay, count, active, paused]);
+
+  const nextIndex = count ? (active + 1) % count : 0;
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia
@@ -189,6 +219,10 @@ const AccordionGallery = ({
       }}
       role="list"
       aria-label="Image accordion gallery"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
     >
       {items.map((item, i) => {
         const isActive = i === active;
@@ -209,6 +243,13 @@ const AccordionGallery = ({
             aria-current={isActive ? 'true' : undefined}
             aria-label={item.label}
           >
+            {autoplay && i === nextIndex && !paused && (
+              <svg className="ag-panel__progress" viewBox="0 0 100 100"
+                   preserveAspectRatio="none" aria-hidden="true">
+                <rect x="1" y="1" width="98" height="98" rx="3" pathLength="1"
+                      style={{ strokeDashoffset: 1 - progress }} />
+              </svg>
+            )}
             <span className="ag-panel__frame">
               <span className="ag-panel__media" ref={el => (mediaRefs.current[i] = el)}>
                 <img src={item.image} alt={item.alt || item.label || ''} draggable="false" />

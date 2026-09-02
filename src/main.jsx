@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import AccordionGallery from "./components/AccordionGallery/AccordionGallery.jsx";
 import { LogoLoop } from "./components/LogoLoop/LogoLoop.jsx";
 import DocSlider from "./components/DocSlider/DocSlider.jsx";
+import { Check } from "lucide-react";
 
 import "./index.css";
 
@@ -47,7 +48,12 @@ const ISLANDS = {
   /* ---- hero rotating credibility strip ---- */
   logoloop(el, data) {
     const logos = ((data && data.items) || []).map((t) => ({
-      node: <span className="pca-loop-item">{t}</span>,
+      node: (
+        <span className="pca-loop-item">
+          <Check className="pca-loop-check" size={16} strokeWidth={2} aria-hidden="true" />
+          {t}
+        </span>
+      ),
       title: t,
       ariaLabel: t,
     }));
