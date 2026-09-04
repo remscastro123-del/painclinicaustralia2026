@@ -413,15 +413,10 @@ h3,h4{line-height:var(--lh-snug)}
   <div class="container">
     <div class="quiz-shell">
 
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="bc-dot" aria-hidden="true"></span>
-        <span class="bc-cur" aria-current="page">Pain Assessment</span>
-      </nav>
-
-      <div class="quiz-intro">
-        <h1>Tell us about your pain</h1>
-      </div>
+      <!-- The quiz opens straight on the first question. The h1 stays in the
+           document for assistive tech and search, using the shared .vh
+           utility, because the page still needs exactly one. -->
+      <h1 class="vh">Tell us about your pain</h1>
 
       <div class="quiz-prog">
         <span class="quiz-step-n" id="stepN">Step 1 of 9</span>
