@@ -176,13 +176,8 @@ h3,h4{line-height:var(--lh-snug)}
    .lead / .sec-head / .endcta rules, which are defined in ITS inline block
    and do not exist here.
    ======================================================================== */
-.contact{padding:0 0 clamp(3rem,5vw,4.5rem)}
+.contact{padding:clamp(.5rem,1.5vw,1.5rem) 0 clamp(3rem,5vw,4.5rem)}
 
-/* section heading, matching the page-hero's centred column */
-.ct-head{text-align:center;max-width:60ch;margin:0 auto clamp(2rem,4vw,3rem)}
-.ct-head h2{font-size:var(--fs-2xl);color:var(--forest);margin:.35rem 0 .7rem}
-.ct-head p{font-size:var(--fs-md);line-height:var(--lh-body);color:var(--muted);
-  margin:0}
 .ct-intro{font-size:var(--fs-md);line-height:var(--lh-body);color:var(--muted);
   max-width:58ch;margin:0 auto}
 
@@ -231,7 +226,6 @@ h3,h4{line-height:var(--lh-snug)}
 @media(max-width:1040px){ .ct-grid{grid-template-columns:1fr 1fr} }
 @media(max-width:768px){
   .ct-grid{grid-template-columns:1fr}
-  .ct-head{text-align:left;margin-inline:0}
   .ct-intro{text-align:left}
   .endcta .inner{display:block}
   .endcta .inner > div{max-width:none}
@@ -329,14 +323,8 @@ h3,h4{line-height:var(--lh-snug)}
 </section>
 
 <!-- CHANNELS -->
-<section class="contact" aria-labelledby="ct-h2">
+<section class="contact" aria-label="Contact details">
   <div class="container">
-    <div class="ct-head">
-      <span class="overline">Get in touch</span>
-      <h2 id="ct-h2">However you would rather reach us</h2>
-      <p>Our coordinators answer calls and emails during head office hours.</p>
-    </div>
-
     <div class="ct-grid">
       <div class="ct-card">
         <span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></span>

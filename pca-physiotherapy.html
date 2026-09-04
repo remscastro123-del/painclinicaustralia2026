@@ -848,5 +848,31 @@ document.querySelectorAll('.acc-head').forEach(btn=>btn.addEventListener('click'
 
 })();
 </script>
+<script>
+/* count-up for the stats band. The markup ships each figure as a literal 0
+   and relies on this to animate it to data-count; without the script the
+   numbers simply read 0 forever, which is how these pages have been. */
+(function(){
+  var cards = document.querySelectorAll('.scard,.pcard--stat');
+  if(!cards.length) return;
+  function run(card){
+    card.querySelectorAll('[data-count]').forEach(function(n){
+      var t = +n.dataset.count, s = Math.max(1, Math.ceil(t/50)), c = 0;
+      var iv = setInterval(function(){
+        c += s; if(c >= t){ c = t; clearInterval(iv); }
+        n.textContent = c;
+      }, 20);
+    });
+  }
+  if(!('IntersectionObserver' in window)){ cards.forEach(run); return; }
+  var seen = new Set();
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !seen.has(e.target)){ seen.add(e.target); run(e.target); }
+    });
+  }, {threshold:.3});
+  cards.forEach(function(c){ io.observe(c); });
+})();
+</script>
 </body>
 </html>
