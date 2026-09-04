@@ -57,7 +57,7 @@
   border: 1.5px solid #1E4035;
   background: transparent; color: #1E4035;
   display: grid; place-items: center;
-  transition: background .25s, color .25s;
+  transition: background var(--dur-1) var(--ease-move), color var(--dur-1) var(--ease-move);
 }
 .ds-btn svg { width: 18px; height: 18px; }
 .ds-btn:hover { background: #1E4035; color: #FFFAEE; }

@@ -8,11 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-/* ─── TOKENS ─────────────────────────────────────── */
+<style>/* ─── TOKENS ─────────────────────────────────────── */
 :root{
   /* TYPE SCALE (fluid, 1.200 minor third @375 -> 1.250 @1440) */
-  --fs-2xs:clamp(.70rem,.68rem + .10vw,.76rem);
+  --fs-2xs:clamp(.75rem,.73rem + .09vw,.80rem);
   --fs-xs:clamp(.78rem,.75rem + .14vw,.86rem);
   --fs-sm:clamp(.86rem,.83rem + .16vw,.94rem);
   --fs-base:clamp(1rem,.97rem + .16vw,1.06rem);
@@ -40,55 +39,31 @@ body{font-family:var(--fb);color:var(--ink);background:var(--cream);font-size:va
 h1,h2,h3,h4{font-family:var(--fh);font-weight:700;line-height:var(--lh-tight);text-wrap:balance;letter-spacing:-.01em}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,28px)}
 .overline{font-size:var(--fs-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cta);display:inline-block}
 .skip-nav{position:absolute;left:-100%;top:auto;width:1px;height:1px;overflow:hidden;background:var(--forest);color:#fff;padding:.5rem 1rem;border-radius:0 0 var(--r-md) var(--r-md);font-weight:700;z-index:999}
 .skip-nav:focus{left:0;width:auto;height:auto}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 :focus-visible{outline:3px solid var(--cta);outline-offset:3px;border-radius:4px}
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-weight:700;padding:.85rem 1.7rem;border-radius:var(--r-pill);cursor:pointer;border:none;transition:transform .25s,box-shadow .25s;font-size:var(--fs-base);white-space:nowrap;text-decoration:none}
-.btn-amber{background:var(--cta);color:#fff;box-shadow:var(--sh-cta)}
-.btn-amber:hover,.btn-amber:focus-visible{transform:translateY(-2px);box-shadow:0 16px 34px rgba(132,56,6,.4)}
-.btn-forest{background:var(--forest);color:var(--cream)}
-.btn-forest:hover,.btn-forest:focus-visible{transform:translateY(-2px);box-shadow:var(--sh-md)}
+
 .btn .arr{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;flex-shrink:0}
 .btn .arr svg,.btn>svg{width:16px;height:16px}
-/* TOPBAR */
-.topbar{background:var(--forest-d);color:rgba(255,250,238,.82);font-size:var(--fs-sm)}
-.topbar .container{display:flex;gap:1.2rem;align-items:center;min-height:36px;padding-top:4px;padding-bottom:4px}
-.topbar a{display:inline-flex;align-items:center;gap:.38rem;color:inherit;transition:color .2s;margin-right:1rem}
-.topbar a:hover{color:var(--orange)}.topbar svg{width:13px;height:13px}
-@media(max-width:560px){.topbar .container{flex-direction:column;align-items:flex-start;gap:.35rem;padding-top:6px;padding-bottom:6px}.topbar a{margin-right:0}}
-/* HEADER */
-header{position:sticky;top:0;z-index:60;background:var(--cream);backdrop-filter:blur(14px);transition:box-shadow .3s,background .3s}
-header.scrolled{box-shadow:var(--sh-sm)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:80px}
-.nav-logo img{height:80px;width:auto}
-.nav-cta{display:flex;align-items:center;gap:1rem;flex-shrink:0}
-.nav-phone{font-weight:700;color:var(--forest);font-size:var(--fs-sm);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
-.nav-phone svg{width:16px;height:16px;color:var(--orange)}
-.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:12px 8px;min-height:44px;min-width:44px;align-items:center;justify-content:center}
-.burger span{width:24px;height:2.5px;background:var(--forest);border-radius:2px;transition:transform .3s,opacity .3s}
-.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 /* BREADCRUMB */
-.breadcrumb{display:inline-flex;align-items:center;gap:.55rem;font-size:var(--fs-sm);color:var(--muted);flex-wrap:wrap}
-.breadcrumb a{color:var(--forest);font-weight:600;transition:color .2s}
-.breadcrumb a:hover{color:var(--cta)}
-.bc-sep{color:var(--line);font-size:.9rem}
-.bc-cur{color:var(--muted)}
+
+
+
+
+
 /* SERVICE HERO (2-col) */
 .svc-hero{padding:clamp(3rem,6vw,5.5rem) 0 clamp(2.5rem,5vw,4.5rem)}
 .svc-hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
 .svc-hero-text .breadcrumb{margin-bottom:1.4rem}
 .svc-hero-text .overline{margin-bottom:.5rem}
 .svc-hero-text h1{font-size:var(--fs-3xl);color:var(--forest);margin:.5rem 0 1.1rem}
-.svc-hero-text .tagline{font-size:var(--fs-md);color:var(--muted);margin-bottom:1.5rem;max-width:42ch;line-height:1.7}
+.svc-hero-text .tagline{color:var(--muted);margin-bottom:1.5rem;max-width:42ch}
 .svc-hero-text .cta-row{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.8rem}
 .hero-checklist{list-style:none;margin-bottom:1.6rem}
-.hero-checklist li{display:flex;align-items:flex-start;gap:.75rem;font-size:var(--fs-base);color:var(--ink);margin-bottom:.6rem;line-height:1.6}
+.hero-checklist li{display:flex;align-items:flex-start;gap:.75rem;color:var(--ink);margin-bottom:.6rem}
 .hero-checklist li svg{width:18px;height:18px;color:var(--leaf);flex-shrink:0;margin-top:.15rem}
 .svc-hero-img{position:relative}
 .svc-img-frame{border-radius:var(--r-2xl);overflow:hidden;aspect-ratio:1/1.05;box-shadow:var(--sh-lg);border:6px solid var(--white)}
@@ -98,162 +73,69 @@ header.scrolled{box-shadow:var(--sh-sm)}
 .svc-process .overline{color:var(--orange)}
 .svc-process .proc-head{text-align:center;margin-bottom:2.4rem}
 .svc-process .proc-head h2{color:#fff;font-size:var(--fs-2xl);margin:.6rem 0 .5rem}
-.svc-process .proc-head p{color:rgba(255,250,238,.82);font-size:var(--fs-md);max-width:50ch;margin:0 auto}
+.svc-process .proc-head p{color:rgba(255,250,238,.82);max-width:50ch;margin:0 auto}
 .proc-list{max-width:860px;margin:0 auto;border-left:3px solid var(--orange)}
 .proc-row{display:flex;align-items:flex-start;gap:1.2rem;padding:1.25rem 1.4rem;border-bottom:1px solid rgba(255,250,238,.12)}
 .proc-row:last-child{border-bottom:none}
-.pn{font-family:var(--fh);font-weight:700;color:var(--orange);font-size:1.1rem;min-width:28px;flex-shrink:0;margin-top:.05rem}
+.pn{font-family:var(--fh);font-weight:700;color:var(--orange);font-size:var(--fs-base);min-width:28px;flex-shrink:0;margin-top:.05rem}
 .proc-content h3{font-family:var(--fh);font-weight:600;color:#fff;font-size:var(--fs-lg);margin-bottom:.3rem}
-.proc-content p{color:rgba(255,250,238,.8);font-size:var(--fs-base)}
+.proc-content p{color:rgba(255,250,238,.8)}
 .proc-cta{text-align:center;margin-top:2.4rem}
-.proc-cta p{color:rgba(255,250,238,.75);font-size:var(--fs-base);margin-top:.85rem;max-width:34ch;margin-left:auto;margin-right:auto}
+.svc-process .proc-cta p{color:rgba(255,250,238,.75);margin-top:.85rem;max-width:34ch;margin-left:auto;margin-right:auto}
 /* CONDITIONS */
 .conditions{background:var(--cream2);padding:clamp(60px,8vw,80px) 0}
 .conditions .sec-head{max-width:600px;margin-bottom:2rem}
 .conditions h2{font-size:var(--fs-2xl);color:var(--forest);margin:.6rem 0 .8rem}
-.conditions .sub{color:var(--muted);font-size:var(--fs-sm)}
+.conditions .sub{color:var(--muted)}
 .cond-grid{display:flex;flex-wrap:wrap;gap:.65rem}
-.cond{background:var(--cream);border:1.5px solid var(--line);border-radius:var(--r-pill);padding:.6rem 1.2rem;font-size:var(--fs-sm);color:var(--forest);font-weight:600;transition:background .22s,border-color .22s,transform .22s,box-shadow .22s;cursor:default}
+.cond{background:var(--cream);border:1.5px solid var(--line);border-radius:var(--r-pill);padding:.6rem 1.2rem;color:var(--forest);font-weight:600;transition:background var(--dur-2) var(--ease-move), border-color var(--dur-2) var(--ease-move), transform var(--dur-2) var(--ease-move), box-shadow var(--dur-2) var(--ease-move);cursor:default}
 .cond:hover{background:var(--sage);border-color:var(--sage);transform:translateY(-2px);box-shadow:var(--sh-sm)}
 /* BENEFITS */
 .benefits{background:var(--white);padding:clamp(60px,8vw,80px) 0}
 .benefits .sec-head{text-align:center;max-width:640px;margin:0 auto 2.4rem}
 .benefits h2{font-size:var(--fs-2xl);color:var(--forest);margin:.6rem 0 .8rem}
 .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.ben-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.6rem;transition:transform .3s,box-shadow .3s}
+.ben-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.6rem;transition:transform var(--dur-3) var(--ease-move), box-shadow var(--dur-3) var(--ease-move)}
 .ben-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
 .ben-ico{width:52px;height:52px;border-radius:var(--r-md);background:var(--forest);display:grid;place-items:center;margin-bottom:1rem}
 .ben-ico svg{width:24px;height:24px;color:var(--orange)}
 .ben-card h3{color:var(--forest);font-size:var(--fs-lg);margin-bottom:.5rem}
-.ben-card p{color:var(--muted);font-size:var(--fs-base)}
+.ben-card p{color:var(--muted)}
 /* FAQ */
 .svc-faq{background:var(--cream);padding:clamp(60px,8vw,80px) 0}
 .svc-faq .sec-head{max-width:560px;margin-bottom:1.8rem}
 .svc-faq h2{font-size:var(--fs-2xl);color:var(--forest);margin:.6rem 0}
 .acc-item{background:var(--cream2);border-radius:var(--r-md);margin-bottom:.7rem;overflow:hidden}
 .acc-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1rem;font-family:var(--fh);font-weight:600;font-size:var(--fs-md);color:var(--forest);min-height:44px}
-.pm{margin-left:auto;font-size:1.4rem;line-height:0;transition:transform .3s;color:var(--forest);flex-shrink:0}
+.pm{margin-left:auto;font-size:var(--fs-lg);line-height:0;transition:transform var(--dur-2) var(--ease-move);color:var(--forest);flex-shrink:0}
 .acc-item.open .pm{transform:rotate(45deg);color:var(--orange)}
-.acc-body{max-height:0;overflow:hidden;transition:max-height .38s ease}
-.acc-body p{padding:0 1.3rem 1.1rem;font-size:var(--fs-base);color:var(--muted)}
+/* grid-template-rows composites where max-height reflows, and needs no
+   scrollHeight measurement. The grid ITEM must carry no padding of its own
+   or a 0fr row still measures its padding box - hence .acc-inner. */
+.acc-body{display:grid;grid-template-rows:0fr;overflow:hidden;
+  transition:grid-template-rows var(--dur-4) var(--ease-move)}
+.acc-item.open .acc-body{grid-template-rows:1fr}
+.acc-inner{min-height:0;overflow:hidden}
+.acc-body p{padding:0 1.3rem 1.1rem;color:var(--muted)}
 /* END CTA */
 .endcta{background:var(--cream);padding:0 0 clamp(50px,7vw,70px)}
 .endcta .inner{background:var(--sage);border-radius:var(--r-2xl);padding:clamp(2rem,5vw,3.8rem);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .endcta h2{font-size:var(--fs-3xl);color:var(--forest);max-width:14ch}
-/* FOOTER */
-footer{margin-bottom:32px;background:var(--forest);color:rgba(255,250,238,.76);padding:clamp(52px,8vw,80px) 0 28px}
-.foot-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding-bottom:50px;border-bottom:1px solid var(--line-d)}
-.foot-brand img{height:88px;margin-bottom:1.1rem;width:auto}
-.foot-brand .tag{font-family:var(--fh);font-weight:700;color:var(--leaf);font-size:var(--fs-xl);line-height:1.25;max-width:16ch;letter-spacing:-.01em}
-.foot-news .nl{display:flex;background:var(--white);border-radius:var(--r-md);padding:.38rem;overflow:hidden;max-width:380px;transition:box-shadow .3s,transform .4s cubic-bezier(.34,1.56,.64,1)}
-.foot-news .nl:hover,.foot-news .nl:focus-within{box-shadow:0 0 0 3px var(--sage),0 10px 32px rgba(148,199,126,.22);transform:translateY(-3px)}
-.foot-news input{flex:1;border:none;background:none;padding:.65rem .9rem;font-family:var(--fb);font-size:var(--fs-base);color:var(--ink);outline:none;min-width:0}
-.foot-news input::placeholder{color:rgba(26,46,38,.45)}
-.foot-news .nlb{background:var(--sage);border:none;border-radius:10px;min-width:50px;height:44px;display:grid;place-items:center;cursor:pointer;overflow:hidden;transition:background .2s}
-.foot-news .nl:hover .nlb,.foot-news .nl:focus-within .nlb{background:var(--leaf)}
-.foot-news .nlb svg{width:18px;height:18px;color:var(--forest);display:block}
-.foot-news .nl:hover .nlb svg,.foot-news .nl:focus-within .nlb svg{animation:arrow-lr .4s cubic-bezier(.25,.46,.45,.94) both}
-@keyframes arrow-lr{0%{transform:translateX(-22px);opacity:0}40%{opacity:1}100%{transform:translateX(0);opacity:1}}
-.foot-news small{display:block;margin-top:.65rem;font-size:var(--fs-xs);color:rgba(255,250,238,.76)}
-.foot-news{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;text-align:right}
-.foot-contact{list-style:none;margin:1.1rem 0 0;display:grid;gap:.5rem}
-.foot-contact a{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);transition:color .2s}
-.foot-contact a:hover{color:var(--leaf)}
-.foot-contact svg{width:16px;height:16px;flex-shrink:0;color:var(--orange)}
-.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;padding:46px 0 38px}
-.foot-col h4{font-family:var(--fh);color:var(--leaf);font-size:var(--fs-xs);margin-bottom:1rem}
-.foot-col ul{list-style:none}.foot-col li{margin-bottom:.65rem}
-.foot-col a{font-size:var(--fs-sm);transition:color .2s;display:inline-flex;align-items:center;gap:.45rem}
-.foot-col a:hover{color:var(--leaf)}.foot-col svg{width:14px;height:14px;color:var(--orange);flex-shrink:0}
-.foot-bottom{display:flex;justify-content:space-between;gap:1rem;padding-top:22px;font-size:var(--fs-xs);border-top:1px solid var(--line-d);flex-wrap:wrap}
-.foot-bottom a:hover{color:var(--leaf)}.foot-legal{display:flex;gap:1.4rem}
-/* -- MENU (plain HTML/CSS) --------------------------- */
-.nav{position:relative}
-.nav-links{display:flex;align-items:center;gap:.15rem}
-.nav-links a,.nav-drop-btn{font-family:var(--fb);font-weight:600;font-size:var(--fs-sm);
-  color:var(--forest);background:none;border:none;cursor:pointer;white-space:nowrap;
-  text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;
-  padding:.55rem .7rem;border-radius:9999px;transition:background .2s,color .2s}
-.nav-links a:hover,.nav-drop-btn:hover{background:rgba(30,64,53,.07)}
-.nav-links a.active{color:var(--cta)}
-.nav-drop{position:relative}
-.nav-drop-btn svg{width:14px;height:14px;transition:transform .25s}
-.nav-drop[data-open="true"] .nav-drop-btn svg{transform:rotate(180deg)}
-.nav-drop-menu{position:absolute;top:calc(100% + .45rem);left:0;min-width:232px;z-index:81;
-  background:var(--white);border:1px solid var(--line);border-radius:12px;
-  box-shadow:var(--sh-md);padding:.35rem;display:none}
-.nav-drop[data-open="true"] .nav-drop-menu{display:block}
-.nav-drop-menu a{display:block;width:100%;padding:.62rem .7rem;border-radius:8px}
-.nav-drop-menu a:hover{background:var(--cream)}
-/* scrolled: the bar inverts to forest, everything on it goes cream */
-header.scrolled{background:var(--forest-d)}
-.nav-logo{position:relative;display:block}
-.nav-logo img{display:block;transition:opacity .3s}
-.nav-logo .logo-light{position:absolute;top:0;left:0;height:100%;width:auto;opacity:0}
-header.scrolled .nav-logo .logo-light{opacity:1}
-header.scrolled .nav-logo .logo-dark{opacity:0}
-header.scrolled .nav-links a,
-header.scrolled .nav-drop-btn{color:var(--cream)}
-header.scrolled .nav-links a:hover,
-header.scrolled .nav-drop-btn:hover{background:rgba(255,250,238,.14)}
-header.scrolled .nav-links a.active{color:var(--sage)}
-header.scrolled .nav-phone{color:var(--cream)}
-header.scrolled .nav-phone svg{color:var(--orange)}
-header.scrolled .btn-outline{color:var(--cream);box-shadow:inset 0 0 0 2px rgba(255,250,238,.75)}
-header.scrolled .btn-outline:hover{background:var(--cream);color:var(--forest)}
-header.scrolled .burger span{background:var(--cream)}
-/* the dropdown inverts with it and stays above everything on the page */
-header.scrolled .nav-drop-menu{background:var(--forest-s);border-color:rgba(255,250,238,.18)}
-header.scrolled .nav-drop-menu a{color:var(--cream)}
-header.scrolled .nav-drop-menu a:hover{background:rgba(255,250,238,.14)}
+@keyframes arrow-lr{0%{transform:translateX(-22px);opacity:0}
+40%{opacity:1}
+100%{transform:translateX(0);opacity:1}}
 /* pointer devices open the menu on hover as well as on click */
 @media(hover:hover) and (min-width:1041px){
   .nav-drop:hover .nav-drop-menu{display:block}
 }
-@media(max-width:1040px){
-  header.scrolled .nav-links{background:var(--forest-d);border-top-color:rgba(255,250,238,.18)}
-  header.scrolled .nav-links a{color:var(--cream)}
-  header.scrolled .nav-drop-menu{background:none;border:none}
-}
-
-@media(max-width:1040px){
-  .burger{display:flex}
-  .nav-links{position:absolute;top:100%;left:0;right:0;display:none;
-    flex-direction:column;align-items:stretch;gap:.1rem;z-index:80;
-    background:var(--white);border-top:1px solid var(--line);
-    padding:.7rem clamp(16px,4vw,28px) 1.1rem;box-shadow:var(--sh-md)}
-  #header[data-nav="open"] .nav-links{display:flex}
-  .nav-links a,.nav-drop-btn{padding:.75rem .8rem;font-size:var(--fs-base);
-    justify-content:space-between;width:100%}
-  .nav-drop-menu{position:static;display:block;min-width:0;padding:0 0 .2rem .85rem;
-    background:none;border:none;box-shadow:none}
-  .nav-drop-menu a{font-weight:500;padding:.6rem .8rem}
-}
-@media(max-width:480px){
-}
-
 /* ─── TYPE RHYTHM + INTERFACE PASS ───────────────── */
 p:not([class]){max-width:var(--measure)}
-.tagline,.lead,.proc-head p,.conditions .sub{line-height:var(--lh-snug)}
-.acc-body p,.ben-card p,.proc-content p{line-height:var(--lh-body)}
 h3,h4{line-height:var(--lh-snug)}
-
 /* BREADCRUMB — quiet meta, not body-weight */
-.breadcrumb{display:flex;flex-wrap:wrap;gap:.4rem;font-size:var(--fs-sm);color:var(--muted);line-height:1.4;margin-bottom:1.2rem}
-.breadcrumb a{font-weight:600;color:var(--muted);border-radius:4px;transition:color .18s}
-.breadcrumb a:hover,.breadcrumb a:focus-visible{color:var(--cta)}
-.bc-sep{color:var(--muted);opacity:.5;font-size:var(--fs-xs);line-height:1}
-.bc-cur{color:var(--forest);font-weight:600;max-width:22ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
-/* TOPBAR — meta strip, stays one row on mobile */
-.topbar{font-size:var(--fs-sm)}
-.topbar .container{min-height:34px}
-@media(max-width:560px){
-  .topbar .container{flex-direction:row;align-items:center;justify-content:center;gap:1rem;padding:5px 0}
-  .topbar a{margin-right:0}
-  .topbar a[aria-label="Email PCA"]{display:none}
-  .topbar svg{width:15px;height:15px}
-}
+
+.breadcrumb a:hover,.breadcrumb a:focus-visible{color:var(--cta)}
+
 
 /* HEADER — tighter, balanced on small screens */
 @media(max-width:820px){
@@ -262,11 +144,6 @@ h3,h4{line-height:var(--lh-snug)}
   .nav-cta{gap:.4rem}
   .nav-cta .btn{padding:.6rem 1.05rem;font-size:var(--fs-sm)}
 }
-@media(max-width:400px){
-  .nav-logo img{height:38px}
-  .nav-cta .btn{padding:.55rem .85rem}
-}
-
 /* HERO — reclaim vertical space on mobile */
 @media(max-width:820px){
   .svc-hero{padding-top:clamp(1.5rem,5vw,2.5rem)}
@@ -275,78 +152,90 @@ h3,h4{line-height:var(--lh-snug)}
   .svc-hero-text .cta-row{margin-top:1.4rem;gap:.7rem}
   .svc-hero-text .cta-row .btn{flex:1 1 100%;justify-content:center}
 }
-
-/* Comfortable tap targets */
-.topbar a,.foot-col a,.breadcrumb a{min-height:32px;display:inline-flex;align-items:center}
 .acc-head{min-height:52px;gap:.75rem}
-
-
 /* ─── SERVICE COPY SECTIONS ──────────────────────── */
 .svc-narr{background:var(--white);padding:clamp(52px,7vw,76px) 0}
 .svc-narr h2{font-size:var(--fs-2xl);color:var(--forest);margin-bottom:1.1rem;max-width:20ch}
-.svc-narr p{color:var(--muted);font-size:var(--fs-md);line-height:var(--lh-body);margin-bottom:.9rem;max-width:64ch}
+.svc-narr p{color:var(--muted);margin-bottom:.9rem;max-width:64ch}
 .svc-narr p:first-of-type{color:var(--forest);font-weight:600}
-.cond-foot{margin-top:1.6rem;color:var(--muted);font-size:var(--fs-base);max-width:62ch;
+.cond-foot{margin-top:1.6rem;color:var(--muted);max-width:62ch;
   border-left:3px solid var(--sage);padding-left:1.1rem}
 .conditions .sub,.benefits .sub{max-width:62ch}
 .benefits .sec-head{text-align:left;margin-left:0}
 .endcta .inner{align-items:center}
 .endcta-copy{flex:1;min-width:min(100%,320px)}
 .endcta-copy h2{max-width:18ch;margin-bottom:.7rem}
-.endcta-copy p{color:var(--forest-d);opacity:.85;font-size:var(--fs-base);max-width:52ch}
+.endcta-copy p{color:var(--forest-d);opacity:.85;max-width:52ch}
 @media(max-width:820px){.svc-narr h2{max-width:100%}}
-
-
 /* ─── QUIZ ───────────────────────────────────────── */
-.quiz-wrap{background:var(--cream);padding:clamp(1.5rem,4vw,3rem) 0 clamp(3rem,6vw,5rem);min-height:70vh}
-.quiz-shell{max-width:760px;margin:0 auto}
+/* the assessment owns the viewport: full height, full width, and the action
+   bar is pinned to the bottom of it rather than scrolling with the answers */
+.quiz-wrap{--qbar-bottom:clamp(2rem,9vh,6.5rem);
+  background:var(--cream);width:100%;min-height:100vh;min-height:100dvh;
+  padding:clamp(1.5rem,4vw,3rem) 0 calc(var(--qbar-h,72px) + 3rem);
+  display:flex;flex-direction:column;justify-content:center}
+.quiz-shell{max-width:760px;width:100%;margin:0 auto}
+
+/* pinned to the viewport but sized to the shell, so Continue sits on the
+   card's own right edge rather than out at the window edge */
+.q-nav{position:fixed;bottom:var(--qbar-bottom);z-index:60;
+  left:50%;transform:translateX(-50%);
+  width:min(100% - 2rem, 760px);
+  display:flex;gap:.7rem;align-items:center;flex-wrap:nowrap;
+  background:var(--cream);border:1px solid var(--line);
+  border-radius:var(--r-pill);
+  box-shadow:0 10px 30px rgba(26,46,38,.14);
+  padding:.6rem .7rem .6rem 1.25rem;min-height:var(--qbar-h,72px)}
+.q-nav .btn{order:2;margin-left:auto}
+.q-nav .q-back{order:1}
+@supports(padding:max(0px)){
+  .q-nav{bottom:max(var(--qbar-bottom),env(safe-area-inset-bottom))}
+}
 .quiz-intro{margin-bottom:1.6rem}
-.quiz-intro h1{font-size:var(--fs-2xl);color:var(--forest);margin:.4rem 0 .6rem;max-width:18ch}
+/* the base h1 is --fs-3xl; this was overriding it DOWN to --fs-2xl, so the
+   page title read smaller than a section heading elsewhere on the site. */
+.quiz-intro h1{font-size:var(--fs-3xl);color:var(--forest);margin:.4rem 0 .7rem;max-width:20ch}
 .quiz-intro p{color:var(--muted);font-size:var(--fs-base);max-width:54ch}
 .quiz-prog{display:flex;align-items:center;gap:.9rem;margin-bottom:1.8rem}
 .quiz-bar{flex:1;height:8px;border-radius:99px;background:var(--line);overflow:hidden}
-.quiz-bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--cta);
-  transition:width .45s cubic-bezier(.4,0,.2,1)}
+.quiz-bar i{display:block;height:100%;width:100%;border-radius:99px;background:var(--cta);
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform var(--dur-4) var(--ease-move)}
 .quiz-step-n{font-size:var(--fs-xs);font-weight:700;color:var(--muted);white-space:nowrap;
   letter-spacing:.08em;text-transform:uppercase}
-
 .q-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-xl);
   padding:clamp(1.4rem,4vw,2.6rem);box-shadow:var(--sh-md)}
 .q-panel[hidden]{display:none}
-.q-panel{animation:qin .38s cubic-bezier(.2,.7,.3,1) both}
-@keyframes qin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.q-panel{animation:qin var(--dur-4) var(--ease-enter) both}
+@keyframes qin{from{opacity:0}to{opacity:1}}
 .q-eyebrow{font-size:var(--fs-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--cta);display:block;margin-bottom:.6rem}
 .q-card h2{font-size:var(--fs-xl);color:var(--forest);margin-bottom:.5rem;max-width:24ch}
 .q-hint{color:var(--muted);font-size:var(--fs-sm);margin-bottom:1.4rem}
-
 .opts{display:grid;gap:.6rem;margin-bottom:1.6rem}
 .opt{display:flex;align-items:center;gap:.85rem;padding:.95rem 1.15rem;border-radius:var(--r-md);
   border:1.5px solid var(--line);background:var(--cream);cursor:pointer;text-align:left;width:100%;
   font-family:var(--fb);font-size:var(--fs-base);color:var(--ink);min-height:56px;
-  transition:border-color .2s,background .2s,transform .2s}
+  transition:border-color var(--dur-3) var(--ease-move), background var(--dur-3) var(--ease-move), transform var(--dur-3) var(--ease-move)}
 .opt:hover{border-color:var(--sage);transform:translateY(-1px)}
 .opt .box{width:22px;height:22px;border-radius:6px;border:2px solid var(--line);flex-shrink:0;
-  display:grid;place-items:center;transition:background .2s,border-color .2s}
+  display:grid;place-items:center;transition:background var(--dur-1) var(--ease-move), border-color var(--dur-1) var(--ease-move)}
 .opt[data-single] .box{border-radius:50%}
-.opt .box svg{width:13px;height:13px;color:#fff;opacity:0;transition:opacity .18s}
+.opt .box svg{width:13px;height:13px;color:#fff;opacity:0;transition:opacity var(--dur-1) var(--ease-move)}
 .opt[aria-pressed="true"]{border-color:var(--cta);background:#FFF3E8}
 .opt[aria-pressed="true"] .box{background:var(--cta);border-color:var(--cta)}
 .opt[aria-pressed="true"] .box svg{opacity:1}
-
-.q-nav{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
 .q-nav .btn[disabled]{opacity:.45;pointer-events:none}
 .q-back{background:none;border:none;color:var(--muted);font-family:var(--fb);font-weight:600;
   font-size:var(--fs-sm);cursor:pointer;padding:.6rem .2rem;min-height:44px}
 .q-back:hover{color:var(--forest)}
-
 /* PROOF INTERSTITIALS */
 .proof{background:var(--forest);color:var(--cream);border-radius:var(--r-xl);
   padding:clamp(1.5rem,4vw,2.6rem);box-shadow:var(--sh-lg)}
 .proof .q-eyebrow{color:var(--orange)}
 .proof h2{color:#fff;font-size:var(--fs-xl);margin-bottom:1.2rem;max-width:26ch}
 .proof-quote{font-size:var(--fs-md);line-height:var(--lh-body);color:#fff;margin-bottom:1rem;
-  border-left:3px solid var(--orange);padding-left:1.1rem;max-width:60ch}
+  max-width:60ch}
 .proof-by{font-size:var(--fs-sm);color:var(--leaf);font-weight:700}
 .proof-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.6rem 0}
 .proof-stat b{display:block;font-family:var(--fh);font-size:var(--fs-xl);color:var(--orange);line-height:1.1}
@@ -361,7 +250,37 @@ h3,h4{line-height:var(--lh-snug)}
 .proof-logos{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.2rem 0}
 .proof-logos span{font-size:var(--fs-xs);font-weight:700;color:rgba(255,250,238,.9);
   border:1px solid rgba(255,250,238,.2);border-radius:var(--r-pill);padding:.4rem .85rem}
-
+/* DELIVERY + SUCCESS
+   The plan is emailed rather than rendered here, so the last step only asks
+   where to send it. The Google/Apple buttons are interface only. */
+.q-deliver h2,.q-done h2{font-size:var(--fs-2xl);margin-bottom:.7rem}
+.q-sso{display:grid;gap:.6rem;margin:1.4rem 0 1.1rem}
+.q-sso-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  width:100%;padding:.85rem 1.1rem;border-radius:var(--r-pill);cursor:pointer;
+  font-family:var(--fb);font-weight:700;font-size:var(--fs-sm);
+  color:var(--forest);background:var(--white);border:1.5px solid var(--line);
+  transition:border-color var(--dur-1) var(--ease-move),box-shadow var(--dur-1) var(--ease-move)}
+.q-sso-btn:hover{border-color:var(--forest);box-shadow:var(--sh-sm)}
+.q-sso-btn:focus-visible{outline:3px solid var(--forest);outline-offset:2px}
+.q-sso-btn svg{flex:none}
+/* the rule is drawn either side of the word rather than behind it */
+.q-or{display:flex;align-items:center;gap:.8rem;margin:1.1rem 0;
+  font-size:var(--fs-xs);color:var(--muted)}
+.q-or::before,.q-or::after{content:"";flex:1 1 auto;height:1px;background:var(--line)}
+.q-fields{display:grid;gap:.8rem;margin:1.1rem 0 .9rem}
+.q-field{display:grid;gap:.35rem}
+.q-field span{font-size:var(--fs-xs);font-weight:700;color:var(--forest)}
+.q-field input{width:100%;padding:.8rem 1rem;border-radius:var(--r-md);
+  font-family:var(--fb);font-size:var(--fs-base);color:var(--ink);
+  background:var(--white);border:1.5px solid var(--line)}
+.q-field input:focus{outline:3px solid var(--forest);outline-offset:1px;border-color:var(--forest)}
+.q-err{font-size:var(--fs-sm);font-weight:600;color:var(--cta);margin:.2rem 0 0}
+.q-fine{font-size:var(--fs-xs);color:var(--muted);margin:.6rem 0 0}
+.q-done{text-align:center}
+.q-done .q-nav{justify-content:center}
+.q-done-ic{display:grid;place-items:center;width:56px;height:56px;margin:0 auto 1.1rem;
+  border-radius:50%;background:var(--sage);color:var(--forest)}
+.q-done-ic svg{width:28px;height:28px}
 /* RESULT */
 .q-result h2{font-size:var(--fs-2xl);margin-bottom:.7rem}
 .rec-list{display:grid;gap:.75rem;margin:1.4rem 0}
@@ -373,24 +292,23 @@ h3,h4{line-height:var(--lh-snug)}
 .rec-ic svg{width:19px;height:19px;color:var(--orange)}
 .rec b{display:block;font-family:var(--fh);color:var(--forest);font-size:var(--fs-base)}
 .rec p{font-size:var(--fs-sm);color:var(--muted);margin:.15rem 0 0;max-width:52ch}
-.q-disc{font-size:var(--fs-xs);color:var(--muted);margin-top:1.4rem;line-height:1.6;max-width:62ch}
+/* clearance lives on the last element, not the wrapper: the wrapper centres
+   its content, so padding there gets absorbed and the bar covered this. */
+/* clearance for the pinned bar. Scoped to .quiz-shell because the shared
+   `p:last-child{margin-bottom:0}` (0,1,1) outranks a lone .q-disc (0,1,0),
+   and this paragraph is the shell's last child. */
+.quiz-shell .q-disc{color:var(--muted);margin-top:1.6rem;max-width:none;width:100%;
+  margin-bottom:calc(var(--qbar-h,72px) + var(--qbar-bottom,2rem) + 2rem)}
+@media(max-width:600px){.proof-stats{grid-template-columns:1fr;gap:.7rem;text-align:left}
+.proof-docs{grid-template-columns:1fr}
+.pdoc{display:flex;align-items:center;gap:.9rem;text-align:left}
+.pdoc img{margin:0;width:54px;height:54px;flex-shrink:0}
+.pdoc-t{min-width:0}
+.pdoc-t b{font-size:var(--fs-base)}
+.pdoc-t span{margin-top:.15rem}
+.q-nav .btn{flex:1 1 100%;justify-content:center}
 
-@media(max-width:600px){
-  .proof-stats{grid-template-columns:1fr;gap:.7rem;text-align:left}
-  .proof-docs{grid-template-columns:1fr}
-  .pdoc{display:flex;align-items:center;gap:.9rem;text-align:left}
-  .pdoc img{margin:0;width:54px;height:54px;flex-shrink:0}
-  .pdoc-t{min-width:0}
-  .pdoc-t b{font-size:var(--fs-base)}
-  .pdoc-t span{margin-top:.15rem}
-  .q-nav .btn{flex:1 1 100%;justify-content:center}
 }
-
-
-.nl-link{text-decoration:none;align-items:center;justify-content:space-between;gap:.6rem}
-.nl-text{padding:.65rem .9rem;font-weight:700;color:var(--ink);font-size:var(--fs-base)}
-
-
 /* ---- WCAG AA contrast fixes (v2) ---- */
 /* --orange #F27E33 = 4.19:1 on forest, 2.29:1 on cream2 - both below AA.
    Lighter orange on dark grounds; the deeper cta brown on light ones. */
@@ -399,22 +317,23 @@ h3,h4{line-height:var(--lh-snug)}
 .acc-item .pm,.acc-item.open .pm,.pm{color:var(--cta)}
 .hero-rating-link .stars,.stars{color:var(--cta)}
 .post-body .meta .dot,.meta .dot,.dot{color:var(--cta)}
-
-/* ===========================================================================
-   PRELOADER — the full lockup draws in, then flies to the header logo's box
-   ======================================================================== */
-.preload{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
-  background:var(--ground);will-change:opacity}
 .preload-mark{will-change:transform}
 /* the sting animates itself (SMIL, inside the file) — nothing here drives it */
 .pl-svg{display:block;width:min(72vw,420px);height:auto}
-/* the header logo stays out of sight until the mark lands on it */
-.is-preloading body{overflow:hidden}
-.is-preloading .nav-logo{opacity:0}
-.nav-logo{transition:opacity .3s ease}
-@media(prefers-reduced-motion:reduce){
-  .pl-svg path{animation:none;opacity:1}
-  .preload-mark{transition:none !important}
+@media(prefers-reduced-motion:reduce){.pl-svg path{animation:none;opacity:1}
+.preload-mark{transition:none var(--dur-2) var(--ease-move)}
+
+}
+
+
+@media(max-width:640px){
+  /* 9vh floated the bar ~73px up on a phone, straight over the options */
+  .quiz-wrap{--qbar-bottom:.75rem}
+  .q-nav{left:.75rem;right:.75rem;width:auto;transform:none;
+    padding:.5rem .55rem .5rem .9rem;min-height:64px;--qbar-h:64px}
+  .q-nav .q-back{white-space:nowrap;font-size:var(--fs-xs);padding:.5rem .25rem;min-height:44px}
+  .q-nav .btn{padding:.7rem 1.05rem;white-space:nowrap}
+  .quiz-intro h1{max-width:none}
 }
 </style>
   <link rel="stylesheet" href="assets/css/design-system.css?v=1788331338">
@@ -422,52 +341,6 @@ h3,h4{line-height:var(--lh-snug)}
 <body>
 <a href="#main" class="skip-nav">Skip to main content</a>
 <noscript><style>.preload{display:none}.nav-logo{opacity:1 !important}</style></noscript>
-<!-- PRELOADER -->
-<div class="preload" id="preload" role="presentation">
-  <div class="preload-mark" id="preloadMark">
-    <img class="pl-svg" src="assets/images/pca-sting.svg" alt="" width="246" height="85">
-  </div>
-</div>
-<script>
-/* Preloader -> navbar logo. The mark draws in, then FLIPs onto the header
-   logo's exact box and hands off. Any failure just removes the overlay. */
-(function(){
-  var pre=document.getElementById('preload'), mark=document.getElementById('preloadMark');
-  if(!pre||!mark) return;
-  var root=document.documentElement;
-  root.classList.add('is-preloading');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var t0=Date.now(), done=false;
-  function finish(){
-    if(done) return; done=true;
-    root.classList.remove('is-preloading');
-    if(pre.parentNode) pre.parentNode.removeChild(pre);
-  }
-  function handoff(){
-    if(done) return;
-    var target=document.querySelector('.nav-logo .logo-dark')||
-               document.querySelector('.nav-logo img');
-    if(!target||reduce){ pre.style.opacity='0'; setTimeout(finish,260); return; }
-    var a=mark.getBoundingClientRect(), b=target.getBoundingClientRect();
-    if(!a.width||!b.width){ finish(); return; }
-    var s=b.width/a.width;
-    var dx=(b.left+b.width/2)-(a.left+a.width/2);
-    var dy=(b.top+b.height/2)-(a.top+a.height/2);
-    mark.style.transition='transform .9s cubic-bezier(.65,0,.2,1)';
-    void mark.offsetWidth;        /* commit the transition before the value */
-    mark.style.transform='translate('+dx+'px,'+dy+'px) scale('+s+')';
-    pre.style.transition='background-color .55s ease .3s, opacity .3s ease .62s';
-    pre.style.backgroundColor='transparent';
-    pre.style.opacity='0';
-    setTimeout(finish,900);
-  }
-  /* the sequence finishes at ~1.32s, so hold for that and fly regardless of
-     whether every image has loaded — waiting on `load` made the hold length
-     depend on network speed */
-  setTimeout(handoff, reduce?0:1900);   /* the sting resolves at ~1.8s */
-  setTimeout(handoff,4500);          /* never trap the page behind the overlay */
-})();
-</script>
 <div class="topbar"><div class="container">
   <a href="mailto:info@painclinicaustralia.com.au" aria-label="Email PCA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg><span class="tb-label">info@painclinicaustralia.com.au</span></a>
   <a href="tel:+611300070910" aria-label="Call 1300 070 910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+61 1300 070 910</a>
@@ -481,24 +354,59 @@ h3,h4{line-height:var(--lh-snug)}
                 aria-expanded="false" aria-controls="navServicesMenu">Services
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </button>
-        <div class="nav-drop-menu" id="navServicesMenu">
-          <a href="pca-consultation.html">Consultation</a>
-          <a href="pca-psychotherapy.html">Psychotherapy</a>
-          <a href="pca-physiotherapy.html">Physiotherapy</a>
-          <a href="pca-dietary-guidance.html">Dietary Guidance</a>
-          <a href="pca-intimacy.html">Intimacy</a>
+        <div class="nav-drop-menu nav-mega" id="navServicesMenu">
+          <div class="mega-grid pcard-grid">
+            <a class="pcard pcard--mega" href="pca-consultation.html">
+              <span class="pcard-thumb"><img src="assets/images/consultation.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Consultation</h3>
+                <p class="pcard-note">Free first assessment with an AHPRA doctor</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-psychotherapy.html">
+              <span class="pcard-thumb"><img src="assets/images/psychotherapy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Psychotherapy</h3>
+                <p class="pcard-note">Retrain how your nervous system reads pain</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-physiotherapy.html">
+              <span class="pcard-thumb"><img src="assets/images/physiotherapy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Physiotherapy</h3>
+                <p class="pcard-note">Movement plans built for painful days</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-dietary-guidance.html">
+              <span class="pcard-thumb"><img src="assets/images/dietary-guidance.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Dietary Guidance</h3>
+                <p class="pcard-note">Eating well on your hardest days</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-intimacy.html">
+              <span class="pcard-thumb"><img src="assets/images/intimacy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Intimacy</h3>
+                <p class="pcard-note">The part of pain nobody asks about</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+          </div>
         </div>
       </div>
-      <a href="index.html#about">About</a>
-      <a href="index.html#insurance">Insurance</a>
       <a href="pca-resources.html">Resources</a>
-      <a href="index.html#faq">FAQs</a>
+      <a href="pca-contact.html">Contact</a>
     </nav>
   <div class="nav-cta">
-    <span class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>1300 070 910</span>
-    <a href="https://form.typeform.com/to/wy5ImTV5?typeform-embed-id=3705670033859164&typeform-embed=embed-widget&typeform-source=painclinicaustralia.com.au&typeform-medium=snippet&typeform-medium-version=next&embed-opacity=100&typeform-embed-handles-redirect=1&typeform-embed-no-heading=true" class="btn btn-forest" target="_blank" rel="noopener">Get Started</a>
-    <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
-  </div>
+    <a href="tel:1300070910" class="nav-call" aria-label="Call Pain Clinic Australia on 1300 070 910" title="1300 070 910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="pca-quiz.html" class="btn btn-outline">Get Started</a>
+      <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+    </div>
 </div></header>
 <main id="main">
 <section class="quiz-wrap">
@@ -507,15 +415,12 @@ h3,h4{line-height:var(--lh-snug)}
 
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
-        <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
+        <span class="bc-dot" aria-hidden="true"></span>
         <span class="bc-cur" aria-current="page">Pain Assessment</span>
       </nav>
 
       <div class="quiz-intro">
-        <span class="overline">Free &amp; confidential</span>
         <h1>Tell us about your pain</h1>
-        <p>Nine short steps. No cost, no obligation &mdash; your answers help our Pain Management
-        Coordinators prepare before you speak to anyone.</p>
       </div>
 
       <div class="quiz-prog">
@@ -530,11 +435,24 @@ h3,h4{line-height:var(--lh-snug)}
 <section class="q-panel" data-panel="1" data-key="duration" data-single="1" hidden><span class="q-eyebrow">Your pain</span><h2>How long have you been living with this pain?</h2><p class="q-hint">Chronic pain is generally pain that persists beyond three months.</p><div class="opts" role="group"><button type="button" class="opt" aria-pressed="false" data-val="Less than 3 months" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Less than 3 months</span></button><button type="button" class="opt" aria-pressed="false" data-val="3&ndash;12 months" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>3&ndash;12 months</span></button><button type="button" class="opt" aria-pressed="false" data-val="1&ndash;3 years" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>1&ndash;3 years</span></button><button type="button" class="opt" aria-pressed="false" data-val="3&ndash;10 years" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>3&ndash;10 years</span></button><button type="button" class="opt" aria-pressed="false" data-val="More than 10 years" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>More than 10 years</span></button></div><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
 <section class="q-panel proof" data-panel="2" data-proof="1" hidden><span class="q-eyebrow">You're not alone</span><h2>Australians who had already tried everything else</h2><blockquote class="proof-quote">&ldquo;I spoke with PCA consultant Rhea at length, and for the first time in 5 years, I felt I was actually being heard by someone in terms of what I have been going through.&rdquo;</blockquote><p class="proof-by">&mdash; Zoe Lynch</p><div class="proof-stats"><div class="proof-stat"><b>4.6/5.0</b><span>Google trust rating</span></div><div class="proof-stat"><b>100%</b><span>Telehealth &mdash; consult from home</span></div><div class="proof-stat"><b>Free</b><span>Initial assessment &amp; care plan</span></div></div><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
 <section class="q-panel" data-panel="3" data-key="tried" data-single="" hidden><span class="q-eyebrow">Your history</span><h2>What have you already tried?</h2><p class="q-hint">Understanding your previous care helps us avoid starting from zero.</p><div class="opts" role="group"><button type="button" class="opt" aria-pressed="false" data-val="Prescription pain medication"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Prescription pain medication</span></button><button type="button" class="opt" aria-pressed="false" data-val="Over-the-counter pain relief"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Over-the-counter pain relief</span></button><button type="button" class="opt" aria-pressed="false" data-val="Physiotherapy"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Physiotherapy</span></button><button type="button" class="opt" aria-pressed="false" data-val="Surgery or procedures"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Surgery or procedures</span></button><button type="button" class="opt" aria-pressed="false" data-val="Psychology or counselling"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Psychology or counselling</span></button><button type="button" class="opt" aria-pressed="false" data-val="Injections or nerve blocks"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Injections or nerve blocks</span></button><button type="button" class="opt" aria-pressed="false" data-val="Alternative therapies"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Alternative therapies</span></button><button type="button" class="opt" aria-pressed="false" data-val="Nothing has worked so far"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Nothing has worked so far</span></button></div><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
-<section class="q-panel proof" data-panel="4" data-proof="1" hidden><span class="q-eyebrow">Who you'll be seen by</span><h2>AHPRA-registered clinicians, not a call centre</h2><div class="proof-docs"><div class="pdoc"><img src="assets/doctors/DrManohar.webp" alt="" loading="lazy"><div class="pdoc-t"><b>Dr. David Manohar</b><span>Pain Specialist &middot; FANZCA(Pain), MPainMed</span></div></div><div class="pdoc"><img src="assets/doctors/DrJonathan.webp" alt="" loading="lazy"><div class="pdoc-t"><b>Dr. Jonathan Herald</b><span>MBBS, MSpMed &middot; 20 years&rsquo; surgical experience</span></div></div><div class="pdoc"><img src="assets/doctors/DrAayuMehmi.webp" alt="" loading="lazy"><div class="pdoc-t"><b>Aayu Mehmi</b><span>Psychologist &middot; PACFA registered</span></div></div></div><p class="proof-quote" style="border-left-color:var(--sage)">Your doctor holds the broader medical view while physiotherapy, psychotherapy and dietetics work to the same plan.</p><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
+<section class="q-panel proof" data-panel="4" data-proof="1" hidden><span class="q-eyebrow">Who you'll be seen by</span><h2>AHPRA-registered clinicians, not a call centre</h2><div class="proof-docs"><div class="pdoc"><img src="assets/doctors/DrManohar.webp" alt="" loading="lazy"><div class="pdoc-t"><b>Dr. David Manohar</b><span>Pain Specialist &middot; FANZCA(Pain), MPainMed</span></div></div><div class="pdoc"><img src="assets/doctors/DrJonathan.webp" alt="" loading="lazy"><div class="pdoc-t"><b>Dr. Jonathan Herald</b><span>MBBS, MSpMed &middot; 20 years&rsquo; surgical experience</span></div></div><div class="pdoc"><img src="assets/doctors/DrAayuMehmi.webp" alt="" loading="lazy"><div class="pdoc-t"><b>Aayu Mehmi</b><span>Psychologist &middot; PACFA registered</span></div></div></div><p class="proof-quote">Your doctor holds the broader medical view while physiotherapy, psychotherapy and dietetics work to the same plan.</p><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
 <section class="q-panel" data-panel="5" data-key="impact" data-single="" hidden><span class="q-eyebrow">Daily life</span><h2>How is pain affecting your daily life?</h2><p class="q-hint">Select all that apply. This helps shape which parts of your care team we involve.</p><div class="opts" role="group"><button type="button" class="opt" aria-pressed="false" data-val="Sleep is disrupted"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Sleep is disrupted</span></button><button type="button" class="opt" aria-pressed="false" data-val="I&rsquo;ve stopped moving or exercising"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>I&rsquo;ve stopped moving or exercising</span></button><button type="button" class="opt" aria-pressed="false" data-val="It affects my mood or anxiety"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>It affects my mood or anxiety</span></button><button type="button" class="opt" aria-pressed="false" data-val="It affects my work or income"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>It affects my work or income</span></button><button type="button" class="opt" aria-pressed="false" data-val="Appetite or eating has changed"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Appetite or eating has changed</span></button><button type="button" class="opt" aria-pressed="false" data-val="It affects my relationships or intimacy"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>It affects my relationships or intimacy</span></button><button type="button" class="opt" aria-pressed="false" data-val="I avoid activities I used to enjoy"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>I avoid activities I used to enjoy</span></button></div><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
 <section class="q-panel" data-panel="6" data-key="funding" data-single="1" hidden><span class="q-eyebrow">Funding</span><h2>How would you like to fund your care?</h2><p class="q-hint">Some patients access treatment through insurance, WorkCover or CTP claims.</p><div class="opts" role="group"><button type="button" class="opt" aria-pressed="false" data-val="Private health insurance" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Private health insurance</span></button><button type="button" class="opt" aria-pressed="false" data-val="WorkCover claim" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>WorkCover claim</span></button><button type="button" class="opt" aria-pressed="false" data-val="CTP / motor accident claim" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>CTP / motor accident claim</span></button><button type="button" class="opt" aria-pressed="false" data-val="Paying out of pocket" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Paying out of pocket</span></button><button type="button" class="opt" aria-pressed="false" data-val="I&rsquo;m not sure yet" data-single><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>I&rsquo;m not sure yet</span></button></div><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
-<section class="q-panel proof" data-panel="7" data-proof="1" hidden><span class="q-eyebrow">Insurance-backed</span><h2>We&rsquo;re partnered with major Australian insurers</h2><div class="proof-logos"><span>QBE</span><span>AAMI</span><span>GIO</span><span>IAG</span><span>EML</span><span>i-Care</span><span>Allianz</span><span>SunCorp</span><span>NRMA</span><span>Gallagher Bassett</span><span>DXC Technology</span></div><p class="proof-quote" style="border-left-color:var(--sage)">Some patients have also had treatment plans covered by TAC, WCC, NISQ and Blue Scope. WorkCover and CTP claims are accepted subject to approval by the relevant insurer or regulatory body.</p><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
-<section class="q-panel q-result" data-panel="8" data-result="1" hidden><span class="q-eyebrow">Your suggested pathway</span><h2 id="recTitle">Based on what you&rsquo;ve told us</h2><p class="q-hint" id="recSummary"></p><div class="rec-list" id="recList"></div><div class="q-nav"><a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Book your free assessment <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><button type="button" class="q-back">Back</button></div></section>
+<section class="q-panel proof" data-panel="7" data-proof="1" hidden><span class="q-eyebrow">Insurance-backed</span><h2>We&rsquo;re partnered with major Australian insurers</h2><div class="proof-logos"><span>QBE</span><span>AAMI</span><span>GIO</span><span>IAG</span><span>EML</span><span>i-Care</span><span>Allianz</span><span>SunCorp</span><span>NRMA</span><span>Gallagher Bassett</span><span>DXC Technology</span></div><p class="proof-quote">Some patients have also had treatment plans covered by TAC, WCC, NISQ and Blue Scope. WorkCover and CTP claims are accepted subject to approval by the relevant insurer or regulatory body.</p><div class="q-nav"><button type="button" class="btn btn-amber q-next">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
+<section class="q-panel q-deliver" data-panel="8" data-deliver="1" hidden><span class="q-eyebrow">Last step</span><h2>Where should we send your results?</h2><p class="q-hint">Your Pain Management Coordinator will put together a plan based on your answers and email it to you.</p>
+<div class="q-sso">
+  <button type="button" class="q-sso-btn" data-sso="google"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="#4285F4" d="M23.5 12.27c0-.79-.07-1.54-.2-2.27H12v4.51h6.47a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.55-5.17 3.55-8.87z"/><path fill="#34A853" d="M12 24c3.24 0 5.96-1.08 7.95-2.91l-3.88-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96h-4v3.09A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.27 14.29a7.2 7.2 0 0 1 0-4.58V6.62h-4a12 12 0 0 0 0 10.76z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.95 1.19 15.24 0 12 0A12 12 0 0 0 1.27 6.62l4 3.09C6.22 6.86 8.87 4.75 12 4.75z"/></svg> Continue with Google</button>
+  <button type="button" class="q-sso-btn" data-sso="apple"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="currentColor"><path d="M16.36 12.72c.02 2.53 2.22 3.37 2.25 3.38-.02.06-.35 1.2-1.16 2.38-.7 1.02-1.43 2.03-2.57 2.05-1.12.02-1.48-.66-2.77-.66-1.28 0-1.68.64-2.74.68-1.1.04-1.94-1.1-2.65-2.11-1.45-2.1-2.55-5.92-1.07-8.5.74-1.29 2.05-2.1 3.48-2.12 1.08-.02 2.1.73 2.77.73.66 0 1.9-.9 3.2-.77.55.02 2.09.22 3.08 1.67-.08.05-1.84 1.07-1.82 3.19zM14.3 3.9c.6-.72 1-1.72.89-2.72-.86.04-1.9.57-2.51 1.29-.55.64-1.03 1.66-.9 2.64.96.07 1.93-.49 2.52-1.21z"/></svg> Continue with Apple</button>
+</div>
+<div class="q-or"><span>or</span></div>
+<div class="q-fields">
+  <label class="q-field"><span>Your name</span><input type="text" id="dName" name="name" autocomplete="name" placeholder="Jane Miller"></label>
+  <label class="q-field"><span>Email address</span><input type="email" id="dEmail" name="email" autocomplete="email" placeholder="jane@example.com"></label>
+  <p class="q-err" id="dErr" role="alert" hidden></p>
+</div>
+<p class="q-fine">We only use this to send your results. No spam, and you can unsubscribe any time.</p>
+<div class="q-nav"><button type="button" class="btn btn-amber q-send" id="dSend">Send me my results <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><button type="button" class="q-back">Back</button></div></section>
+<section class="q-panel q-done" data-panel="9" data-done="1" hidden><span class="q-done-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><h2>You&rsquo;re all set</h2><p class="q-hint" id="doneMsg">Check your inbox &mdash; your Pain Management Coordinator is putting your plan together now, and your results will land by email shortly.</p><p class="q-fine">It usually arrives within one business day. If you don&rsquo;t see it, check your spam folder.</p><div class="q-nav"><a href="index.html" class="btn btn-amber">Back to the site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></section>
         </form>
       </div>
 
@@ -546,47 +464,61 @@ h3,h4{line-height:var(--lh-snug)}
   </div>
 </section>
 </main>
-<footer role="contentinfo"><div class="container">
-  <div class="foot-top">
-    <div class="foot-brand">
-      <img src="assets/images/pca-logo-white.png" alt="Pain Clinic Australia" width="180" height="44" loading="lazy">
-      <p class="tag">Wondering if you have symptoms? Take our quiz to find out!</p>
+
+<!-- MOBILE STICKY CTA -->
+
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/images/pca-logo-footer.svg" alt="Pain Clinic Australia" width="376" height="69" loading="lazy">
+        <p class="tag">Australian-registered clinicians, telehealth nationwide.</p>
         <ul class="foot-contact">
           <li><a href="tel:+611300070910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>1300 070 910</a></li>
           <li><a href="mailto:info@painclinicaustralia.com.au"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>info@painclinicaustralia.com.au</a></li>
         </ul>
       </div>
-    <div class="foot-news">
-      <a class="nl nl-link" href="pca-quiz.html" aria-label="Take the pain assessment quiz">
-        <span class="nl-text">Take the Quiz</span>
-        <span class="nlb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <small>*We never share your information with third parties.</small>
+      <div class="foot-news">
+        <a class="foot-quiz" href="pca-quiz.html">
+          <span class="foot-quiz-img"><img src="assets/images/consultation.webp" alt="" loading="lazy"></span>
+          <span class="foot-quiz-body">
+            <span class="foot-quiz-title">Not sure where to start?</span>
+            <span class="foot-quiz-note">Nine short questions. Free, no obligation.</span>
+            <span class="foot-quiz-cta">Take the Quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+        </a>
+        <small>*We never share your information with third parties.</small>
+      </div>
+    </div>
+    <nav class="foot-cols" aria-label="Footer navigation">
+      <div class="foot-col"><h4>Explore</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pca-resources.html">Blog</a></li><li><a href="index.html#faq">FAQs</a></li><li><a href="pca-contact.html">Contact</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Pain Treatments</h4><ul>
+        <li><a href="index.html#about">Pain Types</a></li><li><a href="index.html#bodyscopes">Treatment Options</a></li>
+        <li><a href="#">Cannabis Guideline</a></li><li><a href="index.html#insurance">Insurance</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Follow Us</h4><ul>
+        <li><a href="https://www.facebook.com/painclinicaustralia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+        <li><a href="https://www.instagram.com/painclinic.australia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>Instagram</a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=61447494328" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/></svg>WhatsApp</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Services</h4><ul>
+        <li><a href="pca-consultation.html">Consultation</a></li>
+        <li><a href="pca-psychotherapy.html">Psychotherapy</a></li>
+        <li><a href="pca-physiotherapy.html">Physiotherapy</a></li>
+        <li><a href="pca-dietary-guidance.html">Dietary Guidance</a></li>
+        <li><a href="pca-intimacy.html">Intimacy</a></li>
+      </ul></div>
+    </nav>
+    <div class="foot-bottom">
+      <span>&copy; Pain Clinic Australia 2026. All Rights Reserved.</span>
+      <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
     </div>
   </div>
-  <nav class="foot-cols" aria-label="Footer navigation">
-    <div class="foot-col"><h4>Explore</h4><ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="pca-resources.html">Blog</a></li><li><a href="index.html#faq">FAQs</a></li>
-      <li><a href="mailto:info@painclinicaustralia.com.au">Contact</a></li>
-    </ul></div>
-    <div class="foot-col"><h4>Pain Treatments</h4><ul>
-      <li><a href="index.html#about">Pain Types</a></li>
-      <li><a href="index.html#process">Treatment Options</a></li>
-      <li><a href="#">Cannabis Guideline</a></li>
-      <li><a href="index.html#insurance">Insurance</a></li>
-    </ul></div>
-    <div class="foot-col"><h4>Follow Us</h4><ul>
-      <li><a href="https://www.facebook.com/painclinicaustralia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
-      <li><a href="https://www.instagram.com/painclinic.australia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>Instagram</a></li>
-      <li><a href="https://api.whatsapp.com/send?phone=61447494328" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/></svg>WhatsApp</a></li>
-    </ul></div>
-  </nav>
-  <div class="foot-bottom">
-    <span>&copy; Pain Clinic Australia 2026. All Rights Reserved.</span>
-    <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
-  </div>
-</div></footer>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js">
 </script>
 <script>
@@ -621,7 +553,10 @@ navMQ.addEventListener('change',function(){
   setNav(false,true);
 });
 function setDrop(open){navDrop.setAttribute('data-open',open?'true':'false');
-  navDropBtn.setAttribute('aria-expanded',open?'true':'false');}
+  navDropBtn.setAttribute('aria-expanded',open?'true':'false');
+  /* the panel is height-animated, so growing the submenu inside it has to
+     release the fixed height or the extra links are clipped */
+  if(navMenu&&navMQ.matches&&hdr.getAttribute('data-nav')==='open')navMenu.style.height='auto';}
 setNav(false,true); setDrop(false);
 burger.addEventListener('click',()=>setNav(hdr.getAttribute('data-nav')!=='open'));
 navDropBtn.addEventListener('click',e=>{e.stopPropagation();setDrop(navDrop.getAttribute('data-open')!=='true');});
@@ -633,11 +568,10 @@ navMenu.querySelectorAll('a').forEach(a=>{const h=a.getAttribute('href')||'';
   if(h.split('#')[0]===_cp&&!h.includes('#'))a.classList.add('active');});
 document.querySelectorAll('.acc-head').forEach(btn=>btn.addEventListener('click',()=>{
   const item=btn.parentElement,body=item.querySelector('.acc-body'),isOpen=item.classList.contains('open');
-  document.querySelectorAll('.acc-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.acc-body').style.maxHeight=null;});
-  if(!isOpen){item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
+  document.querySelectorAll('.acc-item.open').forEach(o=>{o.classList.remove('open');});
+  if(!isOpen){item.classList.add('open');}
 }));
-document.querySelectorAll('.acc-item.open .acc-body').forEach(b=>b.style.maxHeight=b.scrollHeight+'px');
-document.querySelector('.foot-news .nlb').addEventListener('click',()=>window.open('https://form.typeform.com/to/wy5ImTV5?typeform-embed-id=3705670033859164&typeform-embed=embed-widget&typeform-source=painclinicaustralia.com.au&typeform-medium=snippet&typeform-medium-version=next&embed-opacity=100&typeform-embed-handles-redirect=1&typeform-embed-no-heading=true','_blank'));
+
 
 </script>
 
@@ -646,26 +580,39 @@ document.querySelector('.foot-news .nlb').addEventListener('click',()=>window.op
   var panels=[].slice.call(document.querySelectorAll('.q-panel'));
   var bar=document.getElementById('bar'), stepN=document.getElementById('stepN');
   var live=document.getElementById('live');
-  var total=panels.length, cur=0, answers={};
+  /* the success panel is an outcome, not a step: it stays out of the count so
+     the delivery panel reads as the last step and the bar reaches full there */
+  var total=panels.filter(function(p){return !p.hasAttribute('data-done')}).length;
+  var cur=0, answers={};
 
   function render(){
     panels.forEach(function(p,i){ p.hidden = i!==cur; });
-    bar.style.width = Math.round(((cur+1)/total)*100)+'%';
-    stepN.textContent = 'Step '+(cur+1)+' of '+total;
-    live.textContent = 'Step '+(cur+1)+' of '+total;
+    var done = panels[cur].hasAttribute('data-done');
+    bar.style.transform = 'scaleX(' + (done ? 1 : (cur+1)/total) + ')';
+    stepN.textContent = done ? 'Done' : 'Step '+(cur+1)+' of '+total;
+    live.textContent  = stepN.textContent;
     var p=panels[cur];
-    var back=p.querySelector('.q-back'); if(back) back.style.visibility = cur===0?'hidden':'visible';
+    var back=p.querySelector('.q-back');
+    if(back){ back.style.visibility='visible';
+      back.textContent = cur===0 ? 'Back to site' : 'Back'; }
     syncNext();
     var h=p.querySelector('h2'); if(h){ h.setAttribute('tabindex','-1'); h.focus({preventScroll:true}); }
+    /* Advancing a step swaps the panel in place. Scrolling the shell back to
+       the top on every Continue made the page lurch and read as a reload, so
+       it only happens when the shell has actually left the viewport. */
     var box=document.querySelector('.quiz-shell');
-    if(box) window.scrollTo({top:box.offsetTop-90,behavior:'smooth'});
-    if(p.hasAttribute('data-result')) buildResult();
+    if(box){
+      var r=box.getBoundingClientRect();
+      if(r.top < -40 || r.top > innerHeight*0.6){
+        window.scrollTo({top:box.offsetTop-90,behavior:'smooth'});
+      }
+    }
   }
 
   // A question must be answered before Continue unlocks; proof panels are always passable.
   function syncNext(){
     var p=panels[cur], next=p.querySelector('.q-next'); if(!next) return;
-    if(p.hasAttribute('data-proof')||p.hasAttribute('data-result')){ next.disabled=false; return; }
+    if(p.hasAttribute('data-proof')){ next.disabled=false; return; }
     var k=p.getAttribute('data-key');
     next.disabled = !(answers[k]&&answers[k].length);
   }
@@ -689,37 +636,56 @@ document.querySelector('.foot-news .nlb').addEventListener('click',()=>window.op
       syncNext(); return;
     }
     if(e.target.closest('.q-next')){ if(cur<total-1){cur++;render();} return; }
-    if(e.target.closest('.q-back')){ if(cur>0){cur--;render();} return; }
+    if(e.target.closest('.q-back')){
+      if(cur>0){cur--;render();}
+      else if(history.length>1){history.back();}
+      else{location.href='index.html';}
+      return; }
   });
 
-  var REC={
-    doctor:['Doctor consultation','pca-consultation.html','A thorough medical review of your history, medicines and previous care.'],
-    physio:['Physiotherapy','pca-physiotherapy.html','Rebuild confidence in movement without pushing through pain.'],
-    psych:['Psychotherapy','pca-psychotherapy.html','Practical strategies for the emotional load of persistent pain.'],
-    diet:['Dietary guidance','pca-dietary-guidance.html','Meal plans that work with your energy, symptoms and flare days.'],
-    intim:['Intimacy counselling','pca-intimacy.html','Support when pain affects closeness, desire or confidence.']
-  };
-  var ICON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-
-  function buildResult(){
-    var imp=answers.impact||[], dur=(answers.duration||[])[0]||'', area=answers.area||[];
-    var picks=['doctor'];
-    if(imp.some(function(x){return /moving|exercising|avoid activities/i.test(x)})) picks.push('physio');
-    if(imp.some(function(x){return /mood|anxiety|Sleep/i.test(x)})) picks.push('psych');
-    if(imp.some(function(x){return /Appetite|eating/i.test(x)})) picks.push('diet');
-    if(imp.some(function(x){return /relationships or intimacy/i.test(x)})) picks.push('intim');
-    if(picks.length===1) picks.push('physio','psych');
-
-    var sum='You told us your pain has lasted '+(dur||'some time').toLowerCase();
-    if(area.length) sum+=', affecting your '+area.slice(0,2).join(' and ').toLowerCase();
-    sum+='. A multidisciplinary plan usually starts with a medical review, then adds the disciplines below.';
-    document.getElementById('recSummary').textContent=sum;
-
-    document.getElementById('recList').innerHTML=picks.filter(function(v,i,s){return s.indexOf(v)===i})
-      .map(function(k){var r=REC[k];
-        return '<a class="rec" href="'+r[1]+'"><span class="rec-ic">'+ICON+'</span>'+
-               '<span><b>'+r[0]+'</b><p>'+r[2]+'</p></span></a>';}).join('');
+  /* ---- delivery step -------------------------------------------------
+     The results are no longer shown on the page; they are emailed. This step
+     only collects where to send them. The Google and Apple buttons are
+     interface only - there is no auth provider wired up behind them, so they
+     advance to the success state exactly as the email form does. Point
+     `submitDelivery` at a real endpoint when one exists. */
+  function goDone(msg){
+    var done=panels.findIndex?panels.findIndex(function(p){return p.hasAttribute('data-done')}):-1;
+    if(done<0) return;
+    if(msg){ var el=document.getElementById('doneMsg'); if(el) el.textContent=msg; }
+    cur=done; render();
   }
+
+  function submitDelivery(payload){
+    /* no backend on this site yet - the answers and the destination are kept
+       on the client so whatever is wired up next can pick them up */
+    try{ sessionStorage.setItem('pcaQuiz', JSON.stringify({answers:answers,to:payload})); }catch(e){}
+  }
+
+  document.addEventListener('click',function(e){
+    var sso=e.target.closest('.q-sso-btn');
+    if(sso){
+      submitDelivery({via:sso.getAttribute('data-sso')});
+      goDone('Check the inbox of the '+(sso.getAttribute('data-sso')==='apple'?'Apple':'Google')+
+             ' account you just used — your Pain Management Coordinator is putting your plan '+
+             'together now, and your results will land by email shortly.');
+      return;
+    }
+    if(e.target.closest('.q-send')){
+      var name=document.getElementById('dName'), mail=document.getElementById('dEmail'),
+          err=document.getElementById('dErr');
+      var n=(name.value||'').trim(), m=(mail.value||'').trim();
+      var bad = !n ? 'Please tell us your name.'
+              : !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m) ? 'Please enter a valid email address.'
+              : '';
+      if(bad){ err.textContent=bad; err.hidden=false; (n?mail:name).focus(); return; }
+      err.hidden=true;
+      submitDelivery({via:'email',name:n,email:m});
+      goDone('Check your inbox at '+m+' — your Pain Management Coordinator is putting your '+
+             'plan together now, and your results will land by email shortly.');
+      return;
+    }
+  });
 
   // hqPrefill: accept ?area=a|b handed over from the homepage card
   (function(){
@@ -738,5 +704,22 @@ document.querySelector('.foot-news .nlb').addEventListener('click',()=>window.op
 </script>
 
   <script src="assets/js/readmore.js?v=2" defer></script>
+
+<script>
+/* the sticky CTA hides once the reader reaches something that already offers
+   the quiz, so the band never covers the card it duplicates */
+(function(){
+  var band=document.getElementById('mcta'); if(!band) return;
+  var marks=document.querySelectorAll('#homeQuiz, .endcta, .svc-intake, footer');
+  if(!marks.length || !('IntersectionObserver' in window)) return;
+  var showing=0;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ showing += e.isIntersecting ? 1 : -1; });
+    if(showing<0) showing=0;
+    band.setAttribute('data-hide', showing>0 ? 'true' : 'false');
+  },{rootMargin:'0px 0px -20% 0px'});
+  marks.forEach(function(m){ io.observe(m); });
+})();
+</script>
 </body>
 </html>

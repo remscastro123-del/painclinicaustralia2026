@@ -7,8 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-/* ===========================================================================
+<style>/* ===========================================================================
    PAIN CLINIC AUSTRALIA — homepage
    ONE ruling per concern. If you need a new value, add a token; do not add
    a second rule for the same property lower down the file.
@@ -63,25 +62,27 @@
   --sh-lg:0 26px 60px rgba(26,46,38,.16);
   --sh-cta:0 10px 26px rgba(132,56,6,.28);
 }
-@media(max-width:1420px){ :root{--panel-w:1140px} }
-@media(max-width:1220px){ :root{--panel-w:980px}  }
-@media(max-width:1040px){ :root{--panel-w:760px}  }
-@media(max-width:820px){  :root{--panel-w:100%;--panel-gap:12px;--panel-r:22px} }
-
+@media(max-width:1420px){:root{--panel-w:1140px}
+ }
+@media(max-width:1220px){:root{--panel-w:980px}
+  }
+@media(max-width:1040px){:root{--panel-w:760px}
+  }
+@media(max-width:820px){:root{--panel-w:100%;--panel-gap:12px;--panel-r:22px}
+ }
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:var(--fb);color:var(--ink);background:var(--ground);overflow-x:clip}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
-.container{width:100%;max-width:none;margin:0 auto;padding-inline:var(--panel-pad)}
 :focus-visible{outline:3px solid var(--cta);outline-offset:3px;border-radius:4px}
-.skip-nav{position:absolute;top:-100%;left:0;z-index:999;padding:.6rem 1.2rem;
-  background:var(--cta);color:#fff;font-weight:700;border-radius:0 0 var(--card-r) 0;transition:top .2s}
-.skip-nav:focus{top:0}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
-}
+.skip-nav{position:absolute;top:0;left:0;transform:translateY(-100%);z-index:999;padding:.6rem 1.2rem;
+  background:var(--cta);color:#fff;font-weight:700;border-radius:0 0 var(--card-r) 0;
+  transition:transform var(--dur-3) var(--ease-enter)}
+.skip-nav:focus{transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 
+}
 /* ===========================================================================
    TYPE — the single font ruling
    Comfortaa is a rounded display face. It is unreadable at paragraph length,
@@ -91,54 +92,35 @@ a{text-decoration:none;color:inherit}
    ======================================================================== */
 h1,h2,h3,h4,h5,
 .pcard-stat,.scard b,.hq-badge,.grating-score{font-family:var(--fh);font-weight:700}
-
-body,p,li,a,button,span,small,strong,em,input,textarea,select,label,legend,
-blockquote,figcaption,cite,td,th,
-.acc-head,.nav-card-label,.pcard-note,.pcard-tag,.foot-brand .tag,
-.tcard blockquote,.tcard figcaption,
-.ag-panel__label,.ag-panel__text,.ds-role,.pca-loop-item{font-family:var(--fb)}
-
 h2,h3{color:var(--forest)}
 .overline{color:var(--forest)}
 p{color:var(--muted)}
 .sec-sub,.testi-intro{max-width:64ch;margin-inline:auto}
 .proc-head,.sec-head,.stats-head{text-align:center;margin-bottom:var(--flow-block)}
 .proc-head > *,.sec-head > *,.stats-head > *{margin-inline:auto}
-
 /* one ruling for every dark panel: heads, body and eyebrows */
 .on-dark{color:var(--cream)}
 .on-dark h2,.on-dark h3{color:var(--cream)}
 .on-dark p{color:rgba(255,250,238,.88)}
-.on-dark .overline{color:var(--leaf)}          /* 5.8:1 on forest */
+.on-dark .overline{color:var(--leaf)}
+/* 5.8:1 on forest */
 
 /* ===========================================================================
    BUTTONS — one vocabulary
    ======================================================================== */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  font-weight:700;font-size:var(--fs-sm);letter-spacing:.01em;
-  padding:.85rem 1.5rem;border-radius:var(--r-pill);min-height:48px;cursor:pointer;
-  border:none;transition:background .22s,color .22s,box-shadow .22s,transform .22s}
-.btn-primary{background:var(--cta);color:#fff;box-shadow:var(--sh-cta)}
-.btn-primary:hover{background:var(--cta-hi);transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--forest);box-shadow:inset 0 0 0 2px var(--forest)}
-.btn-outline:hover{background:var(--forest);color:var(--cream)}
+
 /* on dark grounds --cta is 1.4:1, so the roles swap rather than restyle */
 .on-dark .btn-primary{background:var(--orange);color:var(--ink);box-shadow:none}
 .on-dark .btn-primary:hover{background:var(--orange-hi)}
 .on-dark .btn-outline{color:var(--cream);box-shadow:inset 0 0 0 2px var(--cream)}
 .on-dark .btn-outline:hover{background:var(--cream);color:var(--forest)}
-.btn-amber{background:var(--cta);color:#fff;box-shadow:var(--sh-cta)}
-.btn-amber:hover{background:var(--cta-hi)}
-.btn-arrow{width:17px;height:17px;flex:none;transition:transform .34s cubic-bezier(.22,.61,.36,1)}
 .btn:hover .btn-arrow{transform:translateX(4px)}
-
 /* ===========================================================================
    PANEL SYSTEM — fixed width, stepped at breakpoints
    ======================================================================== */
 main{display:flex;flex-direction:column;gap:var(--panel-gap);padding-bottom:var(--panel-gap)}
 main > section,
-main > .hero-photo,
-footer{
+main > .hero-photo{
   width:min(100% - var(--panel-gap) * 2, var(--panel-w));
   margin-inline:auto;
   border-radius:var(--panel-r);
@@ -160,155 +142,32 @@ main > section.testimonials{background:var(--ground)}
 main > section.endcta{background:var(--sage);text-align:center}
 .hero-photo{padding:0;line-height:0}
 .hero-photo img{width:100%;height:clamp(220px,42vh,480px);object-fit:cover;object-position:center 40%}
-
-/* ===========================================================================
-   THE CARD — one component. Hero, the 820+ stat, the doctor slider and the
-   article grid are all this. Nothing else defines a card.
-   ======================================================================== */
-.pcard-grid{display:grid;gap:var(--gap-grid);width:100%}
-.pcard-grid--4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.pcard-grid--3{grid-template-columns:repeat(3,minmax(0,1fr))}
-
-.pcard{
-  background:var(--forest);border-radius:var(--card-r);padding:var(--card-frame);
-  display:flex;flex-direction:column;text-align:left;position:relative;overflow:hidden;
-  height:100%;
-  transition:transform .34s cubic-bezier(.22,.61,.36,1),box-shadow .34s}
-.pcard:hover{transform:translateY(-6px);box-shadow:0 18px 38px rgba(21,48,42,.30)}
-.pcard:focus-visible{outline:3px solid var(--cta);outline-offset:3px}
-
-.pcard-thumb{display:block;width:100%;aspect-ratio:16/9;flex:0 0 auto;
-  border-radius:calc(var(--card-r) - 6px);overflow:hidden;background:var(--forest-s)}
-.pcard-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.pcard:hover .pcard-thumb img{transform:scale(1.05)}
-
-.pcard-body{display:flex;flex-direction:column;flex:1 1 auto;
-  padding:.9rem .35rem .3rem;padding-right:52px}
-.pcard-tag{font-size:var(--fs-2xs);font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--sage);margin-bottom:.4rem}   /* 6.7:1 */
-.pcard-body h3{font-size:var(--fs-md);line-height:1.2;color:#fff;   /* 12.6:1 */
-  margin:0 0 var(--flow-heading)}
-.pcard-note{font-size:var(--fs-xs);line-height:1.45;margin:auto 0 0;
-  color:rgba(255,250,238,.82)}                                      /* ~8:1  */
-.pcard-stat{display:block;font-size:var(--fs-3xl);line-height:1;color:var(--sage);
-  margin-bottom:.4rem}
-.pcard--stat .pcard-body{padding-right:.35rem}
-
-.pcard--more{background:var(--forest-s)}
-.pcard--more .pcard-body{justify-content:center;padding-block:1.2rem}
-.pcard--more h3{font-size:var(--fs-lg)}
-.pcard--more .pcard-note{margin:0}
-.pcard-arr{position:absolute;right:.9rem;bottom:.9rem;z-index:3;
-  width:38px;height:38px;border-radius:50%;
-  background:var(--orange);color:var(--ink);                        /* 4.9:1 */
-  display:grid;place-items:center;
-  transition:background .25s,transform .34s cubic-bezier(.22,.61,.36,1)}
-.pcard:hover .pcard-arr{background:var(--orange-hi);transform:translateX(4px)}
-.pcard-arr svg{width:16px;height:16px}
-
-/* ===========================================================================
-   HEADER — the menu expands the sticky bar itself
-   The panel is a sibling of .nav inside <header>, so opening it grows the
-   header instead of floating a detached card over the hero.
-   ======================================================================== */
-.topbar{background:var(--forest-d);color:rgba(255,250,238,.86);font-size:var(--fs-sm);
-  position:relative;z-index:59}
-.topbar .container{display:flex;align-items:center;justify-content:center;gap:1.6rem;
-  min-height:36px;flex-wrap:wrap}
-.topbar a{display:inline-flex;align-items:center;gap:.4rem;min-height:32px;transition:color .2s}
-.topbar a:hover{color:var(--sage)}
-.topbar svg{width:14px;height:14px;flex-shrink:0}
-
-header{position:sticky;top:0;z-index:60;background:var(--ground);
-  border-radius:0 0 var(--panel-r) var(--panel-r);
-  transition:box-shadow .3s,background .3s}
-header.scrolled,body.nav-pinned header{box-shadow:0 2px 16px rgba(30,64,53,.12)}
-header .container{width:min(100% - var(--panel-gap) * 2, var(--panel-w));margin-inline:auto;
-  padding-inline:var(--card-pad)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:76px}
-.nav-logo img{height:72px;width:auto}
-.nav-cta{display:flex;align-items:center;gap:1rem;flex-shrink:0}
-.nav-phone{font-weight:700;color:var(--forest);font-size:var(--fs-sm);white-space:nowrap;
-  display:inline-flex;align-items:center;gap:.4rem}
-.nav-phone svg{width:16px;height:16px;color:var(--cta)}
-.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;
-  padding:12px 8px;align-items:center;min-height:44px;min-width:44px;justify-content:center}
-.burger span{width:24px;height:2.5px;background:var(--forest);border-radius:2px;
-  transition:transform .3s,opacity .3s;display:block}
-.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
-
-/* plain HTML menu — text links on desktop, stacked panel under the burger
-   on small screens. No animation library involved. */
-.nav-links{display:flex;align-items:center;gap:.15rem}
-.nav-links a,.nav-drop-btn{font-family:var(--fb);font-weight:600;font-size:var(--fs-sm);
-  color:var(--forest);background:none;border:none;cursor:pointer;white-space:nowrap;
-  display:inline-flex;align-items:center;gap:.3rem;
-  padding:.55rem .7rem;border-radius:var(--r-pill);transition:background .2s,color .2s}
-.nav-links a:hover,.nav-drop-btn:hover{background:rgba(30,64,53,.07)}
-.nav-links a.active{color:var(--cta)}
-.nav-drop-btn svg{width:14px;height:14px;transition:transform .25s}
-.nav-drop[data-open="true"] .nav-drop-btn svg{transform:rotate(180deg)}
-.nav-drop{position:relative}
-.nav-drop-menu{position:absolute;top:calc(100% + .45rem);left:0;min-width:232px;z-index:61;
-  background:var(--white);border:1px solid var(--line);border-radius:var(--card-r-sm);
-  box-shadow:var(--sh-md);padding:.35rem;display:none}
-.nav-drop[data-open="true"] .nav-drop-menu{display:block}
-.nav-drop-menu a{display:block;width:100%;padding:.62rem .7rem;border-radius:8px}
-.nav-drop-menu a:hover{background:var(--cream2)}
-/* scrolled: the bar inverts to forest, everything on it goes cream */
-header.scrolled{background:var(--forest-d)}
-.nav-logo{position:relative;display:block}
-.nav-logo img{display:block;transition:opacity .3s}
-.nav-logo .logo-light{position:absolute;top:0;left:0;height:100%;width:auto;opacity:0}
-header.scrolled .nav-logo .logo-light{opacity:1}
-header.scrolled .nav-logo .logo-dark{opacity:0}
-header.scrolled .nav-links a,
-header.scrolled .nav-drop-btn{color:var(--cream)}
-header.scrolled .nav-links a:hover,
-header.scrolled .nav-drop-btn:hover{background:rgba(255,250,238,.14)}
-header.scrolled .nav-links a.active{color:var(--sage)}
-header.scrolled .nav-phone{color:var(--cream)}
-header.scrolled .nav-phone svg{color:var(--orange)}
-header.scrolled .btn-outline{color:var(--cream);box-shadow:inset 0 0 0 2px rgba(255,250,238,.75)}
-header.scrolled .btn-outline:hover{background:var(--cream);color:var(--forest)}
-header.scrolled .burger span{background:var(--cream)}
-/* the dropdown inverts with it and stays above everything on the page */
-header.scrolled .nav-drop-menu{background:var(--forest-s);border-color:rgba(255,250,238,.18)}
-header.scrolled .nav-drop-menu a{color:var(--cream)}
-header.scrolled .nav-drop-menu a:hover{background:rgba(255,250,238,.14)}
 /* pointer devices open the menu on hover as well as on click */
 @media(hover:hover) and (min-width:1041px){
   .nav-drop:hover .nav-drop-menu{display:block}
 }
-@media(max-width:1040px){
-  header.scrolled .nav-links{background:var(--forest-d);border-top-color:rgba(255,250,238,.18)}
-  header.scrolled .nav-links a{color:var(--cream)}
-  header.scrolled .nav-drop-menu{background:none;border:none}
-}
-
-
 /* ===========================================================================
    HERO
    ======================================================================== */
 .hero{text-align:center}
 .hero .container{display:flex;flex-direction:column;align-items:center}
-.hero h1{color:var(--forest);opacity:0;animation:rise .7s .15s forwards}
+.hero h1{color:var(--forest);opacity:0;animation:rise var(--dur-5) .1s var(--ease-enter) forwards}
 .hero .lead{font-size:var(--fs-md);color:var(--muted);text-wrap:balance;
-  margin-bottom:var(--flow-group);opacity:0;animation:rise .7s .27s forwards}
+  margin-bottom:var(--flow-group);opacity:0;animation:rise var(--dur-5) .2s var(--ease-enter) forwards}
 .hero-cta-wrap{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;
-  margin-bottom:clamp(1.6rem,3vw,2.6rem);opacity:0;animation:rise .7s .39s forwards}
-.hero .pcard-grid{margin-top:0;opacity:0;animation:rise .8s .5s forwards}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-
+  margin-bottom:clamp(1.6rem,3vw,2.6rem);opacity:0;animation:rise var(--dur-5) .3s var(--ease-enter) forwards}
+.hero .pcard-grid{margin-top:0;opacity:0;animation:rise var(--dur-5) .4s var(--ease-enter) forwards}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}
+to{opacity:1;transform:none}}
 .feat-strip{padding:var(--flow-group) 0 0;overflow:hidden}
+/* the ticker is the hero's closing beat - it should sit near the edge
+   rather than a full section pad away from it */
+.hero{padding-bottom:var(--sp-6)}
 .feat-item,.pca-loop-item{display:inline-flex;align-items:center;gap:.7rem;
   white-space:nowrap;font-weight:400;font-size:var(--fs-sm);color:var(--forest)}
 .pca-loop-item::before{content:none!important}
 .pca-loop-check{width:28px;height:28px;flex:none;border-radius:50%;padding:5px;
   background:var(--sage);color:var(--forest);stroke-width:2.6}
-
 /* ===========================================================================
    ABOUT
    ======================================================================== */
@@ -318,104 +177,12 @@ header.scrolled .nav-drop-menu a:hover{background:rgba(255,250,238,.14)}
 .about p{max-width:52ch}
 .about-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:var(--flow-group)}
 .on-dark .clamp-toggle{color:var(--sage)}
-
 /* ===========================================================================
    FUNNEL + QUIZ CARD
    ======================================================================== */
 .funnel .container{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);
   gap:var(--gap-col);align-items:start}
 .funnel-copy{max-width:56ch}
-.quiz-card{background:var(--white);border-radius:var(--card-r);overflow:hidden;
-  box-shadow:var(--sh-md);color:var(--ink);position:relative;width:100%}
-.hq-media{position:relative;height:170px;overflow:hidden}
-.hq-media img{width:100%;height:100%;object-fit:cover}
-.hq-badge{position:absolute;left:50%;top:170px;transform:translate(-50%,-50%);z-index:6;
-  width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
-  background:var(--orange);color:var(--ink);font-size:var(--fs-md);
-  box-shadow:0 4px 14px rgba(0,0,0,.22),0 0 0 5px var(--white)}
-.hq-body{background:var(--cream);padding:2.5rem var(--card-pad) var(--card-pad);
-  display:flex;flex-direction:column;text-align:center}
-.hq-eyebrow{font-weight:700;font-size:var(--fs-xs);letter-spacing:.1em;
-  text-transform:uppercase;color:var(--forest)}
-.hq-body h3{margin:var(--flow-preheader) 0 var(--flow-heading)}
-.qsub{color:var(--muted);margin-bottom:var(--flow-body)}
-.hq-opts{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;
-  margin-bottom:var(--flow-group);text-align:left}
-.hq-opt{display:flex;align-items:center;gap:.6rem;cursor:pointer;font-size:var(--fs-sm);
-  color:var(--forest);background:var(--white);border:1.5px solid var(--line);
-  border-radius:var(--card-r-sm);padding:.7rem .8rem;min-height:48px;transition:.2s}
-.hq-opt:hover{border-color:var(--sage)}
-.hq-opt[aria-pressed="true"]{border-color:var(--cta)}
-.hq-opt .box{flex:none;width:20px;height:20px;border-radius:6px;background:var(--white);
-  border:1.5px solid var(--sage);display:grid;place-items:center;transition:.2s}
-.hq-opt .box svg{width:12px;height:12px;color:#fff;opacity:0;transition:.2s}
-.hq-opt[aria-pressed="true"] .box{background:var(--cta);border-color:var(--cta)}
-.hq-opt[aria-pressed="true"] .box svg{opacity:1}
-.hq-next{align-self:center}
-.hq-next[aria-disabled="true"]{opacity:.45;pointer-events:none}
-.hq-foot{font-size:var(--fs-xs);color:var(--muted);margin:var(--flow-heading) 0 0}
-
-/* ===========================================================================
-   INSURANCE
-   ======================================================================== */
-.ins-label{font-size:var(--fs-base);font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--forest);text-align:center;
-  margin:var(--flow-block) 0 var(--flow-body)}
-.ins-logos{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;
-  gap:var(--gap-grid)}
-.ins-logo{flex:1 1 clamp(112px,14vw,140px);max-width:180px;
-  background:var(--white);border-radius:var(--card-r);box-shadow:var(--sh-sm);
-  display:grid;place-items:center;padding:1rem .9rem;min-height:76px}
-.ins-logo img{max-width:100%;max-height:34px;width:auto;object-fit:contain}
-.proc-cta{text-align:center;margin-top:var(--flow-group)}
-.proc-cta p{color:var(--muted);margin:var(--flow-heading) auto 0;max-width:40ch}
-
-/* ===========================================================================
-   STATS — the 820+ card is a .pcard; the numeric tiles share its radius
-   ======================================================================== */
-.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  grid-auto-rows:minmax(190px,auto);gap:var(--gap-grid);align-items:stretch}
-.bento .pcard--stat{grid-row:span 2;background:var(--forest-s);
-  border:1px solid var(--line-d)}
-.bento .pcard--stat .pcard-thumb{aspect-ratio:auto;flex:1 1 auto;min-height:180px}
-.scard{border-radius:var(--card-r);padding:var(--card-pad-lg);display:flex;
-  flex-direction:column;justify-content:flex-end;min-height:190px;
-  transition:transform .35s,box-shadow .35s}
-.scard:hover{transform:translateY(-6px);box-shadow:var(--sh-lg)}
-.scard b{font-size:var(--fs-3xl);display:block;line-height:1;color:var(--forest)}
-.scard small{font-size:var(--fs-sm);margin-top:.6rem;line-height:1.45;display:block;
-  color:var(--muted)}
-.scard.cream{background:var(--cream)}
-.scard.white{background:var(--white)}
-.scard.forest{background:var(--forest-s);border:1px solid var(--line-d)}
-.scard.forest b{color:var(--sage)}                                  /* 6.7:1 */
-.scard.forest small{color:rgba(255,250,238,.82)}                    /* ~8:1  */
-.scard.span2{grid-column:span 2}
-
-/* ===========================================================================
-   EXPERTS — the React slider's cards are given the .pcard formatting
-   Roles were --cta (#843806) on forest = 1.40:1. Now --sage = 6.7:1.
-   ======================================================================== */
-/* the marquee itself runs the full viewport width, the heading stays on grid */
-.experts [data-react="carousel"]{width:100vw;margin-inline:calc(50% - 50vw)}
-.experts .ds-viewport{padding-inline:var(--panel-gap)}
-.experts .ds-track{column-gap:var(--gap-grid)!important}
-.experts .ds-card{flex:0 0 calc((min(100%, var(--panel-w)) - 3 * var(--gap-grid)) / 4)!important}
-.experts .ds-card{background:var(--cream);border-radius:var(--card-r);
-  padding:var(--card-frame);box-shadow:var(--sh-sm);height:auto;overflow:hidden}
-.experts .ds-photo{height:auto!important;aspect-ratio:4/5;flex:none;overflow:hidden;
-  border-radius:calc(var(--card-r) - 6px);background:var(--cream2)}
-.experts .ds-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.experts .ds-body{padding:.9rem .35rem .3rem}
-.experts .ds-body h3{font-family:var(--fh);font-size:var(--fs-md);line-height:1.2;
-  color:var(--forest);margin:0 0 .3rem}
-.experts .ds-role{font-family:var(--fb);font-weight:700;font-size:var(--fs-xs);
-  color:var(--cta)}
-.experts .ds-cred{font-size:var(--fs-2xs);color:var(--muted)}
-@media(max-width:1220px){.experts .ds-card{flex:0 0 calc((min(100%, var(--panel-w)) - 2 * var(--gap-grid)) / 3)!important}}
-@media(max-width:820px){ .experts .ds-card{flex:0 0 calc((min(100%, var(--panel-w)) - var(--gap-grid)) / 2)!important}}
-@media(max-width:520px){ .experts .ds-card{flex:0 0 84%!important}}
-
 /* ===========================================================================
    EBOOK
    ======================================================================== */
@@ -429,7 +196,6 @@ main > section.ebook{padding-block:0}
 .ebook-note{font-size:var(--fs-sm);color:rgba(255,250,238,.8);margin-top:var(--flow-body)}
 .ebook-vis{position:relative;align-self:stretch;min-height:clamp(420px,42vw,620px)}
 .ebook-vis picture,.ebook-vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-
 /* ===========================================================================
    FAQ
    ======================================================================== */
@@ -441,22 +207,27 @@ main > section.ebook{padding-block:0}
 .acc-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;
   padding:1.1rem var(--card-pad);display:flex;align-items:center;gap:.75rem;
   font-weight:600;font-size:var(--fs-base);color:var(--forest);min-height:52px}
-.pm{margin-left:auto;font-size:1.5rem;line-height:0;transition:transform .3s;
+.pm{margin-left:auto;font-size:var(--fs-lg);line-height:0;transition:transform var(--dur-2) var(--ease-move);
   color:var(--cta);flex-shrink:0}
 .acc-item.open .pm{transform:rotate(45deg)}
-.acc-body{max-height:0;overflow:hidden;transition:max-height .38s ease}
-.acc-body p{padding:0 var(--card-pad) 1.1rem;font-size:var(--fs-sm);color:var(--muted)}
+/* grid-template-rows composites where max-height reflows, and needs no
+   scrollHeight measurement. The grid ITEM must carry no padding of its own
+   or a 0fr row still measures its padding box - hence .acc-inner. */
+.acc-body{display:grid;grid-template-rows:0fr;overflow:hidden;
+  transition:grid-template-rows var(--dur-4) var(--ease-move)}
+.acc-item.open .acc-body{grid-template-rows:1fr}
+.acc-inner{min-height:0;overflow:hidden}
+.acc-body p{padding:0 var(--card-pad) 1.1rem;color:var(--muted)}
 .acc-ring{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;
-  opacity:0;transition:opacity .25s}
+  opacity:0;transition:opacity var(--dur-1) var(--ease-move)}
 .acc-item.is-next .acc-ring{opacity:1;padding:3px;
   background:conic-gradient(from -90deg,var(--leaf) var(--p,0%),rgba(30,64,53,.14) 0);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;mask-composite:exclude}
-@supports not ((mask-composite:exclude) or (-webkit-mask-composite:xor)){
-  .acc-item.is-next .acc-ring{background:none;box-shadow:inset 0 0 0 3px var(--orange)}
-}
+@supports not ((mask-composite:exclude) or (-webkit-mask-composite:xor)){.acc-item.is-next .acc-ring{background:none;box-shadow:inset 0 0 0 3px var(--orange)}
 
+}
 /* ===========================================================================
    TESTIMONIALS — green panel, with the Google rating as the legitimiser
    ======================================================================== */
@@ -470,16 +241,15 @@ main > section.ebook{padding-block:0}
 .grating-score b{font-size:var(--fs-md)}
 .grating-stars{color:var(--cta);letter-spacing:2px;font-size:var(--fs-sm)}
 .grating-label{color:var(--muted);font-size:var(--fs-sm)}
-
 .testi-carousel{overflow:hidden;width:100vw;margin-inline:calc(50% - 50vw);
   padding-inline:var(--panel-gap)}
 .testi-track{display:flex;gap:var(--gap-grid);align-items:stretch;
-  transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+  transition:transform var(--dur-3) var(--ease-move)}
 .testi-track{--tcard:calc((100% - 2 * var(--gap-grid)) / 3)}
 .tcard{margin:0;flex:0 0 var(--tcard);width:var(--tcard);
   background:var(--white);border-radius:var(--card-r);padding:var(--card-pad-lg);
   display:flex;flex-direction:column;gap:1rem;text-align:center;align-items:center;
-  box-shadow:var(--sh-sm);transition:box-shadow .45s}
+  box-shadow:var(--sh-sm);transition:box-shadow var(--dur-3) var(--ease-move)}
 .tcard.is-active{box-shadow:var(--sh-md)}
 .tcard[aria-hidden="true"]{pointer-events:none}
 .tcard blockquote{margin:0;font-size:var(--fs-md);line-height:1.6;
@@ -488,19 +258,18 @@ main > section.ebook{padding-block:0}
 @media(max-width:900px){.testi-track{--tcard:calc((100% - var(--gap-grid)) / 2)}}
 @media(max-width:600px){.testi-track{--tcard:86%}}
 .testi-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-top:var(--flow-group)}
-.testi-dots span{width:9px;height:9px;border-radius:99px;cursor:pointer;transition:.25s;
+.testi-dots span{width:9px;height:9px;border-radius:99px;cursor:pointer;transition:.25s var(--dur-2) var(--ease-move);
   background:rgba(30,64,53,.28)}
 .testi-dots span.active{background:var(--cta);width:28px}
 .testi-nav{display:flex;justify-content:center;gap:.6rem;margin-top:var(--flow-body)}
 .testi-nav button{width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
-  display:grid;place-items:center;transition:.25s}
+  display:grid;place-items:center;transition:.25s var(--dur-2) var(--ease-move)}
 .testi-nav .prev{background:transparent;color:var(--forest);box-shadow:inset 0 0 0 1.5px var(--forest)}
 .testi-nav .prev:hover{background:var(--forest);color:var(--cream)}
 .testi-nav .next{background:var(--orange);color:var(--ink)}
 .testi-nav .next:hover{background:var(--orange-hi)}
 .testi-nav svg{width:18px;height:18px}
 .exp-nav:empty{display:none}
-
 /* ===========================================================================
    BLOG + END CTA
    ======================================================================== */
@@ -509,72 +278,24 @@ main > section.ebook{padding-block:0}
 /* heading hugs the left edge, the button the right */
 .endcta .inner{display:flex;align-items:center;justify-content:space-between;
   gap:var(--gap-col);flex-wrap:wrap;text-align:left}
-@media(max-width:680px){
-  .endcta .inner{justify-content:flex-start}
+@media(max-width:680px){.endcta .inner{justify-content:flex-start}
+
 }
-
-/* ===========================================================================
-   FOOTER
-   The quiz button is a link, not a newsletter form — it is styled as a
-   button here. The old input rules were removed with the form.
-   ======================================================================== */
-footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:rgba(255,250,238,.82);
-  padding:var(--panel-pad) 0 1.75rem}
-.foot-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:var(--gap-col);
-  align-items:center;padding-bottom:2.25rem;border-bottom:1px solid var(--line-d)}
-.foot-brand img{height:88px;margin-bottom:1.1rem;width:auto}
-.foot-brand .tag{color:var(--cream);font-size:var(--fs-md);font-weight:600;
-  line-height:1.4;max-width:30ch;text-wrap:balance}
-.nl-link{display:inline-flex;align-items:center;justify-content:space-between;gap:.75rem;
-  background:var(--orange);color:var(--ink);border-radius:var(--r-pill);
-  padding:.5rem .5rem .5rem 1.4rem;min-height:52px;max-width:320px;width:100%;
-  transition:background .22s,transform .22s}
-.nl-link:hover{background:var(--orange-hi);transform:translateY(-2px)}
-.nl-text{font-weight:700;font-size:var(--fs-sm)}
-.nlb{background:var(--forest);border-radius:50%;width:40px;height:40px;flex:none;
-  display:grid;place-items:center}
-.nlb svg{width:17px;height:17px;color:var(--cream);display:block}
-.foot-news small{display:block;margin-top:.7rem;font-size:var(--fs-xs);
-  color:rgba(255,250,238,.78)}
-.foot-news{display:flex;flex-direction:column;align-items:flex-end;
-  justify-content:center;text-align:right}
-.foot-contact{list-style:none;margin:1.1rem 0 0;display:grid;gap:.5rem}
-.foot-contact a{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);
-  color:rgba(255,250,238,.82);transition:color .2s}
-.foot-contact a:hover{color:var(--sage)}
-.foot-contact svg{width:16px;height:16px;flex:none;color:var(--sage)}
-.foot-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap-grid);
-  padding:2.25rem 0 1.75rem}
-.foot-col{background:rgba(255,250,238,.05);border:1px solid var(--line-d);
-  border-radius:var(--card-r);padding:var(--card-pad)}
-.foot-col h4{font-family:var(--fh);color:var(--sage);font-size:var(--fs-sm);
-  margin-bottom:.9rem;display:flex;align-items:center;justify-content:space-between}
-.foot-col ul{list-style:none;margin:0}
-.foot-col li{margin-bottom:.6rem}
-.foot-col a{font-size:var(--fs-sm);display:inline-flex;align-items:center;gap:.45rem;
-  min-height:32px;color:rgba(255,250,238,.82);transition:color .2s}
-.foot-col a:hover{color:var(--sage)}
-.foot-col svg{width:14px;height:14px;color:var(--sage);flex-shrink:0}
-.foot-bottom{display:flex;justify-content:space-between;gap:1rem;padding-top:1.4rem;
-  font-size:var(--fs-xs);border-top:1px solid var(--line-d);flex-wrap:wrap}
-.foot-bottom a:hover{color:var(--sage)}
-.foot-legal{display:flex;gap:1.4rem}
-
 /* ===========================================================================
    MODAL
    ======================================================================== */
 .modal-overlay{position:fixed;inset:0;background:rgba(21,48,42,.72);
   backdrop-filter:blur(6px);z-index:200;display:grid;place-items:center;padding:1rem;
-  opacity:0;pointer-events:none;transition:opacity .28s}
+  opacity:0;pointer-events:none;transition:opacity var(--dur-1) var(--ease-move)}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal-overlay.open .modal{transform:none;opacity:1}
 .modal{background:var(--cream);border-radius:var(--panel-r);padding:clamp(1.8rem,4vw,2.6rem);
   max-width:520px;width:100%;position:relative;transform:translateY(28px) scale(.97);
   opacity:0;max-height:90dvh;overflow-y:auto;
-  transition:transform .38s cubic-bezier(.34,1.56,.64,1),opacity .28s}
+  transition:transform var(--dur-3) var(--ease-move), opacity var(--dur-3) var(--ease-move)}
 .modal-close{position:absolute;top:1rem;right:1rem;width:38px;height:38px;border-radius:50%;
   border:none;background:var(--cream2);cursor:pointer;display:grid;place-items:center;
-  transition:background .2s,transform .2s}
+  transition:background var(--dur-3) var(--ease-move), transform var(--dur-3) var(--ease-move)}
 .modal-close:hover{background:var(--line);transform:rotate(90deg)}
 .modal-close svg{width:16px;height:16px;color:var(--forest)}
 .modal .m-sub{color:var(--muted);margin-bottom:var(--flow-body)}
@@ -583,96 +304,54 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
   color:var(--ink);display:block;margin-bottom:.25rem}
 .ebook-form input[type=text],.ebook-form input[type=email]{width:100%;background:var(--white);
   border:1.5px solid var(--line);border-radius:var(--card-r-sm);padding:.75rem 1rem;
-  color:var(--ink);font-size:var(--fs-base);transition:border-color .2s}
+  color:var(--ink);font-size:var(--fs-base);transition:border-color var(--dur-1) var(--ease-move)}
 .ebook-form input:focus{border-color:var(--forest-s);outline:none;
   box-shadow:0 0 0 3px rgba(30,64,53,.1)}
 .ebook-form fieldset{border:none;margin-top:.25rem}
 .cb-row{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
 .cb-label{display:flex;align-items:center;gap:.5rem;background:rgba(30,64,53,.05);
   border:1px solid rgba(30,64,53,.18);border-radius:var(--card-r-sm);padding:.55rem .7rem;
-  cursor:pointer;font-size:var(--fs-sm);color:var(--ink);transition:background .2s}
+  cursor:pointer;font-size:var(--fs-sm);color:var(--ink);transition:background var(--dur-1) var(--ease-move)}
 .cb-label:hover{background:rgba(30,64,53,.1)}
 .cb-label input[type=checkbox]{accent-color:var(--forest);width:16px;height:16px;flex-shrink:0}
 .ebook-form .f-submit{background:var(--cta);color:#fff;border:none;border-radius:var(--r-pill);
   padding:.85rem 1.6rem;font-weight:700;font-size:var(--fs-sm);cursor:pointer;width:100%;
-  min-height:48px;transition:background .25s;margin-top:.4rem}
+  min-height:48px;transition:background var(--dur-1) var(--ease-move);margin-top:.4rem}
 .ebook-form .f-submit:hover{background:var(--cta-hi)}
 .ebook-success{background:rgba(148,199,126,.15);border:1.5px solid var(--leaf);
   border-radius:var(--card-r);padding:1.2rem 1.4rem;color:var(--forest);
   font-size:var(--fs-sm);line-height:1.5}
-
-.reveal{opacity:0;transition:opacity .9s cubic-bezier(.33,1,.68,1)}
+.reveal{opacity:0;transition:opacity var(--dur-1) var(--ease-move)}
 .reveal.in{opacity:1}
-
 /* ===========================================================================
    RESPONSIVE — the system collapses, it does not change identity
    ======================================================================== */
 @media(max-width:1220px){
-  .pcard-grid--4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .foot-cols{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
-@media(max-width:1040px){
-  .burger{display:flex}
-  .nav-links{position:absolute;top:100%;left:0;right:0;display:none;
-    flex-direction:column;align-items:stretch;gap:.1rem;
-    background:var(--white);border-top:1px solid var(--line);
-    border-radius:0 0 var(--panel-r) var(--panel-r);
-    padding:.7rem var(--card-pad) 1.1rem;box-shadow:var(--sh-md)}
-  #header[data-nav="open"] .nav-links{display:flex}
-  .nav-links a,.nav-drop-btn{padding:.75rem .8rem;font-size:var(--fs-base);
-    justify-content:space-between;width:100%}
-  .nav-drop-menu{position:static;display:block;min-width:0;padding:0 0 .2rem .85rem;
-    background:none;border:none;box-shadow:none}
-  .nav-drop-menu a{font-weight:500;padding:.6rem .8rem}
-}
-@media(max-width:1040px){
-  .pcard-grid--3{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .bento{grid-template-columns:1fr 1fr}
-}
-@media(max-width:900px){
-  .funnel .container,.faq .container,.about .container,.ebook .container{grid-template-columns:1fr}
-  .about-img,.ebook-vis{order:-1}
-  .faq-photo{display:none}
-  .ebook-vis{min-height:280px}
-  .ebook-text{align-items:center;text-align:center}
-}
-@media(max-width:820px){
-  .nav-phone{display:none}
-  .nav{min-height:68px}
-  .nav-logo img{height:56px}
-  .foot-top{grid-template-columns:1fr}
-  .foot-news{align-items:flex-start;text-align:left}
-}
-@media(max-width:760px){
-  .foot-cols{grid-template-columns:1fr 1fr}
-  .foot-col{background:none;border:none;border-bottom:1px solid var(--line-d);
-    border-radius:0;padding:0}
-  .foot-col h4{cursor:pointer;margin:0;padding:.95rem 0;min-height:48px}
-  .foot-col h4::after{content:"+";font-size:1.25rem;line-height:1;transition:transform .25s;opacity:.75}
-  .foot-col.open h4::after{transform:rotate(45deg)}
-  .foot-col ul{max-height:0;overflow:hidden;transition:max-height .3s ease}
-  .foot-col.open ul{max-height:340px;margin-bottom:.9rem}
-}
-@media(max-width:560px){
-  .topbar a[aria-label="Email PCA"]{display:none}
-  .hero-cta-wrap,.about-cta{flex-direction:column;align-items:stretch;width:100%}
-  .hero-cta-wrap .btn,.about-cta .btn{width:100%}
-  .pcard-body{padding-right:44px}
-  .pcard-note{display:none}
-  .pcard--stat .pcard-note{display:block}
-  .pcard-arr{width:32px;height:32px;right:.6rem;bottom:.6rem}
-  .bento{grid-template-columns:1fr}
-  .bento .pcard--stat{grid-row:auto}
-  .scard.span2{grid-column:span 1}
-  .hq-opts,.cb-row{grid-template-columns:1fr}
-  .foot-top,.foot-cols{grid-template-columns:1fr}
-  .foot-photo{display:none}
-  .grating{gap:.5rem;padding:.55rem 1rem}
-}
-@media(max-width:420px){
-  .pcard-grid--4,.pcard-grid--3{grid-template-columns:1fr}
-}
+@media(max-width:1040px){.bento{grid-template-columns:1fr 1fr}
 
+}
+@media(max-width:900px){.funnel .container,.faq .container,.about .container,.ebook .container{grid-template-columns:1fr}
+.about-img,.ebook-vis{order:-1}
+.faq-photo{display:none}
+.ebook-vis{min-height:280px}
+.ebook-text{align-items:center;text-align:center}
+
+}
+@media(max-width:560px){.hero-cta-wrap,.about-cta{flex-direction:column;align-items:stretch;width:100%}
+.hero-cta-wrap .btn,.about-cta .btn{width:100%}
+.pcard-body{padding-right:44px}
+.pcard-note{display:none}
+.pcard--stat .pcard-note{display:block}
+.pcard-arr{width:32px;height:32px;right:.6rem;bottom:.6rem}
+.bento{grid-template-columns:1fr}
+.bento .pcard--stat{grid-row:auto}
+.scard.span2{grid-column:span 1}
+.hq-opts,.cb-row{grid-template-columns:1fr}
+.grating{gap:.5rem;padding:.55rem 1rem}
+
+}
 /* FAQ loader: heavier orange sweep, and the resting tab keeps a faint track
    so the ring reads as a stroke rather than appearing from nowhere */
 .acc-item{border:3px solid transparent;background-clip:padding-box}
@@ -681,69 +360,59 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
   background:conic-gradient(from -90deg,
              var(--orange) var(--p,0%), rgba(30,64,53,.10) 0);
 }
-.acc-ring{transition:opacity .2s ease}
-
-
-
-
+.acc-ring{transition:opacity var(--dur-1) var(--ease-move)}
 /* ========================= hotspot stage ========================= */
 .zoomstage{background:var(--forest);padding-block:0}
 .zs-rail{height:560vh;position:relative}
 .zs-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center}
 .zs-sticky > .container{width:100%}
-
 /* rounded card, same gutters as every other section */
 .zs-stage{position:relative;width:100%;height:min(84vh,780px);
   border-radius:var(--r-lg);overflow:hidden;background:var(--forest-d,#15302A);
   cursor:default}
-
 .zs-media{position:absolute;inset:0;z-index:0;display:block}
 .zs-media img{width:100%;height:100%;object-fit:cover;
   object-position:var(--ox,50%) var(--oy,38%);
   transform:scale(var(--z,1));transform-origin:var(--ox,50%) var(--oy,38%);
-  transition:transform .85s cubic-bezier(.22,.61,.36,1),
-             object-position .85s cubic-bezier(.22,.61,.36,1);display:block}
-
+  transition:transform var(--dur-4) var(--ease-move), object-position var(--dur-4) var(--ease-move);display:block}
 .zs-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
     linear-gradient(96deg, rgba(15,36,31,.96) 0%, rgba(15,36,31,.90) 30%,
       rgba(15,36,31,.68) 48%, rgba(15,36,31,.26) 68%, rgba(15,36,31,0) 88%),
     linear-gradient(180deg, rgba(15,36,31,.30) 0%, rgba(15,36,31,0) 24%,
       rgba(15,36,31,0) 70%, rgba(15,36,31,.44) 100%)}
-
 /* ---- the copy column: fixed in place until the final state ---- */
 .zs-copy{position:absolute;z-index:4;left:0;top:0;bottom:0;
   width:min(48%,52ch);
   padding:clamp(1.5rem,3.2vw,3rem);
   display:flex;flex-direction:column;justify-content:center;
   color:var(--cream);
-  transition:transform .8s cubic-bezier(.22,.61,.36,1),opacity .5s ease}
+  transition:transform var(--dur-3) var(--ease-move), opacity var(--dur-3) var(--ease-move)}
 .zs-copy .overline{color:var(--sage)}
 .zs-copy h2{color:#fff}
 .zs-copy p{color:#FFFAEE}
 /* final state: copy leaves upward, form arrives from below into its slot */
 .zoomstage[data-stage="4"] .zs-copy{transform:translateY(-115%);opacity:0}
-
 .zs-form{position:absolute;z-index:5;left:0;top:0;bottom:0;
   width:min(48%,52ch);
   padding:clamp(1.5rem,3.2vw,3rem);
   display:flex;align-items:center;
   transform:translateY(112%);opacity:0;pointer-events:none;
-  transition:transform .8s cubic-bezier(.22,.61,.36,1),opacity .5s ease}
+  transition:transform var(--dur-3) var(--ease-move), opacity var(--dur-3) var(--ease-move)}
 .zoomstage[data-stage="4"] .zs-form{transform:translateY(0);opacity:1;
   pointer-events:auto}
 .zs-form #homeQuiz{margin:0;width:100%;max-width:none;max-height:100%;overflow:auto}
-
 /* ---- hotspots ---- */
 .zs-dot{position:absolute;z-index:6;transform:translate(-50%,-50%);
   padding:0;border:none;background:none;cursor:pointer;
   display:flex;align-items:center;gap:var(--sp-2);
-  transition:opacity .4s ease}
+  transition:opacity var(--dur-2) var(--ease-move)}
 .zs-pulse{width:26px;height:26px;border-radius:50%;background:var(--orange);
   box-shadow:0 0 0 8px rgba(242,126,51,.30);flex:none;position:relative}
 .zs-pulse::after{content:"";position:absolute;inset:-8px;border-radius:50%;
   border:3px solid var(--orange);opacity:.7;animation:zsPing 2.2s ease-out infinite}
-@keyframes zsPing{0%{transform:scale(.65);opacity:.8}100%{transform:scale(2.4);opacity:0}}
+@keyframes zsPing{0%{transform:scale(.65);opacity:.8}
+100%{transform:scale(2.4);opacity:0}}
 .zs-tag{font-family:var(--fb);font-weight:700;font-size:var(--fs-sm);color:var(--forest);
   background:var(--white);border-radius:var(--r-pill);padding:.45rem .9rem;
   white-space:nowrap;box-shadow:var(--sh-sm)}
@@ -752,7 +421,6 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
 .zoomstage:not([data-stage="0"]) .zs-dot{opacity:0;pointer-events:none}
 .zs-dot.is-active{opacity:1 !important}
 .zs-dot.is-active .zs-tag{background:var(--cta);color:#fff}
-
 /* ---- scattered ailment chips ---- */
 .zs-chips{list-style:none;margin:0;padding:0;position:absolute;inset:0;z-index:5;
   pointer-events:none}
@@ -761,16 +429,14 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
   background:rgba(255,250,238,.95);border-radius:var(--r-pill);
   padding:.5rem .95rem;font-family:var(--fb);font-weight:600;font-size:var(--fs-xs);
   color:var(--forest);white-space:nowrap;box-shadow:0 6px 18px rgba(21,48,42,.30);
-  animation:chipIn .42s cubic-bezier(.22,.61,.36,1) both;animation-delay:var(--d,0ms)}
+  animation:chipIn var(--dur-4) var(--ease-enter) both;animation-delay:var(--d,0ms)}
 @keyframes chipIn{from{opacity:0;transform:translate(-50%,-50%) scale(.82)}
-  to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-
+to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 .zs-steps{position:absolute;left:0;right:0;bottom:var(--sp-4);z-index:7;
   display:flex;justify-content:center;gap:var(--sp-1)}
 .zs-step{width:26px;height:4px;border-radius:99px;background:rgba(255,250,238,.4);
-  transition:.3s}
+  transition:.3s var(--dur-2) var(--ease-move)}
 .zs-step.is-on{background:var(--orange)}
-
 /* ---- same logic at every width, just tighter ---- */
 @media(max-width:900px){
   .zs-stage{height:min(88vh,720px)}
@@ -778,17 +444,16 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
   .zs-copy{justify-content:flex-end;padding-bottom:var(--sp-9)}
   .zs-copy h2{font-size:var(--fs-xl)}
   .zs-copy p:last-of-type{display:none}
-  .zs-chips li{font-size:.68rem;padding:.35rem .6rem}
+  .zs-chips li{font-size:.75rem;padding:.35rem .6rem}   /* 12px floor */
   .zs-tag{font-size:var(--fs-xs);padding:.3rem .6rem}
   .zs-scrim{background:linear-gradient(180deg, rgba(15,36,31,.30) 0%,
     rgba(15,36,31,.10) 30%, rgba(15,36,31,.72) 68%, rgba(15,36,31,.94) 100%)}
 }
-@media(prefers-reduced-motion:reduce){
-  .zs-media img,.zs-copy,.zs-form{transition:none}
-  .zs-chips li{animation:none}
-  .zs-pulse::after{animation:none}
-}
+@media(prefers-reduced-motion:reduce){.zs-media img,.zs-copy,.zs-form{transition:none}
+.zs-chips li{animation:none}
+.zs-pulse::after{animation:none}
 
+}
 /* ---------- section ground + form fit ---------- */
 .zoomstage{background:var(--forest)}
 /* the quiz must fit the stage outright - no inner scrollbars either way */
@@ -799,24 +464,22 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
 .zs-form #homeQuiz .hq-body{flex:1 1 auto;min-height:0;overflow:visible;
   padding:clamp(.9rem,1.8vh,1.5rem) clamp(1rem,2vw,1.6rem) clamp(1rem,2vh,1.5rem)}
 .zs-form #homeQuiz .hq-opts{gap:clamp(.35rem,.8vh,.55rem)}
-.zs-form #homeQuiz .hq-opt{min-height:clamp(38px,5vh,48px);padding:.5rem .7rem;
-  font-size:var(--fs-xs)}
-.zs-form #homeQuiz h3{font-size:clamp(1rem,2.2vh,1.35rem)}
-.zs-form #homeQuiz .qsub,.zs-form #homeQuiz .hq-foot{font-size:var(--fs-2xs,.78rem)}
+.zs-form #homeQuiz .hq-opt{min-height:clamp(38px,5vh,48px);padding:.5rem .7rem}
+/* the sticky panel is height-constrained, so the card steps one rung down the
+   scale rather than inventing sizes of its own */
+.zs-form #homeQuiz h3{font-size:var(--fs-lg)}
+.zs-form #homeQuiz .qsub,.zs-form #homeQuiz .hq-foot{font-size:var(--fs-xs)}
 .zs-form #homeQuiz .hq-next{min-height:clamp(40px,5.4vh,50px)}
-.zs-form #homeQuiz .hq-badge{width:42px;height:42px;font-size:1.1rem;
+.zs-form #homeQuiz .hq-badge{width:42px;height:42px;font-size:var(--fs-base);
   top:clamp(84px,11vh,132px)}
-
 /* the rhythm pass replaced the auto side margins, which left this
    40ch box hard left with its text centred inside it */
 .proc-cta p,.res-cta p{margin-inline:auto;text-align:center}
-
 /* ---------- the image IS the container ---------- */
 .zs-sticky > .container{max-width:none;width:100%;padding:0;margin:0}
 .zs-stage{width:100%;height:100vh;border-radius:0;max-width:none}
 /* the copy keeps the page gutter even though the photo runs edge to edge */
 .zs-copy,.zs-form{padding-inline:max(var(--panel-pad,28px),calc((100vw - 1240px)/2))}
-
 /* ---------- final state: back to zoomed out, rounded questionnaire ---------- */
 .zoomstage[data-stage="4"] .zs-media img{transform:scale(1)}
 .zs-form #homeQuiz{
@@ -825,48 +488,38 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
   box-shadow:none;
 }
 .zs-form #homeQuiz .hq-media{border-radius:0}
+@media(max-width:900px){.zs-stage{height:min(88vh,720px)}
+.zs-copy,.zs-form{padding-inline:var(--sp-5)}
 
-@media(max-width:900px){
-  .zs-stage{height:min(88vh,720px)}
-  .zs-copy,.zs-form{padding-inline:var(--sp-5)}
 }
-
-
 /* ---------- the container stays: rounded, on the page gutters ---------- */
 
 .zs-sticky > .container{width:100%;max-width:1320px;margin-inline:auto;
   padding-inline:var(--panel-pad,28px)}
-
 /* the photo fills that container edge to edge - no box inside a box */
 .zs-stage{position:relative;width:100%;height:min(84vh,780px);
   border-radius:var(--r-lg);overflow:hidden;background:var(--forest-d,#15302A)}
 .zs-media,.zs-media img{position:absolute;inset:0;width:100%;height:100%}
 .zs-media img{object-fit:cover}
-
 /* copy and form sit inside the container, not against the viewport */
 .zs-copy,.zs-form{left:0;right:auto;top:0;bottom:0;
   width:min(52ch,50%);
   padding:clamp(1.4rem,3vh,2.6rem) clamp(1.5rem,3vw,3rem);
 }
+@media(max-width:900px){.zs-stage{height:min(88vh,720px)}
+.zs-copy,.zs-form{left:0;right:0;width:auto;padding:var(--sp-5)}
 
-@media(max-width:900px){
-  .zs-stage{height:min(88vh,720px)}
-  .zs-copy,.zs-form{left:0;right:0;width:auto;padding:var(--sp-5)}
 }
-
-
 /* <main> is display:flex, so the section needs an explicit width or it
    shrink-wraps. */
 .zoomstage{width:100%;max-width:none;margin:0;align-self:stretch;flex:none;
   background:var(--forest-d,#15302A)}
 .zs-rail,.zs-sticky{width:100%;max-width:none}
 .zs-sticky > .container{width:100%;max-width:none;padding:0;margin:0;height:100vh}
-
 .zs-stage{position:relative;width:100%;height:100vh;border-radius:0;overflow:hidden;
   background:var(--forest-d,#15302A)}
 .zs-media,.zs-media img{position:absolute;inset:0;width:100%;height:100%}
 .zs-media img{object-fit:cover}
-
 /* content keeps the page gutter; the gutter is an offset, never padding,
    or it eats the column's own width under border-box */
 .zs-copy,.zs-form{
@@ -876,12 +529,10 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
   padding-inline:0;
   padding-block:clamp(1.4rem,4vh,3rem);
 }
+@media(max-width:900px){.zs-stage,.zs-sticky > .container{height:100svh}
+.zs-copy,.zs-form{left:var(--sp-5);right:var(--sp-5);width:auto}
 
-@media(max-width:900px){
-  .zs-stage,.zs-sticky > .container{height:100svh}
-  .zs-copy,.zs-form{left:var(--sp-5);right:var(--sp-5);width:auto}
 }
-
 /* the green rgb(30,64,53) was this section band, 1320px centred. The photo
    fills exactly that - not the whole viewport. */
 .zoomstage{width:100%;max-width:1320px;margin-inline:auto;align-self:center;
@@ -894,10 +545,9 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
 .zs-media img{object-fit:cover}
 .zs-copy,.zs-form{position:absolute;top:0;bottom:0;left:0;right:auto;
   width:min(52ch,48%);padding:clamp(1.4rem,4vh,3rem) clamp(1.5rem,3vw,3rem)}
-@media(max-width:900px){
-  .zs-copy,.zs-form{left:0;right:0;width:auto;padding:var(--sp-5)}
-}
+@media(max-width:900px){.zs-copy,.zs-form{left:0;right:0;width:auto;padding:var(--sp-5)}
 
+}
 /* ---------- the image fills the container ---------- */
 /* same 1200px container every other section uses; its padding is dropped
    so the photo reaches the container edges instead of sitting in a
@@ -913,17 +563,16 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
 .zs-media img{object-fit:cover}
 .zs-copy,.zs-form{position:absolute;top:0;bottom:0;left:0;right:auto;
   width:min(52ch,50%);padding:clamp(1.4rem,4vh,3rem) clamp(1.5rem,3vw,2.8rem)}
-@media(max-width:900px){
-  .zs-sticky > .container{height:100svh}
-  .zs-copy,.zs-form{left:0;right:0;width:auto;padding:var(--sp-5)}
-}
+@media(max-width:900px){.zs-sticky > .container{height:100svh}
+.zs-copy,.zs-form{left:0;right:0;width:auto;padding:var(--sp-5)}
 
+}
 /* the questionnaire preview reads better with more room than the copy needs */
 .zs-form{width:min(64ch,56%)}
 .zs-form #homeQuiz{width:100%;max-width:none}
 .zs-form #homeQuiz .hq-opts{grid-template-columns:1fr 1fr}
-@media(max-width:900px){ .zs-form{width:auto} }
-
+@media(max-width:900px){.zs-form{width:auto}
+ }
 /* ---------- the frame owns the image and everything pinned to it ---------- */
 .zs-frame{position:absolute;inset:0;z-index:0}
 .zs-frame .zs-media,.zs-frame .zs-media img{position:absolute;inset:0;
@@ -933,94 +582,75 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
    the same thing whether the frame fills the stage or sits on top of it */
 .zs-frame .zs-dot{position:absolute}
 .zs-stage > .zs-chips{position:absolute;inset:0;z-index:5;pointer-events:none}
-
-@media(max-width:900px){
-  /* no scroll-driven stage: the section is a normal block */
+@media(max-width:900px){/* no scroll-driven stage: the section is a normal block */
   .zs-rail{height:auto}
-  .zs-sticky{position:static;height:auto;display:block}
-  .zs-sticky > .container{height:auto;padding:0}
-  .zs-stage{height:auto;min-height:0;overflow:visible;display:flex;
+.zs-sticky{position:static;height:auto;display:block}
+.zs-sticky > .container{height:auto;padding:0}
+.zs-stage{height:auto;min-height:0;overflow:visible;display:flex;
     flex-direction:column;background:transparent;border-radius:0}
-
-  /* the photo becomes a rounded block at the top; hotspots stay on it */
+/* the photo becomes a rounded block at the top; hotspots stay on it */
   .zs-frame{position:relative;inset:auto;order:1;
     height:clamp(320px,64vw,460px);border-radius:var(--r-lg);overflow:hidden}
-  .zs-frame .zs-scrim{background:linear-gradient(180deg,
+.zs-frame .zs-scrim{background:linear-gradient(180deg,
     rgba(15,36,31,.10) 0%, rgba(15,36,31,.05) 45%, rgba(15,36,31,.55) 100%)}
-
-  /* copy, then chips, then the form - all in flow, nothing overlapping */
+/* copy, then chips, then the form - all in flow, nothing overlapping */
   /* below the photo the copy sits on the page ground, not on the dark scrim,
      so it takes the page's ink colours instead of the cream ones */
   .zs-copy{position:static;order:2;width:auto;padding:var(--sp-6) var(--sp-1) 0;
     transform:none !important;opacity:1 !important;color:var(--ink)}
-  .zs-copy h2{font-size:var(--fs-xl);color:var(--forest)}
-  .zs-copy p{color:var(--muted)}
-  .zs-copy .overline{color:var(--cta)}
-  .zs-form{position:static;order:4;width:auto;padding:var(--sp-6) var(--sp-1) var(--sp-4);
+.zs-copy h2{font-size:var(--fs-xl);color:var(--forest)}
+.zs-copy p{color:var(--muted)}
+.zs-copy .overline{color:var(--cta)}
+.zs-form{position:static;order:4;width:auto;padding:var(--sp-6) var(--sp-1) var(--sp-4);
     transform:none !important;opacity:1 !important;pointer-events:auto}
-
-  /* an open hotspot lists its ailments below the copy rather than over it */
+/* an open hotspot lists its ailments below the copy rather than over it */
   .zs-chips{position:static;order:3;display:none;
     grid-template-columns:1fr 1fr;gap:var(--sp-2);
     padding:var(--sp-5) var(--sp-1) 0;pointer-events:auto}
-  .zs-stage > .zs-chips,.zs-chips{}
-  .zs-chips:not([hidden]){display:grid}
-  .zs-chips li{position:static !important;transform:none !important;
+.zs-chips:not([hidden]){display:grid}
+.zs-chips li{position:static !important;transform:none !important;
     left:auto !important;top:auto !important;white-space:normal;
     animation:none;text-align:left}
-
-  .zs-steps{display:none}
-  .zs-tag{font-size:var(--fs-xs);padding:.3rem .6rem}
-
-  /* the step badge overlaps the card's photo at this width; the eyebrow
+.zs-steps{display:none}
+.zs-tag{font-size:var(--fs-xs);padding:.3rem .6rem}
+/* the step badge overlaps the card's photo at this width; the eyebrow
      already says "Step 1 of 9", so the circle is redundant */
   #homeQuiz .hq-badge{display:none}
-
-  /* the label sits to the LEFT of its marker and the marker hugs the right
+/* the label sits to the LEFT of its marker and the marker hugs the right
      edge, so a long tag grows inward instead of off the screen */
   .zs-dot{flex-direction:row-reverse;
     left:auto !important;right:28px;
     transform:translateY(-50%) !important;
     max-width:calc(100% - 44px)}
-  .zs-tag{white-space:normal;text-align:right}
-
-  /* evenly spaced down the frame instead of bunched in the top third */
+.zs-tag{white-space:normal;text-align:right}
+/* evenly spaced down the frame instead of bunched in the top third */
   .zs-dot[data-scope="head"]{top:18% !important}
-  .zs-dot[data-scope="back"]{top:50% !important}
-  .zs-dot[data-scope="pelvis"]{top:82% !important}
-
-  /* every marker stays live: tapping one opens its list, and the other two
+.zs-dot[data-scope="back"]{top:50% !important}
+.zs-dot[data-scope="pelvis"]{top:82% !important}
+/* every marker stays live: tapping one opens its list, and the other two
      are still there to tap. The zoom is dropped so nothing drifts off-frame */
   .zoomstage .zs-dot{opacity:1 !important;pointer-events:auto !important}
-  .zs-media img{transform:none !important;object-position:50% 30% !important}
-}
+.zs-media img{transform:none !important;object-position:50% 30% !important}
 
-@media(max-width:900px){
-  /* must match the desktop selector .zs-stage > .zs-chips or it loses */
+}
+@media(max-width:900px){/* must match the desktop selector .zs-stage > .zs-chips or it loses */
   .zs-stage > .zs-chips{position:static;inset:auto;order:3;display:none;
     grid-template-columns:1fr 1fr;gap:var(--sp-2);
     padding:var(--sp-5) var(--sp-1) 0;pointer-events:auto}
-  .zs-stage > .zs-chips:not([hidden]){display:grid}
-  .zs-stage > .zs-chips li{position:static;transform:none;left:auto;top:auto;
+.zs-stage > .zs-chips:not([hidden]){display:grid}
+.zs-stage > .zs-chips li{position:static;transform:none;left:auto;top:auto;
     white-space:normal;animation:none;text-align:left}
-}
 
-/* ===========================================================================
-   PRELOADER — the full lockup draws in, then flies to the header logo's box
-   ======================================================================== */
-.preload{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
-  background:var(--ground);will-change:opacity}
+}
 .preload-mark{will-change:transform}
 /* the sting animates itself (SMIL, inside the file) — nothing here drives it */
 .pl-svg{display:block;width:min(72vw,420px);height:auto}
-/* the header logo stays out of sight until the mark lands on it */
-.is-preloading body{overflow:hidden}
-.is-preloading .nav-logo{opacity:0}
-.nav-logo{transition:opacity .3s ease}
-@media(prefers-reduced-motion:reduce){
-  .pl-svg path{animation:none;opacity:1}
-  .preload-mark{transition:none !important}
+@media(prefers-reduced-motion:reduce){.pl-svg path{animation:none;opacity:1}
+.preload-mark{transition:none var(--dur-2) var(--ease-move)}
+
 }
+
+
 </style>
 <link rel="stylesheet" href="assets/react/islands.css?v=1788328509">
   <link rel="stylesheet" href="assets/css/design-system.css?v=1788331338">
@@ -1040,6 +670,13 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
 (function(){
   var pre=document.getElementById('preload'), mark=document.getElementById('preloadMark');
   if(!pre||!mark) return;
+  /* the sting is an arrival moment, not a page transition: play it on the
+     first homepage load of a session and never again until a new tab. */
+  var SEEN='pca:sting';
+  var seen=false;
+  try{ seen=sessionStorage.getItem(SEEN)==='1'; }catch(e){}
+  if(seen){ pre.parentNode.removeChild(pre); return; }
+  try{ sessionStorage.setItem(SEEN,'1'); }catch(e){}
   var root=document.documentElement;
   root.classList.add('is-preloading');
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1095,21 +732,56 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
                 aria-expanded="false" aria-controls="navServicesMenu">Services
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </button>
-        <div class="nav-drop-menu" id="navServicesMenu">
-          <a href="pca-consultation.html">Consultation</a>
-          <a href="pca-psychotherapy.html">Psychotherapy</a>
-          <a href="pca-physiotherapy.html">Physiotherapy</a>
-          <a href="pca-dietary-guidance.html">Dietary Guidance</a>
-          <a href="pca-intimacy.html">Intimacy</a>
+        <div class="nav-drop-menu nav-mega" id="navServicesMenu">
+          <div class="mega-grid pcard-grid">
+            <a class="pcard pcard--mega" href="pca-consultation.html">
+              <span class="pcard-thumb"><img src="assets/images/consultation.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Consultation</h3>
+                <p class="pcard-note">Free first assessment with an AHPRA doctor</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-psychotherapy.html">
+              <span class="pcard-thumb"><img src="assets/images/psychotherapy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Psychotherapy</h3>
+                <p class="pcard-note">Retrain how your nervous system reads pain</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-physiotherapy.html">
+              <span class="pcard-thumb"><img src="assets/images/physiotherapy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Physiotherapy</h3>
+                <p class="pcard-note">Movement plans built for painful days</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-dietary-guidance.html">
+              <span class="pcard-thumb"><img src="assets/images/dietary-guidance.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Dietary Guidance</h3>
+                <p class="pcard-note">Eating well on your hardest days</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-intimacy.html">
+              <span class="pcard-thumb"><img src="assets/images/intimacy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Intimacy</h3>
+                <p class="pcard-note">The part of pain nobody asks about</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+          </div>
         </div>
       </div>
-      <a href="index.html#about">About</a>
-      <a href="index.html#insurance">Insurance</a>
       <a href="pca-resources.html">Resources</a>
-      <a href="index.html#faq">FAQs</a>
+      <a href="pca-contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
-      <span class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>1300 070 910</span>
+    <a href="tel:1300070910" class="nav-call" aria-label="Call Pain Clinic Australia on 1300 070 910" title="1300 070 910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
       <a href="pca-quiz.html" class="btn btn-outline">Get Started</a>
       <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
     </div>
@@ -1253,11 +925,10 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
           <div class="zs-form">
             <div class="quiz-card reveal" id="homeQuiz" role="region" aria-label="Pain assessment, step 1 of 9">
       <div class="hq-media" aria-hidden="true">
-        <img src="assets/images/consultation.webp" alt="" loading="lazy">
+        <img src="assets/images/hero-garden.webp" alt="" loading="lazy">
       </div>
       <span class="hq-badge" aria-hidden="true">1</span>
       <div class="hq-body">
-      <span class="hq-eyebrow">Your pain &middot; Step 1 of 9</span>
       <h3>Where do you feel your pain?</h3>
       <p class="qsub">Select all that apply.</p>
       <div class="hq-opts" role="group" aria-label="Pain areas">
@@ -1382,39 +1053,38 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
 <!-- FAQ -->
 <section class="faq" id="faq" aria-labelledby="faq-heading">
   <div class="container">
-    <div class="faq-photo reveal"><img src="assets/images/hero-garden.webp" alt="Patients living well with chronic pain treatment" loading="lazy"></div>
+    <div class="faq-photo reveal"><img src="assets/images/hero-couple.webp" alt="Patients living well with chronic pain treatment" loading="lazy"></div>
     <div class="reveal">
       <span class="overline">FAQs</span>
       <h2 id="faq-heading">Have Questions? We&rsquo;re Here to Help</h2>
       <p class="testi-intro">Starting a new pain management journey can feel overwhelming. We&rsquo;ve answered some of the questions we hear most often to help you feel informed and confident before your first appointment.</p>
       <div data-img="assets/images/consultation.webp" class="acc-item open" id="faqItem1"><span class="acc-ring" aria-hidden="true"></span>
         <button class="acc-head" aria-expanded="true" aria-controls="faqBody1">How much is the treatment? <span class="pm" aria-hidden="true">+</span></button>
-        <div class="acc-body" id="faqBody1" role="region"><p>Costs vary depending on the specific treatment approaches and medications that will be included in your care, so quotations are given after a tailored plan has been drafted from your free initial assessment. Typically, patients are billed monthly and are often under 6-month or 12-month pain management programmes.</p></div>
+        <div class="acc-body" id="faqBody1" role="region"><div class="acc-inner"><p>Costs vary depending on the specific treatment approaches and medications that will be included in your care, so quotations are given after a tailored plan has been drafted from your free initial assessment. Typically, patients are billed monthly and are often under 6-month or 12-month pain management programmes.</p></div></div>
       </div>
       <div data-img="assets/images/psychotherapy.webp" class="acc-item" id="faqItem2"><span class="acc-ring" aria-hidden="true"></span>
         <button class="acc-head" aria-expanded="false" aria-controls="faqBody2">Is a referral required? <span class="pm" aria-hidden="true">+</span></button>
-        <div class="acc-body" id="faqBody2" role="region"><p>For direct patients or those paying out of pocket, a referral isn&rsquo;t necessary. As a specialty pain clinic, our Authorised Prescribers are able to access a wide range of treatment modalities for chronic pain. However, if you are availing via insurance, your insurance provider will usually ask for a referral as part of their terms and conditions.</p></div>
+        <div class="acc-body" id="faqBody2" role="region"><div class="acc-inner"><p>For direct patients or those paying out of pocket, a referral isn&rsquo;t necessary. As a specialty pain clinic, our Authorised Prescribers are able to access a wide range of treatment modalities for chronic pain. However, if you are availing via insurance, your insurance provider will usually ask for a referral as part of their terms and conditions.</p></div></div>
       </div>
       <div data-img="assets/images/physiotherapy.webp" class="acc-item" id="faqItem3"><span class="acc-ring" aria-hidden="true"></span>
         <button class="acc-head" aria-expanded="false" aria-controls="faqBody3">What is secondary chronic pain? <span class="pm" aria-hidden="true">+</span></button>
-        <div class="acc-body" id="faqBody3" role="region"><p>Chronic pain is considered secondary if it&rsquo;s the result of another condition like in arthritis, spinal cord injuries, and cancer. If the primary cause is successfully treated, pain may go away. However, some conditions don&rsquo;t have an existing cure, so some Australians develop lifelong pain. Please be informed that we only treat the pain itself and not the underlying condition, so you will still need care from your primary healthcare provider.</p></div>
+        <div class="acc-body" id="faqBody3" role="region"><div class="acc-inner"><p>Chronic pain is considered secondary if it&rsquo;s the result of another condition like in arthritis, spinal cord injuries, and cancer. If the primary cause is successfully treated, pain may go away. However, some conditions don&rsquo;t have an existing cure, so some Australians develop lifelong pain. Please be informed that we only treat the pain itself and not the underlying condition, so you will still need care from your primary healthcare provider.</p></div></div>
       </div>
       <div data-img="assets/images/dietary-guidance.webp" class="acc-item" id="faqItem4"><span class="acc-ring" aria-hidden="true"></span>
         <button class="acc-head" aria-expanded="false" aria-controls="faqBody4">Will I still need to go to surgery? <span class="pm" aria-hidden="true">+</span></button>
-        <div class="acc-body" id="faqBody4" role="region"><p>It depends on what your condition is. PCA specialises in managing persistent pain, but we don&rsquo;t directly target the pre-existing conditions that cause pain. Our complementary therapies may improve the underlying disease, but treatment is still essential to preserve your overall health. Some conditions that cause chronic pain are also progressive and early intervention can drastically improve long-term quality of life.</p></div>
+        <div class="acc-body" id="faqBody4" role="region"><div class="acc-inner"><p>It depends on what your condition is. PCA specialises in managing persistent pain, but we don&rsquo;t directly target the pre-existing conditions that cause pain. Our complementary therapies may improve the underlying disease, but treatment is still essential to preserve your overall health. Some conditions that cause chronic pain are also progressive and early intervention can drastically improve long-term quality of life.</p></div></div>
       </div>
       <div data-img="assets/images/hero-garden.webp" class="acc-item" id="faqItem5"><span class="acc-ring" aria-hidden="true"></span>
         <button class="acc-head" aria-expanded="false" aria-controls="faqBody5">Can I use PBS or Medicare? <span class="pm" aria-hidden="true">+</span></button>
-        <div class="acc-body" id="faqBody5" role="region"><p>Our medications are not over-the-counter pain relief. Our emerging therapeutics adhere to the guidelines of the Therapeutic Goods Administration (TGA). To be eligible, patients should have already tried first-line medications and are under the mainstream treatment if the pain is triggered by a separate underlying condition. While we&rsquo;re not under government subsidy, we are partnered with several private insurance companies. Some of our patients have also accessed treatment with approved WorkCover or CTP claims.</p></div>
+        <div class="acc-body" id="faqBody5" role="region"><div class="acc-inner"><p>Our medications are not over-the-counter pain relief. Our emerging therapeutics adhere to the guidelines of the Therapeutic Goods Administration (TGA). To be eligible, patients should have already tried first-line medications and are under the mainstream treatment if the pain is triggered by a separate underlying condition. While we&rsquo;re not under government subsidy, we are partnered with several private insurance companies. Some of our patients have also accessed treatment with approved WorkCover or CTP claims.</p></div></div>
       </div>
       <div data-img="assets/images/resources.webp" class="acc-item" id="faqItem6"><span class="acc-ring" aria-hidden="true"></span>
         <button class="acc-head" aria-expanded="false" aria-controls="faqBody6">Do you accept insurance? <span class="pm" aria-hidden="true">+</span></button>
-        <div class="acc-body" id="faqBody6" role="region"><p>Yes, we are partnered with QBE, AAMI, GIO, IAG, EML, i-Care, Allianz, SunCorp, NRMA, Gallagher Bassett, and DXC Technology. Some patients have had their treatment plans covered by TAC, WCC, NISQ, and Blue Scope. We also accept WorkCover and CTP claims (subject to the approval of the relevant regulatory body or insurance provider).</p></div>
+        <div class="acc-body" id="faqBody6" role="region"><div class="acc-inner"><p>Yes, we are partnered with QBE, AAMI, GIO, IAG, EML, i-Care, Allianz, SunCorp, NRMA, Gallagher Bassett, and DXC Technology. Some patients have had their treatment plans covered by TAC, WCC, NISQ, and Blue Scope. We also accept WorkCover and CTP claims (subject to the approval of the relevant regulatory body or insurance provider).</p></div></div>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- TESTIMONIALS -->
 <section class="testimonials bleed" id="testimonials" aria-labelledby="testi-heading">
@@ -1481,7 +1151,7 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
     </div>
     <div class="pcard-grid pcard-grid--4">
       <a class="pcard" href="pca-blog-post.html" aria-label="Read: Chronic Pain: What It Is, Why It Happens  How to Find Relief">
-        <span class="pcard-thumb"><img src="assets/images/consultation.webp" alt="" loading="lazy"></span>
+        <span class="pcard-thumb"><img src="assets/images/resources.webp" alt="" loading="lazy"></span>
         <span class="pcard-body">
           <span class="pcard-tag">Chronic Pain</span>
           <h3>Chronic Pain: What It Is, Why It Happens &amp; How to Find Relief</h3>
@@ -1490,7 +1160,7 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
         <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="pcard" href="pca-blog-post.html" aria-label="Read: Pain After Spinal Fusion: What Causes It  How Its Treated">
-        <span class="pcard-thumb"><img src="assets/images/physiotherapy.webp" alt="" loading="lazy"></span>
+        <span class="pcard-thumb"><img src="assets/images/scope-backpain.webp" alt="" loading="lazy"></span>
         <span class="pcard-body">
           <span class="pcard-tag">Treatment</span>
           <h3>Pain After Spinal Fusion: What Causes It &amp; How It&rsquo;s Treated</h3>
@@ -1499,7 +1169,7 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
         <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="pcard" href="pca-blog-post.html" aria-label="Read: Living With Fibromyalgia, MS  Arthritis: A Pain Guide">
-        <span class="pcard-thumb"><img src="assets/images/psychotherapy.webp" alt="" loading="lazy"></span>
+        <span class="pcard-thumb"><img src="assets/images/hero-senior-couple.webp" alt="" loading="lazy"></span>
         <span class="pcard-body">
           <span class="pcard-tag">Conditions</span>
           <h3>Living With Fibromyalgia, MS &amp; Arthritis: A Pain Guide</h3>
@@ -1509,7 +1179,6 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
       </a>
       <a class="pcard pcard--more" href="pca-resources.html" aria-label="Read more articles in the PCA blog">
         <span class="pcard-body">
-          <span class="pcard-tag">Blog &amp; News</span>
           <h3>Read more</h3>
           <p class="pcard-note">Browse every article our clinicians have written on living with chronic pain.</p>
         </span>
@@ -1530,33 +1199,45 @@ footer{margin-bottom:calc(var(--panel-gap) * 2);background:var(--forest);color:r
 </section>
 </main>
 
+<!-- MOBILE STICKY CTA -->
+<div class="mcta" id="mcta" aria-hidden="false">
+  <a href="tel:1300070910" class="mcta-call" aria-label="Call 1300 070 910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+  <a href="pca-quiz.html" class="mcta-quiz">Take the 2-minute quiz
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+
+
 <!-- FOOTER -->
 <footer role="contentinfo">
   <div class="container">
     <div class="foot-top">
       <div class="foot-brand">
-        <img src="assets/images/pca-logo-white.png" alt="Pain Clinic Australia" width="180" height="46" loading="lazy">
-        <p class="tag">Wondering if you have symptoms? Take our quiz to find out!</p>
+        <img src="assets/images/pca-logo-footer.svg" alt="Pain Clinic Australia" width="376" height="69" loading="lazy">
+        <p class="tag">Australian-registered clinicians, telehealth nationwide.</p>
         <ul class="foot-contact">
           <li><a href="tel:+611300070910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>1300 070 910</a></li>
           <li><a href="mailto:info@painclinicaustralia.com.au"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>info@painclinicaustralia.com.au</a></li>
         </ul>
       </div>
       <div class="foot-news">
-        <a class="nl nl-link" href="pca-quiz.html" aria-label="Take the pain assessment quiz">
-        <span class="nl-text">Take the Quiz</span>
-        <span class="nlb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <small>*We never share your information with third parties.</small>
+        <a class="foot-quiz" href="pca-quiz.html">
+          <span class="foot-quiz-img"><img src="assets/images/ebook.webp" alt="" loading="lazy"></span>
+          <span class="foot-quiz-body">
+            <span class="foot-quiz-title">Not sure where to start?</span>
+            <span class="foot-quiz-note">Nine short questions. Free, no obligation.</span>
+            <span class="foot-quiz-cta">Take the Quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+        </a>
+        <small>*We never share your information with third parties.</small>
       </div>
     </div>
     <nav class="foot-cols" aria-label="Footer navigation">
       <div class="foot-col"><h4>Explore</h4><ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="pca-resources.html">Blog</a></li><li><a href="#faq">FAQs</a></li><li><a href="mailto:info@painclinicaustralia.com.au">Contact</a></li>
+        <li><a href="pca-resources.html">Blog</a></li><li><a href="#faq">FAQs</a></li><li><a href="pca-contact.html">Contact</a></li>
       </ul></div>
       <div class="foot-col"><h4>Pain Treatments</h4><ul>
-        <li><a href="#about">Pain Types</a></li><li><a href="#conditions">Treatment Options</a></li>
+        <li><a href="#about">Pain Types</a></li><li><a href="#bodyscopes">Treatment Options</a></li>
         <li><a href="#">Cannabis Guideline</a></li><li><a href="#insurance">Insurance</a></li>
       </ul></div>
       <div class="foot-col"><h4>Follow Us</h4><ul>
@@ -1654,6 +1335,9 @@ navMQ.addEventListener('change',function(){
 function setDrop(open){
   navDrop.setAttribute('data-open',open?'true':'false');
   navDropBtn.setAttribute('aria-expanded',open?'true':'false');
+  /* the panel is height-animated, so growing the submenu inside it has to
+     release the fixed height or the extra links are clipped */
+  if(navMenu&&navMQ.matches&&hdr.getAttribute('data-nav')==='open')navMenu.style.height='auto';
 }
 setNav(false,true); setDrop(false);
 burger.addEventListener('click',()=>setNav(hdr.getAttribute('data-nav')!=='open'));
@@ -1677,11 +1361,11 @@ document.querySelectorAll('.qopt').forEach(o=>{
 document.querySelectorAll('.acc-head').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const item=btn.parentElement,body=btn.nextElementSibling,open=item.classList.contains('open');
-    document.querySelectorAll('.acc-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.acc-head').setAttribute('aria-expanded','false');o.querySelector('.acc-body').style.maxHeight=null;});
-    if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');body.style.maxHeight=body.scrollHeight+'px';}
+    document.querySelectorAll('.acc-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.acc-head').setAttribute('aria-expanded','false');});
+    if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
   });
 });
-document.querySelectorAll('.acc-item.open .acc-body').forEach(b=>b.style.maxHeight=b.scrollHeight+'px');
+
 // proc tabs
 document.querySelectorAll('.proc-tabs button').forEach((b,i,a)=>{
   b.addEventListener('click',()=>{
@@ -1708,8 +1392,6 @@ document.querySelectorAll('.proc-tabs button').forEach((b,i,a)=>{
   });
 })();
 
-
-
 // ---- footer columns act as tabs on mobile ----
 (function(){
   var mq=window.matchMedia('(max-width:760px)');
@@ -1726,8 +1408,6 @@ document.querySelectorAll('.proc-tabs button').forEach((b,i,a)=>{
     h.setAttribute('aria-expanded','false');
   });
 })();
-
-
 
 // body map: walks head -> feet as the section scrolls past
 window.pcaBodyMap = (function(){
@@ -1801,7 +1481,6 @@ window.pcaBodyMap = (function(){
   return {ok:true, order:order, sync:sync, current:function(){return cur;}};
 })();
 
-
 // pinned nav gets a shadow once the page scrolls
 (function(){
   var b=document.body;
@@ -1810,7 +1489,6 @@ window.pcaBodyMap = (function(){
   document.addEventListener('scroll',upd,{passive:true});
   upd();
 })();
-
 
 // testimonials: a true loop — the leading card is recycled to the end of the
 // track after every step, so there is no seam and no index to run out of
@@ -1888,7 +1566,6 @@ window.pcaTesti = (function(){
   return {ok:true, next:next, at:function(){return pos;}, count:real};
 })();
 
-
 // FAQ: opens each question on a timer; the countdown draws along the NEXT
 // item, and the section photo swaps to match whatever is open
 (function(){
@@ -1904,7 +1581,7 @@ window.pcaTesti = (function(){
       var on=j===n;
       it.classList.toggle('open',on);
       head.setAttribute('aria-expanded',on?'true':'false');
-      body.style.maxHeight = on ? body.scrollHeight+'px' : null;
+      
       it.classList.toggle('is-next', j===(n+1)%items.length);
       if(!it.classList.contains('is-next')) it.style.removeProperty('--p');
     });
@@ -1934,15 +1611,12 @@ window.pcaTesti = (function(){
   // rAF is frozen while the tab is hidden; on return the old timestamp would
   // make the sweep jump straight to full, so restart the cycle cleanly.
   document.addEventListener('visibilitychange',function(){ t0=0; });
-  if(photo) photo.style.transition='opacity .25s ease';
+  if(photo) photo.style.transition='opacity var(--dur-2) var(--ease-move)';
   openAt(0);
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     raf=requestAnimationFrame(frame);
   }
 })();
-
-
-
 
 // hotspot stage: static -> three scopes -> form
 (function(){
@@ -2097,11 +1771,27 @@ if(ebookModalForm)ebookModalForm.addEventListener("submit",e=>{
   f.style.display='none';
   ebookModalSuccess.hidden=false;
 });
-// footer quiz redirect
-document.querySelector(".foot-news .nlb")?.addEventListener('click',()=>{window.open(TF,'_blank');});
+// footer quiz redirect});
 
 </script>
 <script type="module" src="assets/react/islands.js?v=1788328509"></script>
   <script src="assets/js/readmore.js?v=2" defer></script>
+
+<script>
+/* the sticky CTA hides once the reader reaches something that already offers
+   the quiz, so the band never covers the card it duplicates */
+(function(){
+  var band=document.getElementById('mcta'); if(!band) return;
+  var marks=document.querySelectorAll('#homeQuiz, .endcta, .svc-intake, footer');
+  if(!marks.length || !('IntersectionObserver' in window)) return;
+  var showing=0;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ showing += e.isIntersecting ? 1 : -1; });
+    if(showing<0) showing=0;
+    band.setAttribute('data-hide', showing>0 ? 'true' : 'false');
+  },{rootMargin:'0px 0px -20% 0px'});
+  marks.forEach(function(m){ io.observe(m); });
+})();
+</script>
 </body>
 </html>

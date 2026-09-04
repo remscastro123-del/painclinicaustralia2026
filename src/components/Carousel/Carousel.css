@@ -126,7 +126,7 @@
   appearance: none;
   border-radius: 50%;
   cursor: pointer;
-  transition: background-color 150ms;
+  transition: background-color var(--dur-2) var(--ease-move);
 }
 
 .carousel-indicator:focus-visible {

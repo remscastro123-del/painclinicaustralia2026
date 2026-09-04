@@ -8,11 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<style>
-/* ─── TOKENS ─────────────────────────────────────── */
+<style>/* ─── TOKENS ─────────────────────────────────────── */
 :root{
   /* TYPE SCALE (fluid, 1.200 minor third @375 -> 1.250 @1440) */
-  --fs-2xs:clamp(.70rem,.68rem + .10vw,.76rem);
+  --fs-2xs:clamp(.75rem,.73rem + .09vw,.80rem);
   --fs-xs:clamp(.78rem,.75rem + .14vw,.86rem);
   --fs-sm:clamp(.86rem,.83rem + .16vw,.94rem);
   --fs-base:clamp(1rem,.97rem + .16vw,1.06rem);
@@ -40,55 +39,32 @@ body{font-family:var(--fb);color:var(--ink);background:var(--cream);font-size:va
 h1,h2,h3,h4{font-family:var(--fh);font-weight:700;line-height:var(--lh-tight);text-wrap:balance;letter-spacing:-.01em}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,28px)}
+/* .container is defined by the panel system in design-system.css */
 .overline{font-size:var(--fs-xs);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cta);display:inline-block}
 .skip-nav{position:absolute;left:-100%;top:auto;width:1px;height:1px;overflow:hidden;background:var(--forest);color:#fff;padding:.5rem 1rem;border-radius:0 0 var(--r-md) var(--r-md);font-weight:700;z-index:999}
 .skip-nav:focus{left:0;width:auto;height:auto}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 :focus-visible{outline:3px solid var(--cta);outline-offset:3px;border-radius:4px}
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--fb);font-weight:700;padding:.85rem 1.7rem;border-radius:var(--r-pill);cursor:pointer;border:none;transition:transform .25s,box-shadow .25s;font-size:var(--fs-base);white-space:nowrap;text-decoration:none}
-.btn-amber{background:var(--cta);color:#fff;box-shadow:var(--sh-cta)}
-.btn-amber:hover,.btn-amber:focus-visible{transform:translateY(-2px);box-shadow:0 16px 34px rgba(132,56,6,.4)}
-.btn-forest{background:var(--forest);color:var(--cream)}
-.btn-forest:hover,.btn-forest:focus-visible{transform:translateY(-2px);box-shadow:var(--sh-md)}
+
 .btn .arr{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;flex-shrink:0}
 .btn .arr svg,.btn>svg{width:16px;height:16px}
-/* TOPBAR */
-.topbar{background:var(--forest-d);color:rgba(255,250,238,.82);font-size:var(--fs-sm)}
-.topbar .container{display:flex;gap:1.2rem;align-items:center;min-height:36px;padding-top:4px;padding-bottom:4px}
-.topbar a{display:inline-flex;align-items:center;gap:.38rem;color:inherit;transition:color .2s;margin-right:1rem}
-.topbar a:hover{color:var(--orange)}.topbar svg{width:13px;height:13px}
-@media(max-width:560px){.topbar .container{flex-direction:column;align-items:flex-start;gap:.35rem;padding-top:6px;padding-bottom:6px}.topbar a{margin-right:0}}
-/* HEADER */
-header{position:sticky;top:0;z-index:60;background:var(--cream);backdrop-filter:blur(14px);transition:box-shadow .3s,background .3s}
-header.scrolled{box-shadow:var(--sh-sm)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:80px}
-.nav-logo img{height:80px;width:auto}
-.nav-cta{display:flex;align-items:center;gap:1rem;flex-shrink:0}
-.nav-phone{font-weight:700;color:var(--forest);font-size:var(--fs-sm);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
-.nav-phone svg{width:16px;height:16px;color:var(--orange)}
-.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:12px 8px;min-height:44px;min-width:44px;align-items:center;justify-content:center}
-.burger span{width:24px;height:2.5px;background:var(--forest);border-radius:2px;transition:transform .3s,opacity .3s}
-.burger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0}
-.burger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 /* BREADCRUMB */
-.breadcrumb{display:inline-flex;align-items:center;gap:.55rem;font-size:var(--fs-sm);color:var(--muted);flex-wrap:wrap}
-.breadcrumb a{color:var(--forest);font-weight:600;transition:color .2s}
-.breadcrumb a:hover{color:var(--cta)}
-.bc-sep{color:var(--line);font-size:.9rem}
-.bc-cur{color:var(--muted)}
+
+
+
+
+
 /* SERVICE HERO (2-col) */
 .svc-hero{padding:clamp(3rem,6vw,5.5rem) 0 clamp(2.5rem,5vw,4.5rem)}
 .svc-hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2.5rem,5vw,5rem);align-items:center}
 .svc-hero-text .breadcrumb{margin-bottom:1.4rem}
 .svc-hero-text .overline{margin-bottom:.5rem}
 .svc-hero-text h1{font-size:var(--fs-3xl);color:var(--forest);margin:.5rem 0 1.1rem}
-.svc-hero-text .tagline{font-size:var(--fs-md);color:var(--muted);margin-bottom:1.5rem;max-width:42ch;line-height:1.7}
+.svc-hero-text .tagline{color:var(--muted);margin-bottom:1.5rem;max-width:42ch}
 .svc-hero-text .cta-row{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.8rem}
 .hero-checklist{list-style:none;margin-bottom:1.6rem}
-.hero-checklist li{display:flex;align-items:flex-start;gap:.75rem;font-size:var(--fs-base);color:var(--ink);margin-bottom:.6rem;line-height:1.6}
+.hero-checklist li{display:flex;align-items:flex-start;gap:.75rem;color:var(--ink);margin-bottom:.6rem}
 .hero-checklist li svg{width:18px;height:18px;color:var(--leaf);flex-shrink:0;margin-top:.15rem}
 .svc-hero-img{position:relative}
 .svc-img-frame{border-radius:var(--r-2xl);overflow:hidden;aspect-ratio:1/1.05;box-shadow:var(--sh-lg);border:6px solid var(--white)}
@@ -98,162 +74,73 @@ header.scrolled{box-shadow:var(--sh-sm)}
 .svc-process .overline{color:var(--orange)}
 .svc-process .proc-head{text-align:center;margin-bottom:2.4rem}
 .svc-process .proc-head h2{color:#fff;font-size:var(--fs-2xl);margin:.6rem 0 .5rem}
-.svc-process .proc-head p{color:rgba(255,250,238,.82);font-size:var(--fs-md);max-width:50ch;margin:0 auto}
+.svc-process .proc-head p{color:rgba(255,250,238,.82);max-width:50ch;margin:0 auto}
 .proc-list{max-width:860px;margin:0 auto;border-left:3px solid var(--orange)}
 .proc-row{display:flex;align-items:flex-start;gap:1.2rem;padding:1.25rem 1.4rem;border-bottom:1px solid rgba(255,250,238,.12)}
 .proc-row:last-child{border-bottom:none}
-.pn{font-family:var(--fh);font-weight:700;color:var(--orange);font-size:1.1rem;min-width:28px;flex-shrink:0;margin-top:.05rem}
+.pn{font-family:var(--fh);font-weight:700;color:var(--orange);font-size:var(--fs-base);min-width:28px;flex-shrink:0;margin-top:.05rem}
+.proc-row .pn svg{width:19px;height:19px}
+.proc-step{display:block;font-size:var(--fs-2xs);font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cta);margin-bottom:.25rem}
+.proc-row.is-active .proc-step{color:var(--cta)}
 .proc-content h3{font-family:var(--fh);font-weight:600;color:#fff;font-size:var(--fs-lg);margin-bottom:.3rem}
-.proc-content p{color:rgba(255,250,238,.8);font-size:var(--fs-base)}
+.proc-content p{color:rgba(255,250,238,.8)}
 .proc-cta{text-align:center;margin-top:2.4rem}
-.proc-cta p{color:rgba(255,250,238,.75);font-size:var(--fs-base);margin-top:.85rem;max-width:34ch;margin-left:auto;margin-right:auto}
+.svc-process .proc-cta p{color:rgba(255,250,238,.75);margin-top:.85rem;max-width:34ch;margin-left:auto;margin-right:auto}
 /* CONDITIONS */
 .conditions{background:var(--cream2);padding:clamp(60px,8vw,80px) 0}
 .conditions .sec-head{max-width:600px;margin-bottom:2rem}
 .conditions h2{font-size:var(--fs-2xl);color:var(--forest);margin:.6rem 0 .8rem}
-.conditions .sub{color:var(--muted);font-size:var(--fs-sm)}
+.conditions .sub{color:var(--muted)}
 .cond-grid{display:flex;flex-wrap:wrap;gap:.65rem}
-.cond{background:var(--cream);border:1.5px solid var(--line);border-radius:var(--r-pill);padding:.6rem 1.2rem;font-size:var(--fs-sm);color:var(--forest);font-weight:600;transition:background .22s,border-color .22s,transform .22s,box-shadow .22s;cursor:default}
+.cond{background:var(--cream);border:1.5px solid var(--line);border-radius:var(--r-pill);padding:.6rem 1.2rem;color:var(--forest);font-weight:600;transition:background var(--dur-2) var(--ease-move), border-color var(--dur-2) var(--ease-move), transform var(--dur-2) var(--ease-move), box-shadow var(--dur-2) var(--ease-move);cursor:default}
 .cond:hover{background:var(--sage);border-color:var(--sage);transform:translateY(-2px);box-shadow:var(--sh-sm)}
 /* BENEFITS */
 .benefits{background:var(--white);padding:clamp(60px,8vw,80px) 0}
 .benefits .sec-head{text-align:center;max-width:640px;margin:0 auto 2.4rem}
 .benefits h2{font-size:var(--fs-2xl);color:var(--forest);margin:.6rem 0 .8rem}
 .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.ben-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.6rem;transition:transform .3s,box-shadow .3s}
+.ben-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.6rem;transition:transform var(--dur-3) var(--ease-move), box-shadow var(--dur-3) var(--ease-move)}
 .ben-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
 .ben-ico{width:52px;height:52px;border-radius:var(--r-md);background:var(--forest);display:grid;place-items:center;margin-bottom:1rem}
 .ben-ico svg{width:24px;height:24px;color:var(--orange)}
 .ben-card h3{color:var(--forest);font-size:var(--fs-lg);margin-bottom:.5rem}
-.ben-card p{color:var(--muted);font-size:var(--fs-base)}
+.ben-card p{color:var(--muted)}
 /* FAQ */
 .svc-faq{background:var(--cream);padding:clamp(60px,8vw,80px) 0}
 .svc-faq .sec-head{max-width:560px;margin-bottom:1.8rem}
 .svc-faq h2{font-size:var(--fs-2xl);color:var(--forest);margin:.6rem 0}
 .acc-item{background:var(--cream2);border-radius:var(--r-md);margin-bottom:.7rem;overflow:hidden}
 .acc-head{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1rem;font-family:var(--fh);font-weight:600;font-size:var(--fs-md);color:var(--forest);min-height:44px}
-.pm{margin-left:auto;font-size:1.4rem;line-height:0;transition:transform .3s;color:var(--forest);flex-shrink:0}
+.pm{margin-left:auto;font-size:var(--fs-lg);line-height:0;transition:transform var(--dur-2) var(--ease-move);color:var(--forest);flex-shrink:0}
 .acc-item.open .pm{transform:rotate(45deg);color:var(--orange)}
-.acc-body{max-height:0;overflow:hidden;transition:max-height .38s ease}
-.acc-body p{padding:0 1.3rem 1.1rem;font-size:var(--fs-base);color:var(--muted)}
+/* grid-template-rows composites where max-height reflows, and needs no
+   scrollHeight measurement. The grid ITEM must carry no padding of its own
+   or a 0fr row still measures its padding box - hence .acc-inner. */
+.acc-body{display:grid;grid-template-rows:0fr;overflow:hidden;
+  transition:grid-template-rows var(--dur-4) var(--ease-move)}
+.acc-item.open .acc-body{grid-template-rows:1fr}
+.acc-inner{min-height:0;overflow:hidden}
+.acc-body p{padding:0 1.3rem 1.1rem;color:var(--muted)}
 /* END CTA */
 .endcta{background:var(--cream);padding:0 0 clamp(50px,7vw,70px)}
 .endcta .inner{background:var(--sage);border-radius:var(--r-2xl);padding:clamp(2rem,5vw,3.8rem);display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
 .endcta h2{font-size:var(--fs-3xl);color:var(--forest);max-width:14ch}
-/* FOOTER */
-footer{margin-bottom:32px;background:var(--forest);color:rgba(255,250,238,.76);padding:clamp(52px,8vw,80px) 0 28px}
-.foot-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem;align-items:center;padding-bottom:50px;border-bottom:1px solid var(--line-d)}
-.foot-brand img{height:88px;margin-bottom:1.1rem;width:auto}
-.foot-brand .tag{font-family:var(--fh);font-weight:700;color:var(--leaf);font-size:var(--fs-xl);line-height:1.25;max-width:16ch;letter-spacing:-.01em}
-.foot-news .nl{display:flex;background:var(--white);border-radius:var(--r-md);padding:.38rem;overflow:hidden;max-width:380px;transition:box-shadow .3s,transform .4s cubic-bezier(.34,1.56,.64,1)}
-.foot-news .nl:hover,.foot-news .nl:focus-within{box-shadow:0 0 0 3px var(--sage),0 10px 32px rgba(148,199,126,.22);transform:translateY(-3px)}
-.foot-news input{flex:1;border:none;background:none;padding:.65rem .9rem;font-family:var(--fb);font-size:var(--fs-base);color:var(--ink);outline:none;min-width:0}
-.foot-news input::placeholder{color:rgba(26,46,38,.45)}
-.foot-news .nlb{background:var(--sage);border:none;border-radius:10px;min-width:50px;height:44px;display:grid;place-items:center;cursor:pointer;overflow:hidden;transition:background .2s}
-.foot-news .nl:hover .nlb,.foot-news .nl:focus-within .nlb{background:var(--leaf)}
-.foot-news .nlb svg{width:18px;height:18px;color:var(--forest);display:block}
-.foot-news .nl:hover .nlb svg,.foot-news .nl:focus-within .nlb svg{animation:arrow-lr .4s cubic-bezier(.25,.46,.45,.94) both}
-@keyframes arrow-lr{0%{transform:translateX(-22px);opacity:0}40%{opacity:1}100%{transform:translateX(0);opacity:1}}
-.foot-news small{display:block;margin-top:.65rem;font-size:var(--fs-xs);color:rgba(255,250,238,.76)}
-.foot-news{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;text-align:right}
-.foot-contact{list-style:none;margin:1.1rem 0 0;display:grid;gap:.5rem}
-.foot-contact a{display:inline-flex;align-items:center;gap:.5rem;font-size:var(--fs-sm);transition:color .2s}
-.foot-contact a:hover{color:var(--leaf)}
-.foot-contact svg{width:16px;height:16px;flex-shrink:0;color:var(--orange)}
-.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;padding:46px 0 38px}
-.foot-col h4{font-family:var(--fh);color:var(--leaf);font-size:var(--fs-xs);margin-bottom:1rem}
-.foot-col ul{list-style:none}.foot-col li{margin-bottom:.65rem}
-.foot-col a{font-size:var(--fs-sm);transition:color .2s;display:inline-flex;align-items:center;gap:.45rem}
-.foot-col a:hover{color:var(--leaf)}.foot-col svg{width:14px;height:14px;color:var(--orange);flex-shrink:0}
-.foot-bottom{display:flex;justify-content:space-between;gap:1rem;padding-top:22px;font-size:var(--fs-xs);border-top:1px solid var(--line-d);flex-wrap:wrap}
-.foot-bottom a:hover{color:var(--leaf)}.foot-legal{display:flex;gap:1.4rem}
-/* -- MENU (plain HTML/CSS) --------------------------- */
-.nav{position:relative}
-.nav-links{display:flex;align-items:center;gap:.15rem}
-.nav-links a,.nav-drop-btn{font-family:var(--fb);font-weight:600;font-size:var(--fs-sm);
-  color:var(--forest);background:none;border:none;cursor:pointer;white-space:nowrap;
-  text-decoration:none;display:inline-flex;align-items:center;gap:.3rem;
-  padding:.55rem .7rem;border-radius:9999px;transition:background .2s,color .2s}
-.nav-links a:hover,.nav-drop-btn:hover{background:rgba(30,64,53,.07)}
-.nav-links a.active{color:var(--cta)}
-.nav-drop{position:relative}
-.nav-drop-btn svg{width:14px;height:14px;transition:transform .25s}
-.nav-drop[data-open="true"] .nav-drop-btn svg{transform:rotate(180deg)}
-.nav-drop-menu{position:absolute;top:calc(100% + .45rem);left:0;min-width:232px;z-index:81;
-  background:var(--white);border:1px solid var(--line);border-radius:12px;
-  box-shadow:var(--sh-md);padding:.35rem;display:none}
-.nav-drop[data-open="true"] .nav-drop-menu{display:block}
-.nav-drop-menu a{display:block;width:100%;padding:.62rem .7rem;border-radius:8px}
-.nav-drop-menu a:hover{background:var(--cream)}
-/* scrolled: the bar inverts to forest, everything on it goes cream */
-header.scrolled{background:var(--forest-d)}
-.nav-logo{position:relative;display:block}
-.nav-logo img{display:block;transition:opacity .3s}
-.nav-logo .logo-light{position:absolute;top:0;left:0;height:100%;width:auto;opacity:0}
-header.scrolled .nav-logo .logo-light{opacity:1}
-header.scrolled .nav-logo .logo-dark{opacity:0}
-header.scrolled .nav-links a,
-header.scrolled .nav-drop-btn{color:var(--cream)}
-header.scrolled .nav-links a:hover,
-header.scrolled .nav-drop-btn:hover{background:rgba(255,250,238,.14)}
-header.scrolled .nav-links a.active{color:var(--sage)}
-header.scrolled .nav-phone{color:var(--cream)}
-header.scrolled .nav-phone svg{color:var(--orange)}
-header.scrolled .btn-outline{color:var(--cream);box-shadow:inset 0 0 0 2px rgba(255,250,238,.75)}
-header.scrolled .btn-outline:hover{background:var(--cream);color:var(--forest)}
-header.scrolled .burger span{background:var(--cream)}
-/* the dropdown inverts with it and stays above everything on the page */
-header.scrolled .nav-drop-menu{background:var(--forest-s);border-color:rgba(255,250,238,.18)}
-header.scrolled .nav-drop-menu a{color:var(--cream)}
-header.scrolled .nav-drop-menu a:hover{background:rgba(255,250,238,.14)}
+@keyframes arrow-lr{0%{transform:translateX(-22px);opacity:0}
+40%{opacity:1}
+100%{transform:translateX(0);opacity:1}}
 /* pointer devices open the menu on hover as well as on click */
 @media(hover:hover) and (min-width:1041px){
   .nav-drop:hover .nav-drop-menu{display:block}
 }
-@media(max-width:1040px){
-  header.scrolled .nav-links{background:var(--forest-d);border-top-color:rgba(255,250,238,.18)}
-  header.scrolled .nav-links a{color:var(--cream)}
-  header.scrolled .nav-drop-menu{background:none;border:none}
-}
-
-@media(max-width:1040px){
-  .burger{display:flex}
-  .nav-links{position:absolute;top:100%;left:0;right:0;display:none;
-    flex-direction:column;align-items:stretch;gap:.1rem;z-index:80;
-    background:var(--white);border-top:1px solid var(--line);
-    padding:.7rem clamp(16px,4vw,28px) 1.1rem;box-shadow:var(--sh-md)}
-  #header[data-nav="open"] .nav-links{display:flex}
-  .nav-links a,.nav-drop-btn{padding:.75rem .8rem;font-size:var(--fs-base);
-    justify-content:space-between;width:100%}
-  .nav-drop-menu{position:static;display:block;min-width:0;padding:0 0 .2rem .85rem;
-    background:none;border:none;box-shadow:none}
-  .nav-drop-menu a{font-weight:500;padding:.6rem .8rem}
-}
-@media(max-width:480px){
-}
-
 /* ─── TYPE RHYTHM + INTERFACE PASS ───────────────── */
 p:not([class]){max-width:var(--measure)}
-.tagline,.lead,.proc-head p,.conditions .sub{line-height:var(--lh-snug)}
-.acc-body p,.ben-card p,.proc-content p{line-height:var(--lh-body)}
 h3,h4{line-height:var(--lh-snug)}
-
 /* BREADCRUMB — quiet meta, not body-weight */
-.breadcrumb{display:flex;flex-wrap:wrap;gap:.4rem;font-size:var(--fs-sm);color:var(--muted);line-height:1.4;margin-bottom:1.2rem}
-.breadcrumb a{font-weight:600;color:var(--muted);border-radius:4px;transition:color .18s}
-.breadcrumb a:hover,.breadcrumb a:focus-visible{color:var(--cta)}
-.bc-sep{color:var(--muted);opacity:.5;font-size:var(--fs-xs);line-height:1}
-.bc-cur{color:var(--forest);font-weight:600;max-width:22ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
-/* TOPBAR — meta strip, stays one row on mobile */
-.topbar{font-size:var(--fs-sm)}
-.topbar .container{min-height:34px}
-@media(max-width:560px){
-  .topbar .container{flex-direction:row;align-items:center;justify-content:center;gap:1rem;padding:5px 0}
-  .topbar a{margin-right:0}
-  .topbar a[aria-label="Email PCA"]{display:none}
-  .topbar svg{width:15px;height:15px}
-}
+
+.breadcrumb a:hover,.breadcrumb a:focus-visible{color:var(--cta)}
+
 
 /* HEADER — tighter, balanced on small screens */
 @media(max-width:820px){
@@ -262,11 +149,6 @@ h3,h4{line-height:var(--lh-snug)}
   .nav-cta{gap:.4rem}
   .nav-cta .btn{padding:.6rem 1.05rem;font-size:var(--fs-sm)}
 }
-@media(max-width:400px){
-  .nav-logo img{height:38px}
-  .nav-cta .btn{padding:.55rem .85rem}
-}
-
 /* HERO — reclaim vertical space on mobile */
 @media(max-width:820px){
   .svc-hero{padding-top:clamp(1.5rem,5vw,2.5rem)}
@@ -275,37 +157,24 @@ h3,h4{line-height:var(--lh-snug)}
   .svc-hero-text .cta-row{margin-top:1.4rem;gap:.7rem}
   .svc-hero-text .cta-row .btn{flex:1 1 100%;justify-content:center}
 }
-
-/* Comfortable tap targets */
-.topbar a,.foot-col a,.breadcrumb a{min-height:32px;display:inline-flex;align-items:center}
 .acc-head{min-height:52px;gap:.75rem}
-
-
 /* ─── SERVICE COPY SECTIONS ──────────────────────── */
 .svc-narr{background:var(--white);padding:clamp(52px,7vw,76px) 0}
 .svc-narr h2{font-size:var(--fs-2xl);color:var(--forest);margin-bottom:1.1rem;max-width:20ch}
-.svc-narr p{color:var(--muted);font-size:var(--fs-md);line-height:var(--lh-body);margin-bottom:.9rem;max-width:64ch}
-.svc-narr p:first-of-type{color:var(--forest);font-weight:600}
-.cond-foot{margin-top:1.6rem;color:var(--muted);font-size:var(--fs-base);max-width:62ch;
+.svc-narr p{color:var(--muted);margin-bottom:.9rem;max-width:64ch}
+.cond-foot{margin-top:1.6rem;color:var(--muted);max-width:62ch;
   border-left:3px solid var(--sage);padding-left:1.1rem}
 .conditions .sub,.benefits .sub{max-width:62ch}
 .benefits .sec-head{text-align:left;margin-left:0}
 .endcta .inner{align-items:center}
 .endcta-copy{flex:1;min-width:min(100%,320px)}
 .endcta-copy h2{max-width:18ch;margin-bottom:.7rem}
-.endcta-copy p{color:var(--forest-d);opacity:.85;font-size:var(--fs-base);max-width:52ch}
+.endcta-copy p{color:var(--forest-d);opacity:.85;max-width:52ch}
 @media(max-width:820px){.svc-narr h2{max-width:100%}}
-
-
-.nl-link{text-decoration:none;align-items:center;justify-content:space-between;gap:.6rem}
-.nl-text{padding:.65rem .9rem;font-weight:700;color:var(--ink);font-size:var(--fs-base)}
-
-.svc-callout{font-family:var(--fh);font-weight:700;font-size:var(--fs-lg);line-height:1.35;
+.svc-callout{font-family:var(--fb);font-weight:700;font-size:var(--fs-lg);line-height:var(--lh-heading);
   color:var(--forest);margin:1.4rem 0 .2rem;padding-left:1rem;
   border-left:4px solid var(--amber);max-width:34ch}
 @media(max-width:560px){.svc-callout{font-size:var(--fs-md);max-width:none}}
-
-
 /* ---- WCAG AA contrast fixes (v2) ---- */
 /* --orange #F27E33 = 4.19:1 on forest, 2.29:1 on cream2 - both below AA.
    Lighter orange on dark grounds; the deeper cta brown on light ones. */
@@ -314,76 +183,184 @@ h3,h4{line-height:var(--lh-snug)}
 .acc-item .pm,.acc-item.open .pm,.pm{color:var(--cta)}
 .hero-rating-link .stars,.stars{color:var(--cta)}
 .post-body .meta .dot,.meta .dot,.dot{color:var(--cta)}
-
-/* ===========================================================================
-   PRELOADER — the full lockup draws in, then flies to the header logo's box
-   ======================================================================== */
-.preload{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
-  background:var(--ground);will-change:opacity}
 .preload-mark{will-change:transform}
 /* the sting animates itself (SMIL, inside the file) — nothing here drives it */
 .pl-svg{display:block;width:min(72vw,420px);height:auto}
-/* the header logo stays out of sight until the mark lands on it */
-.is-preloading body{overflow:hidden}
-.is-preloading .nav-logo{opacity:0}
-.nav-logo{transition:opacity .3s ease}
+@media(prefers-reduced-motion:reduce){.pl-svg path{animation:none;opacity:1}
+.preload-mark{transition:none var(--dur-2) var(--ease-move)}
+
+}
+/* ---- hero CTA strip: spans the panel, closes the hero ---- */
+.svc-hero{padding-bottom:0}
+.svc-hero-cta{margin-top:clamp(2rem,4vw,3.25rem);background:var(--forest);
+  border-radius:var(--panel-r)}
+.svc-hero-cta > .container{display:flex;align-items:center;justify-content:space-between;
+  gap:clamp(1rem,3vw,2.5rem);flex-wrap:wrap;
+  padding-block:clamp(1.25rem,2.5vw,1.9rem)}
+.svc-hero-cta .svc-callout{margin:0;max-width:34ch;color:var(--cream)}
+.svc-hero-cta .cta-row{margin:0;display:flex;gap:.7rem;flex-wrap:wrap;flex:none}
+/* on forest, --cta is 1.4:1 - the pair swaps to the light-on-dark set */
+.svc-hero-cta .btn-amber,.svc-hero-cta .btn-primary{background:var(--orange);color:var(--ink)}
+.svc-hero-cta .btn-amber:hover,.svc-hero-cta .btn-primary:hover{
+  background:color-mix(in srgb,var(--orange),#fff 18%)}
+.svc-hero-cta .btn-forest{background:transparent;color:var(--cream);
+  box-shadow:inset 0 0 0 2px var(--cream)}
+.svc-hero-cta .btn-forest:hover{background:var(--cream);color:var(--forest)}
+@media(max-width:760px){.svc-hero-cta > .container{flex-direction:column;align-items:stretch;text-align:center}
+.svc-hero-cta .svc-callout{max-width:none}
+.svc-hero-cta .cta-row{width:100%}
+.svc-hero-cta .cta-row .btn{flex:1 1 100%;justify-content:center}
+
+}
+
+/* ===========================================================================
+   CONSULTATION — section layouts
+   ======================================================================== */
+
+/* the lead line under a heading: body face, brand green, one size up */
+.svc-hero-text .tagline,
+.svc-split-copy .tagline{font-family:var(--fb);font-weight:400;
+  color:var(--muted);
+  font-size:var(--fs-base);line-height:var(--lh-body);color:var(--muted);
+  max-width:52ch;margin-bottom:var(--flow-body)}
+
+/* --- image + copy split (used by both narrative bands) ------------------- */
+.svc-split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
+  gap:clamp(2rem,5vw,4rem);align-items:center}
+.svc-split-img{border-radius:var(--card-r);overflow:hidden;align-self:stretch;
+  min-height:clamp(280px,32vw,440px);position:relative}
+.svc-split-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.svc-split-copy{max-width:56ch}
+
+/* --- process: the heading stays put while the steps pass it ------------- */
+.proc-sticky{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.proc-aside{position:sticky;top:calc(76px + clamp(1rem,3vw,2.5rem));align-self:start}
+/* the questionnaire sits under the heading and rides with it */
+.proc-form{margin-top:var(--flow-group);opacity:1;transform:none;pointer-events:auto}
+.proc-form .quiz-card{width:100%;max-width:460px}
+.proc-form .quiz-card{color:var(--ink)}
+.proc-form .hq-body{color:var(--ink)}
+.proc-form .hq-body h3{color:var(--forest)}
+.proc-form .qsub,.proc-form .hq-foot{color:var(--muted)}
+.proc-form .hq-opt{color:var(--forest)}
+@media(max-width:900px){ .proc-form .quiz-card{max-width:none} }
+.proc-aside .proc-head{margin:0;text-align:left}
+.proc-aside .proc-head > *{margin-inline:0}
+.proc-list{display:flex;flex-direction:column;gap:clamp(2rem,4vw,3.25rem);
+  border-left:2px solid var(--line);padding-left:clamp(1.25rem,3vw,2.25rem)}
+.proc-row{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:1.15rem;align-items:start;
+  padding:clamp(1.4rem,2.4vw,2rem);
+  background:var(--white);border-radius:var(--card-r);
+  opacity:.4;transform:translateY(18px);
+  transition:opacity .5s var(--ease-move,ease), transform .5s var(--ease-move,ease),
+             box-shadow .5s var(--ease-move,ease)}
+.proc-row.is-on{opacity:1;transform:none;box-shadow:var(--sh-sm)}
+.proc-row.is-active{box-shadow:var(--sh-md)}
+/* the marker sits on the rail */
+.proc-row .pn{display:grid;place-items:center;width:42px;height:42px;flex:none;
+  border-radius:50%;background:var(--cream2);color:var(--forest);
+  transition:background .35s var(--ease-move,ease), color .35s var(--ease-move,ease)}
+.proc-row.is-active .pn{background:var(--cta);color:#fff}
+.proc-row .pn svg{width:19px;height:19px}
+.proc-step{display:block;font-size:var(--fs-2xs);font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--cta);margin-bottom:.25rem}
+.proc-row.is-active .proc-step{color:var(--cta)}
+.proc-content h3{font-size:var(--fs-md);margin:.25rem 0 .5rem;color:var(--forest)}
+.proc-content p{margin:0;color:var(--muted)}
+/* the card is light but sits in a forest section: it must not inherit the
+   section's cream text, which measured 1.05:1 on white */
+.proc-row{color:var(--ink)}
 @media(prefers-reduced-motion:reduce){
-  .pl-svg path{animation:none;opacity:1}
-  .preload-mark{transition:none !important}
+  .proc-row{opacity:1;transform:none;transition:none}
+}
+
+/* --- what happens: list left, photo right ------------------------------- */
+.cond-split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(2rem,5vw,4rem);align-items:start}
+.cond-split .sec-head{text-align:left;margin-inline:0}
+.cond-split .sec-head > *{margin-inline:0}
+.cond-split .cond-grid{grid-template-columns:1fr}
+.cond-img{border-radius:var(--card-r);overflow:hidden;position:relative;
+  min-height:clamp(320px,38vw,560px);position:sticky;
+  top:calc(76px + clamp(1rem,3vw,2.5rem))}
+.cond-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* --- team: copy and CTA left, card grid right --------------------------- */
+.ben-split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(2rem,5vw,4rem);align-items:start}
+.ben-split .sec-head{text-align:left;margin-inline:0;margin-bottom:var(--flow-body)}
+.ben-split .sec-head > *{margin-inline:0}
+.ben-split .ben-foot p{margin-bottom:var(--flow-body)}
+.ben-split .proc-cta{text-align:left;margin-top:var(--flow-group)}
+.ben-split .proc-cta p{margin-inline:0;text-align:left;max-width:46ch}
+.ben-split .ben-grid{grid-template-columns:1fr 1fr;gap:var(--gap-grid)}
+@media(max-width:1040px){.ben-split .ben-grid{grid-template-columns:1fr 1fr}}
+
+/* --- closing CTA: copy and button left, photo right --------------------- */
+.endcta-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);
+  gap:clamp(2rem,5vw,4rem);align-items:center;text-align:left}
+.endcta-split .endcta-copy{max-width:58ch}
+.endcta-split h2{text-align:left;max-width:20ch}
+.endcta-actions{margin-top:var(--flow-group)}
+.endcta-img{border-radius:var(--card-r);overflow:hidden;position:relative;
+  min-height:clamp(280px,30vw,420px);align-self:stretch}
+.endcta-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+@media(max-width:900px){
+  .svc-split,.cond-split,.ben-split,.endcta-split,.proc-sticky{grid-template-columns:1fr}
+  /* stacked, these sit in a one-column grid row as tall as the copy beside
+     them was, and align-self:stretch grew the photo to match - a 351x1646
+     ribbon on a phone. Square, and sized by itself. */
+  /* Stacked, these sat in a one-column grid row as tall as the copy column
+     beside them had been, and align-self:stretch grew the photo to match - a
+     351x1693 ribbon. The fix is to stop the photo being absolutely positioned
+     at this width: an in-flow img carrying its own 1/1 ratio gives the grid a
+     real height to size the track from. Putting the ratio on the WRAPPER
+     instead does not work - the track is sized before the ratio resolves, so
+     the square overflows its row and lands on the heading below it. */
+  .svc-split-img,.cond-img,.endcta-img{min-height:0;height:auto;
+    align-self:start;position:relative;inset:auto}
+  .svc-split-img img,.cond-img img,.endcta-img img{position:static;
+    width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;display:block}
+
+  /* the checklist is a list, not a row of pills: on a phone the pill chrome
+     wraps to one box per line anyway, so it is only decoration around text */
+  /* The hero photo runs the full width of the screen. The section is a
+     rounded panel inset 12px with overflow:clip, so a child cannot escape it
+     - the section itself drops its inset and radius here, and the copy keeps
+     its gutter from .container. The negative inline margin is measured off
+     the grid area, which is the container minus its padding. */
+  .tpl-service .svc-hero{width:100%;max-width:none;margin-inline:0;
+    border-radius:0;padding-top:0}
+  .svc-hero-img{width:auto;margin-inline:calc(50% - 50vw)}
+  .svc-img-frame{aspect-ratio:auto;height:30vh;border:0;border-radius:0;
+    box-shadow:none}
+
+  /* the team card grid: one card per row. The .ben-split rule above pins it
+     to two columns right down to 0px, out-specifying the design system's
+     single-column rule, so the override has to match its specificity here. */
+  .ben-split .ben-grid,.ben-split .ben-grid--2,.ben-split .ben-grid--3,
+  .ben-split .ben-grid--4,.ben-split .ben-grid--5{grid-template-columns:1fr}
+
+  .cond-grid{flex-direction:column;gap:.55rem}
+  .cond{background:none;border:none;border-radius:0;padding:0;
+    display:flex;align-items:flex-start;gap:.6rem;font-weight:400;
+    color:var(--ink)}
+  .cond svg{width:18px;height:18px;flex:none;margin-top:.28rem;color:var(--leaf)}
+  .svc-split-img{order:-1}
+  .proc-aside{position:static}
+  .cond-split .cond-img{order:-1}
 }
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://painclinicaustralia.com.au/"}, {"@type": "ListItem", "position": 2, "name": "Psychotherapy", "item": "https://painclinicaustralia.com.au/pca-psychotherapy.html"}]}</script>
+  <link rel="stylesheet" href="assets/react/islands.css">
   <link rel="stylesheet" href="assets/css/design-system.css?v=1788331338">
 </head>
 <body>
 <a href="#main" class="skip-nav">Skip to main content</a>
 <noscript><style>.preload{display:none}.nav-logo{opacity:1 !important}</style></noscript>
-<!-- PRELOADER -->
-<div class="preload" id="preload" role="presentation">
-  <div class="preload-mark" id="preloadMark">
-    <img class="pl-svg" src="assets/images/pca-sting.svg" alt="" width="246" height="85">
-  </div>
-</div>
-<script>
-/* Preloader -> navbar logo. The mark draws in, then FLIPs onto the header
-   logo's exact box and hands off. Any failure just removes the overlay. */
-(function(){
-  var pre=document.getElementById('preload'), mark=document.getElementById('preloadMark');
-  if(!pre||!mark) return;
-  var root=document.documentElement;
-  root.classList.add('is-preloading');
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var t0=Date.now(), done=false;
-  function finish(){
-    if(done) return; done=true;
-    root.classList.remove('is-preloading');
-    if(pre.parentNode) pre.parentNode.removeChild(pre);
-  }
-  function handoff(){
-    if(done) return;
-    var target=document.querySelector('.nav-logo .logo-dark')||
-               document.querySelector('.nav-logo img');
-    if(!target||reduce){ pre.style.opacity='0'; setTimeout(finish,260); return; }
-    var a=mark.getBoundingClientRect(), b=target.getBoundingClientRect();
-    if(!a.width||!b.width){ finish(); return; }
-    var s=b.width/a.width;
-    var dx=(b.left+b.width/2)-(a.left+a.width/2);
-    var dy=(b.top+b.height/2)-(a.top+a.height/2);
-    mark.style.transition='transform .9s cubic-bezier(.65,0,.2,1)';
-    void mark.offsetWidth;        /* commit the transition before the value */
-    mark.style.transform='translate('+dx+'px,'+dy+'px) scale('+s+')';
-    pre.style.transition='background-color .55s ease .3s, opacity .3s ease .62s';
-    pre.style.backgroundColor='transparent';
-    pre.style.opacity='0';
-    setTimeout(finish,900);
-  }
-  /* the sequence finishes at ~1.32s, so hold for that and fly regardless of
-     whether every image has loaded — waiting on `load` made the hold length
-     depend on network speed */
-  setTimeout(handoff, reduce?0:1900);   /* the sting resolves at ~1.8s */
-  setTimeout(handoff,4500);          /* never trap the page behind the overlay */
-})();
-</script>
 <div class="topbar"><div class="container">
   <a href="mailto:info@painclinicaustralia.com.au" aria-label="Email PCA"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg><span class="tb-label">info@painclinicaustralia.com.au</span></a>
   <a href="tel:+611300070910" aria-label="Call 1300 070 910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+61 1300 070 910</a>
@@ -397,140 +374,271 @@ h3,h4{line-height:var(--lh-snug)}
                 aria-expanded="false" aria-controls="navServicesMenu">Services
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
         </button>
-        <div class="nav-drop-menu" id="navServicesMenu">
-          <a href="pca-consultation.html">Consultation</a>
-          <a href="pca-psychotherapy.html">Psychotherapy</a>
-          <a href="pca-physiotherapy.html">Physiotherapy</a>
-          <a href="pca-dietary-guidance.html">Dietary Guidance</a>
-          <a href="pca-intimacy.html">Intimacy</a>
+        <div class="nav-drop-menu nav-mega" id="navServicesMenu">
+          <div class="mega-grid pcard-grid">
+            <a class="pcard pcard--mega" href="pca-consultation.html">
+              <span class="pcard-thumb"><img src="assets/images/consultation.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Consultation</h3>
+                <p class="pcard-note">Free first assessment with an AHPRA doctor</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-psychotherapy.html">
+              <span class="pcard-thumb"><img src="assets/images/psychotherapy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Psychotherapy</h3>
+                <p class="pcard-note">Retrain how your nervous system reads pain</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-physiotherapy.html">
+              <span class="pcard-thumb"><img src="assets/images/physiotherapy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Physiotherapy</h3>
+                <p class="pcard-note">Movement plans built for painful days</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-dietary-guidance.html">
+              <span class="pcard-thumb"><img src="assets/images/dietary-guidance.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Dietary Guidance</h3>
+                <p class="pcard-note">Eating well on your hardest days</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+            <a class="pcard pcard--mega" href="pca-intimacy.html">
+              <span class="pcard-thumb"><img src="assets/images/intimacy.webp" alt="" loading="lazy" width="320" height="180"></span>
+              <span class="pcard-body">
+                <h3>Intimacy</h3>
+                <p class="pcard-note">The part of pain nobody asks about</p>
+              </span>
+              <span class="pcard-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </a>
+          </div>
         </div>
       </div>
-      <a href="index.html#about">About</a>
-      <a href="index.html#insurance">Insurance</a>
       <a href="pca-resources.html">Resources</a>
-      <a href="index.html#faq">FAQs</a>
+      <a href="pca-contact.html">Contact</a>
     </nav>
   <div class="nav-cta">
-    <span class="nav-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>1300 070 910</span>
-    <a href="https://form.typeform.com/to/wy5ImTV5?typeform-embed-id=3705670033859164&typeform-embed=embed-widget&typeform-source=painclinicaustralia.com.au&typeform-medium=snippet&typeform-medium-version=next&embed-opacity=100&typeform-embed-handles-redirect=1&typeform-embed-no-heading=true" class="btn btn-forest" target="_blank" rel="noopener">Get Started</a>
-    <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
-  </div>
+    <a href="tel:1300070910" class="nav-call" aria-label="Call Pain Clinic Australia on 1300 070 910" title="1300 070 910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a href="pca-quiz.html" class="btn btn-outline">Get Started</a>
+      <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+    </div>
 </div></header>
-<main id="main">
+<main id="main" class="tpl-service">
 <section class="svc-hero" aria-labelledby="svc-h1">
   <div class="container">
     <div class="svc-hero-text">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="index.html">Home</a>
-        <span class="bc-sep" aria-hidden="true">&rsaquo;</span>
+        <span class="bc-dot" aria-hidden="true"></span>
         <span class="bc-cur" aria-current="page">Psychotherapy</span>
       </nav>
-      <span class="overline">Psychological Support</span>
+      <span class="overline">Psychotherapy for Chronic Pain</span>
       <h1 id="svc-h1">Your thoughts shouldn&rsquo;t be consumed by pain too.</h1>
-      <p class="tagline">Living with chronic pain affects more than your body. It changes how you sleep, move, work, think, and connect with the people around you. At Pain Clinic Australia, psychotherapy is one part of our multidisciplinary approach to chronic pain care.</p>
-      <ul class="hero-checklist" role="list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Practical ways to cope with the psychological impact of persistent pain</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Part of a wider multidisciplinary plan, not a standalone referral</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>100% telehealth &mdash; sessions from anywhere in Australia</li>
-      </ul>
+      <p class="tagline">Living with chronic pain affects more than your body. It changes how you sleep, move, work, think, and connect with the people around you.</p>
+      <p class="hero-p">At Pain Clinic Australia, psychotherapy is one part of our multidisciplinary approach to chronic pain care.</p>
+      <p class="hero-p">It&rsquo;s designed to help you develop practical ways to cope with the emotional and psychological impact of persistent pain.</p></div>
+    <div class="svc-hero-img" aria-hidden="true">
+      <div class="svc-img-frame"><img src="assets/images/psychotherapy.webp" alt="" loading="eager"></div>
+    </div>
+  </div>
+  <div class="svc-hero-cta">
+    <div class="container">
       <p class="svc-callout">Take your life back from chronic pain today.</p>
       <div class="cta-row">
-        <a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Book an Appointment <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="pca-quiz.html" class="btn btn-forest">Take the Quiz</a>
-      </div>
-    </div>
-    <div class="svc-hero-img" aria-hidden="true">
-      <div class="svc-img-frame">
-        <img src="assets/images/psychotherapy.webp" alt="" loading="eager">
+        <a href="pca-quiz.html" class="btn btn-amber">Take the Quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
 <section class="svc-narr" aria-labelledby="narr-h2">
-  <div class="container">
-    <h2 id="narr-h2">Chronic Pain Isn&rsquo;t Just Physical</h2>
-    <p>When pain is persistent, it can be hard to switch off.</p>
-    <p>You may find yourself worrying about when it will get worse, avoiding activities you once enjoyed, or feeling frustrated when your body doesn&rsquo;t cooperate with your plans.</p>
-    <p>That doesn&rsquo;t mean the pain is &ldquo;all in your head&rdquo;. It means chronic pain is complex, and that it can &lsquo;flare&rsquo; beyond the actual part of your body that hurts.</p>
+  <div class="container svc-split">
+    <div class="svc-split-img"><img src="assets/images/hero-garden.webp" alt="" loading="lazy"></div>
+    <div class="svc-split-copy">
+      <h2 id="narr-h2">Chronic Pain Isn&rsquo;t Just Physical</h2>
+      <p class="tagline">When pain is persistent, it can be hard to switch off.</p>
+      <p>You may find yourself worrying about when it will get worse, avoiding activities you once enjoyed, or feeling frustrated when your body doesn&rsquo;t cooperate with your plans.</p>
+      <p>That doesn&rsquo;t mean the pain is &ldquo;all in your head&rdquo;.</p>
+      <p>It means chronic pain is complex and that it can &lsquo;flare&rsquo; beyond the actual part of your body that hurts.</p>
+    </div>
   </div>
 </section>
 
 <section class="svc-process" aria-labelledby="proc-h2">
-  <div class="container">
-    <div class="proc-head">
-      <span class="overline">How It Helps</span>
-      <h2 id="proc-h2">How Psychotherapy Helps with Pain</h2>
-      <p>Psychotherapy can give you a safe space to talk about the challenges of living with persistent pain. Depending on your needs, it may help you:</p>
+  <div class="container proc-sticky">
+    <div class="proc-aside">
+      <div class="proc-head">
+        <h2 id="proc-h2">How Psychotherapy Helps with Pain</h2>
+        <p>Psychotherapy can give you a safe space to talk about the challenges of living with persistent pain.</p>
+        <p>Depending on your needs, it may help you:</p>
+      </div>
+      <div class="proc-form">
+          <div class="quiz-card" id="homeQuiz" role="region" aria-label="Pain assessment, step 1 of 9">
+          <div class="hq-media" aria-hidden="true">
+            <img src="assets/images/hero-couple.webp" alt="" loading="lazy">
+          </div>
+          <span class="hq-badge" aria-hidden="true">1</span>
+          <div class="hq-body">
+            <h3>Where do you feel your pain?</h3>
+            <p class="qsub">Select all that apply.</p>
+            <div class="hq-opts" role="group" aria-label="Pain areas">
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Lower back"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Lower back</span></button>
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Neck or shoulders"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Neck or shoulders</span></button>
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Head or face"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Head or face</span></button>
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Hips or pelvis"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Hips or pelvis</span></button>
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Knees, legs or feet"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Knees, legs or feet</span></button>
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Arms, elbows or hands"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Arms, elbows or hands</span></button>
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Widespread / all over"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Widespread / all over</span></button>
+                <button type="button" class="hq-opt" aria-pressed="false" data-val="Abdominal or pelvic"><span class="box" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span><span>Abdominal or pelvic</span></button>
+            </div>
+            <a class="btn btn-amber hq-next" id="hqNext" href="pca-quiz.html" aria-disabled="true">Continue <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <p class="hq-foot">Nine short steps. Free, no obligation.</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="proc-list">
-      <div class="proc-row"><span class="pn">1.</span><div class="proc-content"><h3>Become more grounded and empowered</h3><p>Understanding your pain in depth may help you make better sense of the experience itself. In turn, this shifts the power back to you, and helps you navigate triggers so you can meet each day on your own terms.</p></div></div>
-      <div class="proc-row"><span class="pn">2.</span><div class="proc-content"><h3>Manage stress and emotional distress</h3><p>Persistent pain can be frustrating, exhausting, and emotionally draining. Psychotherapy can help you develop healthier ways to manage stress, anxiety, frustration, and other difficult emotions.</p></div></div>
-      <div class="proc-row"><span class="pn">3.</span><div class="proc-content"><h3>Reduce the fear around movement and activity</h3><p>After living with pain for a long time, you may start avoiding certain movements or activities because you&rsquo;re worried about making the pain worse. With appropriate support, you can work towards rebuilding confidence in what your body can do.</p></div></div>
-      <div class="proc-row"><span class="pn">4.</span><div class="proc-content"><h3>Develop practical coping strategies</h3><p>Chronic pain doesn&rsquo;t always follow a predictable pattern. Psychotherapy can help you build strategies for managing flare-ups, difficult days, and the ongoing uncertainty that can come with persistent pain.</p></div></div>
-      <div class="proc-row"><span class="pn">5.</span><div class="proc-content"><h3>Improve your quality of life</h3><p>Pain management isn&rsquo;t only about reducing pain intensity. It&rsquo;s also about helping you do more of what matters to you.</p></div></div>
+      <div class="proc-row reveal-step"><span class="pn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg></span><div class="proc-content"><span class="proc-step">Step 1</span><h3>Become more grounded and empowered</h3><p>Understanding your pain in depth may help you make better sense of the experience itself. In turn, this shifts the power back to you. This also helps you deftly navigate triggers so you can meet each day in your own terms.</p></div></div>
+      <div class="proc-row reveal-step"><span class="pn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><div class="proc-content"><span class="proc-step">Step 2</span><h3>Manage stress and emotional distress</h3><p>Persistent pain can be frustrating, exhausting, and emotionally draining. Psychotherapy can help you develop healthier ways to manage stress, anxiety, frustration, and other difficult emotions.</p></div></div>
+      <div class="proc-row reveal-step"><span class="pn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span><div class="proc-content"><span class="proc-step">Step 3</span><h3>Reduce the fear around movement and activity</h3><p>After living with pain for a long time, you may start avoiding certain movements or activities because you&rsquo;re worried about making the pain worse. With appropriate support, you can work towards rebuilding confidence in what your body can do.</p></div></div>
+      <div class="proc-row reveal-step"><span class="pn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span><div class="proc-content"><span class="proc-step">Step 4</span><h3>Develop practical coping strategies</h3><p>Chronic pain doesn&rsquo;t always follow a predictable pattern. Psychotherapy can help you build strategies for managing flare-ups, difficult days, and the ongoing uncertainty that can come with persistent pain.</p></div></div>
+      <div class="proc-row reveal-step"><span class="pn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span><div class="proc-content"><span class="proc-step">Step 5</span><h3>Improve your quality of life</h3><p>Pain management isn&rsquo;t only about reducing pain intensity. It&rsquo;s also about helping you do more of what matters to you.</p></div></div>
     </div>
-    <div class="proc-cta">
-      <a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Book an Appointment <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-  </div>
-</section>
+  </section>
+
 
 <section class="conditions" aria-labelledby="cond-h2">
-  <div class="container">
-    <div class="sec-head">
-      <span class="overline">What to Expect</span>
+  <div class="container cond-split">
+    <div class="cond-copy">
+      <div class="sec-head">
       <h2 id="cond-h2">What Happens During Psychotherapy?</h2>
-      <p class="sub">Your sessions are tailored to your individual experience. Your psychotherapist will work with you to understand how chronic pain is affecting your daily life and explore strategies that may support your wellbeing.</p>
+      <p class="sub">Your sessions are tailored to your individual experience.</p>
+      <p class="sub">Your psychotherapist will work with you to better understand how chronic pain is affecting your daily life and explore strategies that may support your wellbeing and pain management. This may include discussing:</p>
     </div>
-    <div class="cond-grid" role="list">
-      <span class="cond" role="listitem">How pain affects your mood and emotions</span>
-      <span class="cond" role="listitem">Stress and its relationship with pain</span>
-      <span class="cond" role="listitem">Fear or anxiety around movement and activity</span>
-      <span class="cond" role="listitem">Sleep and fatigue</span>
-      <span class="cond" role="listitem">Changes in work, relationships, or daily routines</span>
-      <span class="cond" role="listitem">Ways to manage difficult thoughts and emotions</span>
-      <span class="cond" role="listitem">Strategies for coping with flare-ups and persistent symptoms</span>
+      <ul class="cond-grid" role="list">
+      <li class="cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>How pain affects your mood and emotions</li>
+      <li class="cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Stress and its relationship with pain</li>
+      <li class="cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Fear or anxiety around movement and activity</li>
+      <li class="cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sleep and fatigue</li>
+      <li class="cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Changes in work, relationships, or daily routines</li>
+      <li class="cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ways to manage difficult thoughts and emotions</li>
+      <li class="cond"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Strategies for coping with flare-ups and persistent symptoms</li>
+    </ul>
     </div>
-    <p class="cond-foot">There is no expectation to simply &ldquo;think positively&rdquo; or ignore your pain. The goal is to give you additional tools and support for living with a complex condition.</p>
+    <div class="cond-img"><img src="assets/images/about.webp" alt="" loading="lazy"></div>
   </div>
 </section>
 
 <section class="benefits" aria-labelledby="ben-h2">
-  <div class="container">
-    <div class="sec-head">
-      <span class="overline">Multidisciplinary Care</span>
+  <div class="container ben-split">
+    <div class="ben-copy">
+      <div class="sec-head">
       <h2 id="ben-h2">One Part of a Bigger Picture</h2>
-      <p class="sub">There is rarely a single solution for chronic pain. This is why a multidisciplinary approach is recognised as the gold standard by researchers and regulatory bodies.</p>
+      <p class="sub">There is rarely a single solution for chronic pain.</p>
+      <p class="sub">This is why taking a multidisciplinary approach to pain care is recognised as the gold-standard by researchers and regulatory orgs.</p>
+      <p class="sub">Our team combines psychotherapy with modalities such as tailored pain formulations, expert physical therapy, and dietary guidance as part of a personalised pain management plan.</p>
     </div>
-    <div class="ben-grid">
-      <div class="ben-card">
-        <div class="ben-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .2.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
-        <h3>Medical care</h3><p>An AHPRA-registered doctor holds the broader medical view of your pain, your history and your current medicines.</p>
-      </div>
+      <div class="ben-foot">
+      <p>Some chronic pain patients also opt to get complementary counselling from our esteemed intimacy coach, Nic Brewer.</p>
+      <p>As chronic pain can also be due to underlying conditions, our experts may also work hand-in-hand with your primary healthcare providers.</p>
+    </div>
+      <div class="proc-cta">
+      <a href="pca-quiz.html" class="btn btn-amber">Explore Your Treatment Options <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    </div>
+    <div class="ben-grid ben-grid--4">
       <div class="ben-card">
         <div class="ben-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.46 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.46 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg></div>
-        <h3>Psychotherapy</h3><p>Support for the emotional and psychological impact of living with persistent pain.</p>
+        <p>Psychotherapy</p>
+      </div>
+      <div class="ben-card">
+        <div class="ben-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .2.3"/><path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg></div>
+        <p>Tailored pain formulations</p>
       </div>
       <div class="ben-card">
         <div class="ben-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
-        <h3>Physiotherapy</h3><p>Movement, mobility and physical function &mdash; built around what your body can do now.</p>
+        <p>Expert physical therapy</p>
       </div>
       <div class="ben-card">
         <div class="ben-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><path d="M6 1v3M10 1v3M14 1v3"/></svg></div>
-        <h3>Dietetics &amp; nutrition</h3><p>Personalised meal planning that works with your symptoms, energy and preferences.</p>
-      </div>
-      <div class="ben-card">
-        <div class="ben-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Pain Management Coordination</h3><p>Your PMC keeps the parts of your care connected between appointments.</p>
-      </div>
-      <div class="ben-card">
-        <div class="ben-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h3>Intimacy counselling</h3><p>Available for patients whose pain affects physical closeness, confidence or relationships.</p>
+        <p>Dietary guidance</p>
       </div>
     </div>
-    <div class="proc-cta">
-      <a href="pca-quiz.html" class="btn btn-amber">Explore Your Treatment Options <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</section>
+
+<!-- REUSED FROM HOME: EXPERTS -->
+<section class="experts bleed" aria-labelledby="experts-heading">
+  <div class="container">
+    <div class="proc-head reveal">
+      <span class="overline">Our Experts</span>
+      <h2 id="experts-heading">A Multidisciplinary Approach</h2>
+    </div>
+    <div data-react="carousel">
+      <script type="application/json">{"items": [{"name": "Troy Wallace", "role": "Physiotherapist", "credentials": "BAppSc (Physiotherapy), Univ. of Sydney 2011", "photo": "assets/doctors/TroyWallace.webp"}, {"name": "Dr. David Manohar", "role": "Pain Specialist", "credentials": "MBBS, MMedSc, MPainMed, PGDipMSM, DipPRMed, FANZCA(Pain), FAFRM (RACP), FRCP, FACRM", "photo": "assets/doctors/DrManohar.webp"}, {"name": "Dr. Jonathan Herald", "role": "Orthopaedics / Chronic Pain", "credentials": "MBBS, MSpMed", "photo": "assets/doctors/DrJonathan.webp"}, {"name": "Aayu Mehmi", "role": "Psychologist", "credentials": "BPsych, MCounselling (Monash), PACFA registered", "photo": "assets/doctors/DrAayuMehmi.webp"}, {"name": "Lara Abu-Zarour", "role": "Accredited Practising Dietitian", "credentials": "APD, Member of Dietitians Australia", "photo": "assets/doctors/DrLara.webp"}, {"name": "Nicole Brewer", "role": "Sex and Relationship Counsellor", "credentials": "", "photo": "assets/doctors/DrNicole.webp"}, {"name": "Belle Woods", "role": "Nutritionist Dietitian", "credentials": "", "photo": "assets/doctors/BelleWoods.webp"}, {"name": "Dr. Fred Edwards", "role": "General Practitioner", "credentials": "MBBS, FRACGP", "photo": "assets/doctors/DrFred.webp"}, {"name": "Dr. Nick Travers", "role": "General Practitioner", "credentials": "MBBS, FRACGP", "photo": "assets/doctors/DrNick.webp"}, {"name": "Dr. Thomas Stock", "role": "Men's Health", "credentials": "MBChB (Hon), MSc", "photo": "assets/doctors/DrStock.webp"}, {"name": "Dr. Suren Naidoo", "role": "Private GP & Aesthetic Practitioner", "credentials": "MRCGP, MBBCh", "photo": "assets/doctors/DrSuren.webp"}, {"name": "Dr. Marcus Kramer", "role": "Physician", "credentials": "MD", "photo": "assets/doctors/DrMarcusKramer.webp"}, {"name": "Dr. Asem Kaber", "role": "Family Physician", "credentials": "MBBCh", "photo": "assets/doctors/DrAsemKaber.webp"}, {"name": "Marie-Eve Bernat", "role": "Family Medicine", "credentials": "MD", "photo": "assets/doctors/DrMarieEveBernat.webp"}, {"name": "Dr. Parisa Kakroodi", "role": "Family Physician", "credentials": "MSc Biomedical Sciences (Montreal)", "photo": "assets/doctors/DrParisaKakroodi.webp"}, {"name": "Meredith Amundsen", "role": "Nutritional Counsellor", "credentials": "Accredited in Nutritional Science", "photo": "assets/doctors/DrMeredith.webp"}, {"name": "Jan Macfarlane", "role": "Clinical Nutritionist", "credentials": "Accredited Clinical Nutritionist", "photo": "assets/doctors/DrMacfarlane.webp"}, {"name": "Kristen Anderson, MA", "role": "Intimacy Coach", "credentials": "MA, certified sex educator", "photo": "assets/doctors/KristenAnderson.webp"}, {"name": "Andie Flynn", "role": "Licensed Nutritionist & Clinical Dietitian", "credentials": "", "photo": "assets/doctors/DrAndieFlynn.webp"}, {"name": "Marc Ellis", "role": "Nutritionist Dietitian", "credentials": "Registered Nutritionist-Dietitian", "photo": "assets/doctors/MarcEllis.webp"}, {"name": "John Davies", "role": "Nutritionist Dietitian", "credentials": "MSc Nutrition, MSc Clinical Nutrition", "photo": "assets/doctors/JohnDavies.webp"}, {"name": "Pauline Hall", "role": "Nutritionist Dietitian", "credentials": "Licensed Nutritionist Dietitian", "photo": "assets/doctors/PaulineHall.webp"}]}</script>
+    </div>
+    <div class="exp-nav reveal">
+    </div>
+  </div>
+</section>
+
+<!-- REUSED FROM HOME: STATS -->
+<section class="stats on-dark" aria-labelledby="stats-heading">
+  <div class="container">
+    <div class="stats-head reveal">
+      <span class="overline">By the numbers</span>
+      <h2 id="stats-heading">The Reality of Chronic Pain</h2>
+      <p class="testi-intro">Chronic pain affects millions of Australians, yet many people continue to face delays in diagnosis, ineffective treatments, and reduced quality of life. These figures highlight why personalised, multidisciplinary pain care is more important than ever.</p>
+    </div>
+    <div class="bento">
+      <div class="pcard pcard--stat reveal" tabindex="0" aria-label="820 plus individuals guided to healthier lives">
+        <span class="pcard-thumb"><img src="assets/images/stats-active.webp" alt="" loading="lazy"></span>
+        <span class="pcard-body">
+          <b class="pcard-stat"><span data-count="820">0</span>+</b>
+          <p class="pcard-note">Individuals guided toward healthier, more balanced lives.</p>
+        </span>
+      </div>
+      <div class="scard white reveal"><b><span data-count="100">0</span>+</b><small>Custom treatment programs designed for lasting, sustainable relief.</small></div>
+      <div class="scard cream reveal"><b><span data-count="50">0</span>+</b><small>Live sessions empowering patients through every step of care.</small></div>
+      <div class="scard forest span2 reveal"><b><span data-count="98">0</span>%</b><small>Of patients report improved function, energy and overall well-being.</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- REUSED FROM HOME: INSURANCE -->
+<section class="inspath" aria-labelledby="ins-heading">
+  <div class="container">
+    <div class="proc-head reveal">
+      <span class="overline">Insurance-backed care</span>
+      <h2 id="ins-heading">Using Insurance, WorkCover or CTP</h2>
+      <p class="sec-sub">Australians wishing to use private insurance, WorkCover, or CTP to avail of our pain management programme will need to file directly with the relevant insurance providers. Cover has also been arranged through TAC, WCC, NISQ and Blue Scope, subject to the approval of the relevant regulatory body or insurance provider.</p>
+    </div>
+    <p class="ins-label">Partnered insurance companies</p>
+    <ul class="ins-logos reveal">
+        <li class="ins-logo"><img src="assets/images/insurers/qbe.png" alt="QBE" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/aami.svg" alt="AAMI" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/gio.png" alt="GIO" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/gallagher-bassett.svg" alt="Gallagher Bassett" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/iag.svg" alt="IAG" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/eml.svg" alt="EML" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/i-care.svg" alt="i-Care" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/dxc-technology.svg" alt="DXC Technology" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/allianz.png" alt="Allianz" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/suncorp.svg" alt="SunCorp" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/nrma.png" alt="NRMA" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/tac.svg" alt="TAC" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/wcc.svg" alt="WCC" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/nisq.svg" alt="NISQ" loading="lazy"></li>
+        <li class="ins-logo"><img src="assets/images/insurers/blue-scope.svg" alt="Blue Scope" loading="lazy"></li>
+    </ul>
+<div class="proc-cta reveal">
+      <a href="pca-quiz.html" class="btn btn-primary">Check if you&rsquo;re covered <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <p>Two minutes, no obligation &mdash; the quiz tells us how to bill your care.</p>
     </div>
   </div>
 </section>
@@ -538,73 +646,96 @@ h3,h4{line-height:var(--lh-snug)}
 <section class="svc-faq" aria-labelledby="faq-h2">
   <div class="container">
     <div class="sec-head">
-      <span class="overline">FAQs</span>
       <h2 id="faq-h2">Frequently Asked Questions</h2>
     </div>
     <div class="acc-item open">
       <button class="acc-head">Is psychotherapy only for people with a mental health condition? <span class="pm">+</span></button>
-      <div class="acc-body"><p>No. Psychotherapy can support people living with chronic pain, even if they do not have a diagnosed mental health condition. Living with persistent pain can affect many areas of life, and psychotherapy can help you develop strategies for managing these challenges.</p></div>
+      <div class="acc-body"><div class="acc-inner"><p>No. Psychotherapy can support people living with chronic pain, even if they do not have a diagnosed mental health condition. Living with persistent pain can affect many areas of life. Psychotherapy can help you develop strategies for managing these challenges.</p></div></div>
     </div>
     <div class="acc-item">
       <button class="acc-head">Does psychotherapy mean you think my pain is psychological? <span class="pm">+</span></button>
-      <div class="acc-body"><p>No. Chronic pain is real and can have physical, neurological, inflammatory, and other contributing factors. Psychotherapy is not used to dismiss physical pain. It is one part of a broader approach to managing the many ways chronic pain can affect you.</p></div>
+      <div class="acc-body"><div class="acc-inner"><p>No. Chronic pain is real and can have physical, neurological, inflammatory, and other contributing factors. Psychotherapy is not used to dismiss physical pain. It is one part of a broader approach to managing the many ways chronic pain can affect you.</p></div></div>
     </div>
     <div class="acc-item">
       <button class="acc-head">Can psychotherapy cure my chronic pain? <span class="pm">+</span></button>
-      <div class="acc-body"><p>There is no single treatment that can cure every type of chronic pain. Psychotherapy may help you develop skills and strategies to manage the impact of pain and improve your quality of life.</p></div>
+      <div class="acc-body"><div class="acc-inner"><p>There is no single treatment that can cure every type of chronic pain. Psychotherapy may help you develop skills and strategies to manage the impact of pain and improve your quality of life.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="endcta"><div class="container">
-  <div class="inner">
-    <div class="endcta-copy"><h2>Take the Next Step With Us</h2><p>From the social isolation and the stigma to the creeping self-doubt and grief over what life could have been &mdash; it&rsquo;s been incredibly tough, yet you&rsquo;re still here. While your resilience is remarkable, we wish you didn&rsquo;t have to go through all the pain by yourself.</p></div>
-    <a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Connect With the Team <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+<section class="endcta">
+  <div class="container endcta-split">
+    <div class="endcta-copy">
+      <h2>Take the Next Step With Us</h2>
+      <p>You&rsquo;ve done well. From the social isolation and the stigma to the creeping self-doubt and grief over what life could have been&hellip; It&rsquo;s been incredibly tough yet you&rsquo;re still here.</p>
+      <p>We&rsquo;re very proud of you for holding on all this time. But, while your resilience is amazing, we wish that you didn&rsquo;t have to go through all the pain by yourself.</p>
+      <p>It would bring us great joy if we could become one of your support as you take your life back step by step, one spoon at a time, from chronic pain.</p>
+      <div class="endcta-actions"><a href="https://app.acuityscheduling.com/schedule/29fc328e/appointment/74844149/calendar/11600062?appointmentTypeIds[]=74844149" class="btn btn-amber" target="_blank" rel="noopener">Connect with the Team </a></div>
+    </div>
+    <div class="endcta-img"><img src="assets/images/resources.webp" alt="" loading="lazy"></div>
   </div>
-</div></section>
+</section>
 
 </main>
-<footer role="contentinfo"><div class="container">
-  <div class="foot-top">
-    <div class="foot-brand">
-      <img src="assets/images/pca-logo-white.png" alt="Pain Clinic Australia" width="180" height="44" loading="lazy">
-      <p class="tag">Wondering if you have symptoms? Take our quiz to find out!</p>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mcta" id="mcta" aria-hidden="false">
+  <a href="tel:1300070910" class="mcta-call" aria-label="Call 1300 070 910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+  <a href="pca-quiz.html" class="mcta-quiz">Take the 2-minute quiz
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="assets/images/pca-logo-footer.svg" alt="Pain Clinic Australia" width="376" height="69" loading="lazy">
+        <p class="tag">Australian-registered clinicians, telehealth nationwide.</p>
         <ul class="foot-contact">
           <li><a href="tel:+611300070910"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>1300 070 910</a></li>
           <li><a href="mailto:info@painclinicaustralia.com.au"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>info@painclinicaustralia.com.au</a></li>
         </ul>
       </div>
-    <div class="foot-news">
-      <a class="nl nl-link" href="pca-quiz.html" aria-label="Take the pain assessment quiz">
-        <span class="nl-text">Take the Quiz</span>
-        <span class="nlb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <small>*We never share your information with third parties.</small>
+      <div class="foot-news">
+        <a class="foot-quiz" href="pca-quiz.html">
+          <span class="foot-quiz-img"><img src="assets/images/consultation.webp" alt="" loading="lazy"></span>
+          <span class="foot-quiz-body">
+            <span class="foot-quiz-title">Not sure where to start?</span>
+            <span class="foot-quiz-note">Nine short questions. Free, no obligation.</span>
+            <span class="foot-quiz-cta">Take the Quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </span>
+        </a>
+        <small>*We never share your information with third parties.</small>
+      </div>
+    </div>
+    <nav class="foot-cols" aria-label="Footer navigation">
+      <div class="foot-col"><h4>Explore</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pca-resources.html">Blog</a></li><li><a href="index.html#faq">FAQs</a></li><li><a href="pca-contact.html">Contact</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Pain Treatments</h4><ul>
+        <li><a href="index.html#about">Pain Types</a></li><li><a href="index.html#bodyscopes">Treatment Options</a></li>
+        <li><a href="#">Cannabis Guideline</a></li><li><a href="index.html#insurance">Insurance</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Follow Us</h4><ul>
+        <li><a href="https://www.facebook.com/painclinicaustralia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
+        <li><a href="https://www.instagram.com/painclinic.australia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>Instagram</a></li>
+        <li><a href="https://api.whatsapp.com/send?phone=61447494328" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/></svg>WhatsApp</a></li>
+      </ul></div>
+      <div class="foot-col"><h4>Services</h4><ul>
+        <li><a href="pca-consultation.html">Consultation</a></li>
+        <li><a href="pca-psychotherapy.html">Psychotherapy</a></li>
+        <li><a href="pca-physiotherapy.html">Physiotherapy</a></li>
+        <li><a href="pca-dietary-guidance.html">Dietary Guidance</a></li>
+        <li><a href="pca-intimacy.html">Intimacy</a></li>
+      </ul></div>
+    </nav>
+    <div class="foot-bottom">
+      <span>&copy; Pain Clinic Australia 2026. All Rights Reserved.</span>
+      <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
     </div>
   </div>
-  <nav class="foot-cols" aria-label="Footer navigation">
-    <div class="foot-col"><h4>Explore</h4><ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="pca-resources.html">Blog</a></li><li><a href="index.html#faq">FAQs</a></li>
-      <li><a href="mailto:info@painclinicaustralia.com.au">Contact</a></li>
-    </ul></div>
-    <div class="foot-col"><h4>Pain Treatments</h4><ul>
-      <li><a href="index.html#about">Pain Types</a></li>
-      <li><a href="index.html#process">Treatment Options</a></li>
-      <li><a href="#">Cannabis Guideline</a></li>
-      <li><a href="index.html#insurance">Insurance</a></li>
-    </ul></div>
-    <div class="foot-col"><h4>Follow Us</h4><ul>
-      <li><a href="https://www.facebook.com/painclinicaustralia" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a></li>
-      <li><a href="https://www.instagram.com/painclinic.australia/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>Instagram</a></li>
-      <li><a href="https://api.whatsapp.com/send?phone=61447494328" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/></svg>WhatsApp</a></li>
-    </ul></div>
-  </nav>
-  <div class="foot-bottom">
-    <span>&copy; Pain Clinic Australia 2026. All Rights Reserved.</span>
-    <div class="foot-legal"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
-  </div>
-</div></footer>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script>
 const hdr=document.getElementById('header');
@@ -638,7 +769,10 @@ navMQ.addEventListener('change',function(){
   setNav(false,true);
 });
 function setDrop(open){navDrop.setAttribute('data-open',open?'true':'false');
-  navDropBtn.setAttribute('aria-expanded',open?'true':'false');}
+  navDropBtn.setAttribute('aria-expanded',open?'true':'false');
+  /* the panel is height-animated, so growing the submenu inside it has to
+     release the fixed height or the extra links are clipped */
+  if(navMenu&&navMQ.matches&&hdr.getAttribute('data-nav')==='open')navMenu.style.height='auto';}
 setNav(false,true); setDrop(false);
 burger.addEventListener('click',()=>setNav(hdr.getAttribute('data-nav')!=='open'));
 navDropBtn.addEventListener('click',e=>{e.stopPropagation();setDrop(navDrop.getAttribute('data-open')!=='true');});
@@ -650,13 +784,67 @@ navMenu.querySelectorAll('a').forEach(a=>{const h=a.getAttribute('href')||'';
   if(h.split('#')[0]===_cp&&!h.includes('#'))a.classList.add('active');});
 document.querySelectorAll('.acc-head').forEach(btn=>btn.addEventListener('click',()=>{
   const item=btn.parentElement,body=item.querySelector('.acc-body'),isOpen=item.classList.contains('open');
-  document.querySelectorAll('.acc-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.acc-body').style.maxHeight=null;});
-  if(!isOpen){item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}
+  document.querySelectorAll('.acc-item.open').forEach(o=>{o.classList.remove('open');});
+  if(!isOpen){item.classList.add('open');}
 }));
-document.querySelectorAll('.acc-item.open .acc-body').forEach(b=>b.style.maxHeight=b.scrollHeight+'px');
-document.querySelector('.foot-news .nlb').addEventListener('click',()=>window.open('https://form.typeform.com/to/wy5ImTV5?typeform-embed-id=3705670033859164&typeform-embed=embed-widget&typeform-source=painclinicaustralia.com.au&typeform-medium=snippet&typeform-medium-version=next&embed-opacity=100&typeform-embed-handles-redirect=1&typeform-embed-no-heading=true','_blank'));
+
 
 </script>
   <script src="assets/js/readmore.js?v=2" defer></script>
+<script>
+// intake preview -> hands off to the full quiz with the picked areas
+(function(){
+  var card=document.getElementById('homeQuiz'); if(!card) return;
+  var next=document.getElementById('hqNext'), picked=[];
+  card.querySelectorAll('.hq-opt').forEach(function(o){
+    o.addEventListener('click',function(){
+      var v=o.dataset.val, on=o.getAttribute('aria-pressed')==='true';
+      o.setAttribute('aria-pressed',on?'false':'true');
+      if(on){picked=picked.filter(function(x){return x!==v});}else{picked.push(v);}
+      next.setAttribute('aria-disabled',picked.length?'false':'true');
+      next.href='pca-quiz.html'+(picked.length?'?area='+encodeURIComponent(picked.join('|')):'');
+    });
+  });
+})();
+</script>
+
+<script>
+/* the sticky CTA hides once the reader reaches something that already offers
+   the quiz, so the band never covers the card it duplicates */
+(function(){
+  var band=document.getElementById('mcta'); if(!band) return;
+  var marks=document.querySelectorAll('#homeQuiz, .endcta, .svc-intake, footer');
+  if(!marks.length || !('IntersectionObserver' in window)) return;
+  var showing=0;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ showing += e.isIntersecting ? 1 : -1; });
+    if(showing<0) showing=0;
+    band.setAttribute('data-hide', showing>0 ? 'true' : 'false');
+  },{rootMargin:'0px 0px -20% 0px'});
+  marks.forEach(function(m){ io.observe(m); });
+})();
+</script>
+<script type="module" src="assets/react/islands.js"></script>
+<script>
+/* process steps light up as they pass the middle of the viewport */
+(function(){
+  var rows=[].slice.call(document.querySelectorAll('.proc-row'));
+  if(!rows.length) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    rows.forEach(function(r){r.classList.add('is-on');});
+    return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('is-on'); });
+  },{rootMargin:'0px 0px -15% 0px',threshold:.25});
+  rows.forEach(function(r){io.observe(r);});
+
+  var active=new IntersectionObserver(function(es){
+    es.forEach(function(e){ e.target.classList.toggle('is-active', e.isIntersecting); });
+  },{rootMargin:'-45% 0px -45% 0px',threshold:0});
+  rows.forEach(function(r){active.observe(r);});
+
+})();
+</script>
 </body>
 </html>
