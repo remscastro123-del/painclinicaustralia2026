@@ -169,37 +169,75 @@ h3,h4{line-height:var(--lh-snug)}
   <link rel="stylesheet" href="assets/css/design-system.css?v=1788331338">
 <style>
 /* ===========================================================================
-   CONTACT — three channel cards: hours and address, support, press
-   Reuses the card anatomy used across the site; nothing new is invented here.
+   CONTACT
+   This template has no panel system - every section sets its own vertical
+   rhythm, the way .featured and .post-grid do on the resources page. The
+   sizes below are stated outright rather than borrowed from the homepage's
+   .lead / .sec-head / .endcta rules, which are defined in ITS inline block
+   and do not exist here.
    ======================================================================== */
+.contact{padding:0 0 clamp(3rem,5vw,4.5rem)}
+
+/* section heading, matching the page-hero's centred column */
+.ct-head{text-align:center;max-width:60ch;margin:0 auto clamp(2rem,4vw,3rem)}
+.ct-head h2{font-size:var(--fs-2xl);color:var(--forest);margin:.35rem 0 .7rem}
+.ct-head p{font-size:var(--fs-md);line-height:var(--lh-body);color:var(--muted);
+  margin:0}
+.ct-intro{font-size:var(--fs-md);line-height:var(--lh-body);color:var(--muted);
+  max-width:58ch;margin:0 auto}
+
+/* three channel cards */
 .ct-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:var(--gap-grid);margin-top:var(--flow-block)}
+  gap:clamp(1rem,2vw,1.5rem);align-items:start}
 .ct-card{background:var(--cream);border:1.5px solid var(--line);
-  border-radius:var(--card-r);padding:var(--card-pad);
-  display:flex;flex-direction:column;gap:.55rem}
-.ct-ico{width:46px;height:46px;flex:none;border-radius:var(--r-md);
-  background:var(--forest);display:grid;place-items:center;margin-bottom:.5rem}
+  border-radius:var(--r-2xl);padding:clamp(1.5rem,2.6vw,2rem)}
+.ct-ico{width:46px;height:46px;border-radius:var(--r-md);background:var(--forest);
+  display:grid;place-items:center;margin-bottom:1rem}
 .ct-ico svg{width:22px;height:22px;color:var(--orange)}
-.ct-card h3{color:var(--forest);font-size:var(--fs-lg)}
-.ct-card p{color:var(--muted)}
-.ct-list{list-style:none;display:grid;gap:.45rem;margin-top:.35rem}
-.ct-list a{display:inline-flex;align-items:center;gap:.55rem;color:var(--forest);
-  font-weight:600;overflow-wrap:anywhere}
+/* h3 sits at --fs-md, the size every other h3 on the site resolves to */
+.ct-card h3{font-size:var(--fs-md);line-height:var(--lh-snug);color:var(--forest);
+  margin:0 0 .7rem}
+.ct-card > p{font-size:var(--fs-sm);line-height:var(--lh-body);color:var(--muted);
+  margin:0 0 .9rem}
+
+.ct-hours{display:grid;gap:.5rem;margin:0}
+.ct-hours div{display:flex;justify-content:space-between;gap:1rem;
+  font-size:var(--fs-sm);color:var(--muted);
+  border-bottom:1px dashed var(--line);padding-bottom:.5rem}
+.ct-hours div:last-child{border-bottom:0;padding-bottom:0}
+.ct-hours b{color:var(--forest);font-weight:600;white-space:nowrap}
+.ct-addr{font-style:normal;font-size:var(--fs-sm);line-height:var(--lh-body);
+  color:var(--muted);margin-top:1rem}
+
+.ct-list{list-style:none;display:grid;gap:.15rem;margin:0;padding:0}
+.ct-list a{display:inline-flex;align-items:center;gap:.6rem;
+  font-size:var(--fs-sm);font-weight:600;color:var(--forest);
+  overflow-wrap:anywhere}
 .ct-list a:hover{color:var(--cta)}
 .ct-list svg{width:17px;height:17px;flex:none;color:var(--orange)}
-.ct-hours{display:grid;gap:.3rem;margin-top:.35rem}
-.ct-hours div{display:flex;justify-content:space-between;gap:1rem;
-  color:var(--muted);border-bottom:1px dashed var(--line);padding-bottom:.3rem}
-.ct-hours b{color:var(--forest);font-weight:600;white-space:nowrap}
-.ct-addr{font-style:normal;color:var(--muted);margin-top:.5rem}
-/* .endcta is styled in the homepage's inline block, not the shared sheet, so
-   the closing panel is restated here rather than arriving unstyled */
-main > section.endcta{background:var(--sage);text-align:center}
-.endcta .container > *{margin-inline:auto}
-.endcta h2{color:var(--forest);margin:.4rem 0 .6rem}
-.endcta .hero-cta-wrap{justify-content:center;margin-top:var(--flow-group)}
+
+/* closing CTA: the sage .inner box this template uses, not a sage section */
+.endcta{padding:0 0 clamp(50px,7vw,70px)}
+.endcta .inner{background:var(--sage);border-radius:var(--r-2xl);
+  padding:clamp(2rem,5vw,3.8rem);display:flex;align-items:center;
+  justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.endcta .inner > div{max-width:44ch}
+.endcta h2{font-size:var(--fs-2xl);color:var(--forest);margin:.3rem 0 .5rem;
+  max-width:none}   /* the template pins .endcta h2 to 14ch; the copy here is longer */
+.endcta p{font-size:var(--fs-base);line-height:var(--lh-body);color:var(--forest);
+  opacity:.85;margin:0}
+.ct-cta-btns{display:flex;gap:.7rem;flex-wrap:wrap;flex:none}
+
 @media(max-width:1040px){ .ct-grid{grid-template-columns:1fr 1fr} }
-@media(max-width:768px){ .ct-grid{grid-template-columns:1fr} }
+@media(max-width:768px){
+  .ct-grid{grid-template-columns:1fr}
+  .ct-head{text-align:left;margin-inline:0}
+  .ct-intro{text-align:left}
+  .endcta .inner{display:block}
+  .endcta .inner > div{max-width:none}
+  .ct-cta-btns{margin-top:1.4rem}
+  .ct-cta-btns .btn{flex:1 1 100%;justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -286,21 +324,21 @@ main > section.endcta{background:var(--sage);text-align:center}
       <span class="bc-dot" aria-hidden="true"></span>
       <span class="bc-cur" aria-current="page">Contact</span>
     </nav>
-    <p class="lead">Want to know more about our services and what awaits you? Speak to our friendly team, who will point you in the right direction.</p>
+    <p class="ct-intro">Want to know more about our services and what awaits you? Speak to our friendly team, who will point you in the right direction.</p>
   </div>
 </section>
 
 <!-- CHANNELS -->
 <section class="contact" aria-labelledby="ct-h2">
   <div class="container">
-    <div class="sec-head reveal">
+    <div class="ct-head">
       <span class="overline">Get in touch</span>
       <h2 id="ct-h2">However you would rather reach us</h2>
-      <p class="sec-sub">Our coordinators answer calls and emails during head office hours. If you would rather we came to you, take the two-minute quiz and we will be in touch with a plan.</p>
+      <p>Our coordinators answer calls and emails during head office hours.</p>
     </div>
 
     <div class="ct-grid">
-      <div class="ct-card reveal">
+      <div class="ct-card">
         <span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></span>
         <h3>Head Office</h3>
         <div class="ct-hours">
@@ -311,7 +349,7 @@ main > section.endcta{background:var(--sage);text-align:center}
         <address class="ct-addr">Ground Floor, 39 Albany St<br>Crows Nest, New South Wales 2065</address>
       </div>
 
-      <div class="ct-card reveal">
+      <div class="ct-card">
         <span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
         <h3>Clinic Support</h3>
         <p>We treat patients across Australia through our network of Australian doctors.</p>
@@ -322,7 +360,7 @@ main > section.endcta{background:var(--sage);text-align:center}
         </ul>
       </div>
 
-      <div class="ct-card reveal">
+      <div class="ct-card">
         <span class="ct-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9h4"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg></span>
         <h3>Press &amp; News</h3>
         <p>For media enquiries, please reach out using the details below.</p>
@@ -336,17 +374,19 @@ main > section.endcta{background:var(--sage);text-align:center}
 </section>
 
 <!-- END CTA -->
-<section class="endcta" aria-labelledby="ct-cta-h2">
-  <div class="container">
-    <span class="overline">Not sure where to start?</span>
-    <h2 id="ct-cta-h2">Two minutes now, a plan by email</h2>
-    <p class="sec-sub">Answer a few questions about your pain and a Pain Management Coordinator will put together a plan built around your answers.</p>
-    <div class="hero-cta-wrap">
-      <a href="pca-quiz.html" class="btn btn-primary">Take the quiz <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<section class="endcta"><div class="container">
+  <div class="inner">
+    <div>
+      <span class="overline">Not sure where to start?</span>
+      <h2>Two minutes now, a plan by email</h2>
+      <p>Answer a few questions and a Pain Management Coordinator will build a plan around your answers.</p>
+    </div>
+    <div class="ct-cta-btns">
+      <a href="pca-quiz.html" class="btn btn-amber">Take the quiz <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       <a href="tel:+611300070910" class="btn btn-outline">Call 1300 070 910</a>
     </div>
   </div>
-</section>
+</div></section>
 
 </main>
 
