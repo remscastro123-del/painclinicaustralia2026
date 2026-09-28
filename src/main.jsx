@@ -60,7 +60,7 @@ const ISLANDS = {
     return (
       <LogoLoop
         logos={logos}
-        speed={70}
+        speed={28}
         direction="left"
         logoHeight={26}
         gap={44}

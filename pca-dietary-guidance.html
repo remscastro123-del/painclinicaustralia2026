@@ -101,7 +101,7 @@ a{text-decoration:none;color:inherit}
 .benefits h2{font-size:var(--fs-2xl);color:var(--forest);margin:.6rem 0 .8rem}
 .ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .ben-card{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.6rem;transition:transform var(--dur-3) var(--ease-move), box-shadow var(--dur-3) var(--ease-move)}
-.ben-card:hover{transform:translateY(-5px);box-shadow:var(--sh-md)}
+.ben-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
 .ben-ico{width:52px;height:52px;border-radius:var(--r-md);background:var(--forest);display:grid;place-items:center;margin-bottom:1rem}
 .ben-ico svg{width:24px;height:24px;color:var(--orange)}
 .ben-card h3{color:var(--forest);font-size:var(--fs-lg);margin-bottom:.5rem}
@@ -755,7 +755,7 @@ function navHeight(open){
   if(open){
     navMenu.style.height=navMenu.scrollHeight+'px';
     setTimeout(function(){
-      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },440);
+      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },500);
   }else{
     navMenu.style.height=navMenu.scrollHeight+'px';
     void navMenu.offsetHeight;                 /* commit before collapsing */
@@ -795,6 +795,7 @@ document.querySelectorAll('.acc-head').forEach(btn=>btn.addEventListener('click'
 
 </script>
   <script src="assets/js/readmore.js?v=2" defer></script>
+  <script src="assets/js/motion.js?v=1" defer></script>
 <script>
 // intake preview -> hands off to the full quiz with the picked areas
 (function(){

@@ -321,8 +321,6 @@ main > section.ebook{padding-block:0}
 .ebook-success{background:rgba(148,199,126,.15);border:1.5px solid var(--leaf);
   border-radius:var(--card-r);padding:1.2rem 1.4rem;color:var(--forest);
   font-size:var(--fs-sm);line-height:1.5}
-.reveal{opacity:0;transition:opacity var(--dur-1) var(--ease-move)}
-.reveal.in{opacity:1}
 /* ===========================================================================
    RESPONSIVE — the system collapses, it does not change identity
    ======================================================================== */
@@ -1315,7 +1313,7 @@ function navHeight(open){
   if(open){
     navMenu.style.height=navMenu.scrollHeight+'px';
     setTimeout(function(){
-      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },440);
+      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },500);
   }else{
     navMenu.style.height=navMenu.scrollHeight+'px';
     void navMenu.offsetHeight;                 /* commit before collapsing */
@@ -1774,8 +1772,9 @@ if(ebookModalForm)ebookModalForm.addEventListener("submit",e=>{
 // footer quiz redirect});
 
 </script>
-<script type="module" src="assets/react/islands.js?v=1788328509"></script>
+<script type="module" src="assets/react/islands.js?v=1788400000"></script>
   <script src="assets/js/readmore.js?v=2" defer></script>
+  <script src="assets/js/motion.js?v=1" defer></script>
 
 <script>
 /* the sticky CTA hides once the reader reaches something that already offers

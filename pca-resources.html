@@ -82,13 +82,14 @@ a{text-decoration:none;color:inherit}
   font-size:var(--fs-sm);margin-top:.7rem;transition:gap var(--dur-4) var(--ease-move)}
 .read-more:hover{gap:.7rem}
 .read-more svg{width:15px;height:15px}
-.feat-body .read-more:hover{gap:.7rem}
+.feat-btn{align-self:flex-start;margin-top:.4rem}
+.feat-card:hover .feat-btn .btn-arrow{transform:translateX(2px)}
 .feat-body .read-more svg{width:15px;height:15px}
 /* ─── POST GRID ─────────────────────────────────── */
 .post-grid{padding:0 0 clamp(3rem,5vw,4.5rem)}
 .pg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .pg-card{background:var(--white);border-radius:var(--r-xl);overflow:hidden;transition:transform var(--dur-3) var(--ease-move), box-shadow var(--dur-3) var(--ease-move)}
-.pg-card:hover{transform:translateY(-6px);box-shadow:var(--sh-md)}
+.pg-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
 .pg-thumb{aspect-ratio:4/3;overflow:hidden}
 .pg-thumb img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-3) var(--ease-move)}
 .pg-card:hover .pg-thumb img{transform:scale(1.05)}
@@ -241,7 +242,7 @@ h3,h4{line-height:var(--lh-snug)}
     </div>
 </div></header>
 
-<main id="main">
+<main id="main" class="tpl-service">
 
 <!-- PAGE HERO -->
 <section class="page-hero" aria-labelledby="page-title">
@@ -268,7 +269,7 @@ h3,h4{line-height:var(--lh-snug)}
         </div>
         <h2 id="feat-heading">Chronic Pain: What It Is, Why It Happens &amp; How to Find Relief</h2>
         <p>Over 3.2 million Australians live with chronic pain every day. Understanding what it is, why it persists, and what genuinely helps is the first step toward getting your life back.</p>
-        <span class="read-more" aria-hidden="true">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="btn btn-amber feat-btn" aria-hidden="true">Read more <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </div>
     </a>
   </div>
@@ -422,7 +423,7 @@ function navHeight(open){
   if(open){
     navMenu.style.height=navMenu.scrollHeight+'px';
     setTimeout(function(){
-      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },440);
+      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },500);
   }else{
     navMenu.style.height=navMenu.scrollHeight+'px';
     void navMenu.offsetHeight;                 /* commit before collapsing */
@@ -456,6 +457,7 @@ navMenu.querySelectorAll('a').forEach(a=>{const h=a.getAttribute('href')||'';
 
 </script>
   <script src="assets/js/readmore.js?v=2" defer></script>
+  <script src="assets/js/motion.js?v=1" defer></script>
 
 <script>
 /* the sticky CTA hides once the reader reaches something that already offers

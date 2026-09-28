@@ -49,13 +49,19 @@ a{text-decoration:none;color:inherit}
 .btn .arr{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.22);display:grid;place-items:center;flex-shrink:0}
 .btn .arr svg{width:12px;height:12px}
 /* ─── POST HEADER ───────────────────────────────── */
-.post-header{text-align:center;padding:clamp(2.5rem,5vw,4.5rem) 0 clamp(2rem,4vw,3rem);max-width:860px;margin:0 auto}
-.post-header h1{font-size:var(--fs-4xl);color:var(--forest);margin-bottom:1.1rem}
-.post-meta{display:inline-flex;align-items:center;gap:.8rem;font-size:var(--fs-base);color:var(--muted);flex-wrap:wrap;justify-content:center}
-.post-meta .sep{color:var(--line);font-weight:300}
+/* same frame as the other pages' .page-hero: no fill, title then trail */
+.page-hero{text-align:center;padding:clamp(3rem,6vw,5rem) 0 clamp(2rem,4vw,3rem)}
+.page-hero h1{font-size:var(--fs-4xl);color:var(--forest);margin:0 auto .9rem;max-width:22ch}
+.page-hero .breadcrumb{justify-content:center}
+.post-meta{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;
+  font-size:var(--fs-sm);color:var(--muted);margin-bottom:1.1rem}
 .post-meta .cat{color:var(--cta);font-weight:700}
+@media(max-width:768px){
+  #main .post-hero h1{max-width:none}
+  #main .post-meta{justify-content:flex-start}
+}
 /* ─── HERO IMAGE ────────────────────────────────── */
-.post-hero-img{padding:0 0 clamp(2.5rem,4vw,4rem)}
+.post-hero-img{margin-top:var(--flow-block);width:100%}
 .post-hero-img img{width:100%;height:clamp(260px,42vw,520px);object-fit:cover;object-position:center 30%;border-radius:var(--r-2xl)}
 /* ─── ARTICLE ───────────────────────────────────── */
 .article{padding:0 0 clamp(2rem,4vw,3rem)}
@@ -86,7 +92,7 @@ a{text-decoration:none;color:inherit}
 .share-row{display:flex;align-items:center;gap:.6rem;font-size:var(--fs-base)}
 .share-row .sl{color:var(--muted);font-weight:600}
 .share-btn{width:40px;height:40px;border-radius:50%;background:var(--cream2);border:1px solid var(--line);display:grid;place-items:center;transition:background var(--dur-2) var(--ease-move), transform var(--dur-2) var(--ease-move);cursor:pointer}
-.share-btn:hover{background:var(--sage);transform:scale(1.1)}
+.share-btn:hover{background:var(--sage);transform:scale(1.04)}
 .share-btn svg{width:17px;height:17px;color:var(--forest)}
 /* next post */
 .next-post{max-width:780px;margin:2rem auto 0;padding:0 0 clamp(2.5rem,4vw,4rem)}
@@ -222,26 +228,29 @@ h3,h4{line-height:var(--lh-snug)}
     </div>
 </div></header>
 
-<main id="main">
+<main id="main" class="tpl-service">
 
 <!-- POST HEADER -->
-<div class="container">
-  <header class="post-header">
-    <h1>Chronic Pain: What It Is, Why It Happens &amp; How to Find Relief</h1>
+<section class="page-hero post-hero" aria-labelledby="page-title">
+  <div class="container">
+    <h1 id="page-title">Chronic Pain: What It Is, Why It Happens &amp; How to Find Relief</h1>
     <div class="post-meta" aria-label="Post details">
       <span>Pain Clinic Australia</span>
-      <span class="sep" aria-hidden="true">/</span>
+      <span class="bc-dot" aria-hidden="true"></span>
       <time datetime="2026-06-02">June 2, 2026</time>
-      <span class="sep" aria-hidden="true">/</span>
-      <a href="pca-resources.html" class="cat">Chronic Pain</a>
     </div>
-  </header>
-</div>
-
-<!-- HERO IMAGE -->
-<section class="post-hero-img"><div class="container">
-  <img src="assets/images/physiotherapy.webp" alt="Physiotherapy treatment for chronic pain" loading="eager">
-</div></section>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="bc-dot" aria-hidden="true"></span>
+      <a href="pca-resources.html">Resources</a>
+      <span class="bc-dot" aria-hidden="true"></span>
+      <span class="bc-cur" aria-current="page">Chronic Pain</span>
+    </nav>
+    <div class="post-hero-img">
+      <img src="assets/images/physiotherapy.webp" alt="Physiotherapy treatment for chronic pain" loading="eager">
+    </div>
+  </div>
+</section>
 
 <!-- ARTICLE BODY -->
 <article class="article" aria-labelledby="article-start">
@@ -494,7 +503,7 @@ function navHeight(open){
   if(open){
     navMenu.style.height=navMenu.scrollHeight+'px';
     setTimeout(function(){
-      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },440);
+      if(hdr.getAttribute('data-nav')==='open') navMenu.style.height='auto'; },500);
   }else{
     navMenu.style.height=navMenu.scrollHeight+'px';
     void navMenu.offsetHeight;                 /* commit before collapsing */
@@ -528,6 +537,7 @@ navMenu.querySelectorAll('a').forEach(a=>{const h=a.getAttribute('href')||'';
 
 </script>
   <script src="assets/js/readmore.js?v=2" defer></script>
+  <script src="assets/js/motion.js?v=1" defer></script>
 
 <script>
 /* contents list is built from the article's own headings, so it never goes
